@@ -3,17 +3,17 @@
     "version": "1.0.0",
     "description": "Swiper slideshow",
     "scripts": {
-		"concat:css": "globcat \"Resources/Public/Css/Src/**/*.css\" --output \"Resources/Public/Css/Dist/ku-swiperjs.css\"",
-		"minify:css": "postcss \"Resources/Public/Css/Dist/ku-swiperjs.css\" --config Build/postcss.config.js \"Resources/Public/Css/Dist/*.css\" \"!Resources/Public/Css/Dist/*.min.css\" --output \"Resources/Public/Css/Dist/ku-swiperjs.min.css\"",
-		"concat:js": "globcat \"Resources/Public/JavaScript/Src/**/*.js\" --output \"Resources/Public/JavaScript/Dist/ku-swiperjs.js\"",
-		"lint:js": "eslint --cache --cache-location .cache/.eslintcache",
-		"minify:js": "terser \"Resources/Public/JavaScript/Dist/ku-swiperjs.js\" --output \"Resources/Public/JavaScript/Dist/ku-swiperjs.min.js\" --compress passes=2 --mangle-props --source-map",
-		"build:js": "npm-run-all lint:js && npm-run-all concat:js && npm-run-all minify:js",
-		"build:css": "npm-run-all concat:css && npm-run-all minify:css",
-		"watch:css": "onchange \"Resources/Public/Css/Src/*.css\" -- npm-run-all build:css",
-		"watch:js": "onchange \"Resources/Public/JavaScript/Src/*.js\" -- npm-run-all build:js",
-		"watch": "npm-run-all --parallel watch:*"
-	},
+        "concat:css": "globcat \"Resources/Public/Css/Src/**/*.css\" --output \"Resources/Public/Css/Dist/swiper-bundle.css\"",
+        "minify:css": "postcss \"Resources/Public/Css/Dist/swiper-bundle.css\" --config Build/postcss.config.js \"Resources/Public/Css/Dist/*.css\" \"!Resources/Public/Css/Dist/*.min.css\" --output \"Resources/Public/Css/Dist/swiper-bundle.min.css\"",
+        "concat:js": "globcat \"Resources/Public/JavaScript/Src/**/*.js\" --output \"Resources/Public/JavaScript/Dist/swiper-bundle.js\"",
+        "lint:js": "eslint --cache --cache-location .cache/.eslintcache",
+        "minify:js": "terser \"Resources/Public/JavaScript/Dist/swiper-bundle.js\" --output \"Resources/Public/JavaScript/Dist/swiper-bundle.min.js\" --compress passes=2 --mangle-props --source-map",
+        "build:js": "npm-run-all lint:js && npm-run-all concat:js && npm-run-all minify:js",
+        "build:css": "npm-run-all concat:css && npm-run-all minify:css",
+        "watch:css": "onchange \"Resources/Public/Css/Src/*.css\" -- npm-run-all build:css",
+        "watch:js": "onchange \"Resources/Public/JavaScript/Src/*.js\" -- npm-run-all build:js",
+        "watch": "npm-run-all --parallel watch:*"
+    },
     "keywords": [
         "TYPO3",
         "Bootstrap",
@@ -23,15 +23,15 @@
     "author": "Nanna Ellegaard",
     "license": "ISC",
     "devDependencies": {
-		"autoprefixer": "^10.4.13",
-		"postcss": "^8.4.18",
-		"postcss-cli": "^10.0.0",
-		"cssnano": "^5.1.14",
-		"eslint": "^8.28.0",
-		"globcat": "^2.0.1",
-		"npm-run-all": "^4.1.5",
-		"onchange": "^7.1.0",
-		"terser": "^5.15.1",
-		"uglify-js": "^3.17.4"
-	}
+        "autoprefixer": "^10.4.13",
+        "cssnano": "^5.1.14",
+        "eslint": "^8.28.0",
+        "globcat": "^2.0.1",
+        "npm-run-all": "^4.1.5",
+        "onchange": "^7.1.0",
+        "postcss": "^8.4.18",
+        "postcss-cli": "^10.0.0",
+        "terser": "^5.15.1",
+        "uglify-js": "^3.17.4"
+    }
 }

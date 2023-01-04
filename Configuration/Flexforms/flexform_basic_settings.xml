@@ -1,62 +1,55 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <T3DataStructure>
-    <meta>
-        <langDisable>1</langDisable>
-    </meta>
-    <sheets>
-        <sDEF>
-            <ROOT>
+	<ROOT>
+		<TCEforms>
+			<sheetTitle>LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:basic_settings</sheetTitle>
+		</TCEforms>
+		<type>array</type>
+        <el>
+            <autoplay>
                 <TCEforms>
-                    <sheetTitle>LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:settings</sheetTitle>
+                    <label>LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:autoplay
+                    </label>
+                    <exclude>1</exclude>
+                    <config type="array">
+                        <type>select</type>
+                        <renderType>selectSingle</renderType>
+                        <items type="array">
+                            <numIndex index="0" type="array">
+                                <numIndex index="0">LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:disabled</numIndex>
+                                <numIndex index="1">false</numIndex>
+                            </numIndex>
+                            <numIndex index="1" type="array">
+                                <numIndex index="0">LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:enabled</numIndex>
+                                <numIndex index="1">true</numIndex>
+                            </numIndex>
+                        </items>
+                        <default>false</default>
+                    </config>
                 </TCEforms>
-                <type>array</type>
-                <el>
-                    <autoplay>
-                        <TCEforms>
-                            <label>LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:autoplay
-                            </label>
-                            <exclude>1</exclude>
-                            <config type="array">
-                                <type>select</type>
-                                <renderType>selectSingle</renderType>
-                                <items type="array">
-                                    <numIndex index="0" type="array">
-                                        <numIndex index="0">LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:disabled</numIndex>
-                                        <numIndex index="1">false</numIndex>
-                                    </numIndex>
-                                    <numIndex index="1" type="array">
-                                        <numIndex index="0">LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:enabled</numIndex>
-                                        <numIndex index="1">true</numIndex>
-                                    </numIndex>
-                                </items>
-                                <default>false</default>
-                            </config>
-                        </TCEforms>
-                    </autoplay>
-                    <loop>
-                        <TCEforms>
-                            <label>LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:loop
-                            </label>
-                            <exclude>1</exclude>
-                            <config type="array">
-                                <type>select</type>
-                                <renderType>selectSingle</renderType>
-                                <items type="array">
-                                    <numIndex index="0" type="array">
-                                        <numIndex index="0">LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:disabled</numIndex>
-                                        <numIndex index="1">false</numIndex>
-                                    </numIndex>
-                                    <numIndex index="1" type="array">
-                                        <numIndex index="0">LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:enabled</numIndex>
-                                        <numIndex index="1">true</numIndex>
-                                    </numIndex>
-                                </items>
-                                <default>true</default>
-                            </config>
-                        </TCEforms>
-                    </loop>
-                </el>
-            </ROOT>
-        </sDEF>
-    </sheets>
+            </autoplay>
+            <loop>
+                <TCEforms>
+                    <label>LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:loop
+                    </label>
+                    <exclude>1</exclude>
+                    <config type="array">
+                        <type>select</type>
+                        <renderType>selectSingle</renderType>
+                        <items type="array">
+                            <numIndex index="0" type="array">
+                                <numIndex index="0">LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:disabled</numIndex>
+                                <numIndex index="1">false</numIndex>
+                            </numIndex>
+                            <numIndex index="1" type="array">
+                                <numIndex index="0">LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:enabled</numIndex>
+                                <numIndex index="1">true</numIndex>
+                            </numIndex>
+                        </items>
+                        <default>true</default>
+                    </config>
+                </TCEforms>
+            </loop>
+        </el>
+    </ROOT>
 </T3DataStructure>

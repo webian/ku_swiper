@@ -9,8 +9,29 @@
         <trans-unit id="swiperjs_title">
             <source>KU slideshow</source>
         </trans-unit>
+        <trans-unit id="swiperjs_desc">
+            <source>Add images and text to create a slideshow</source>
+        </trans-unit>
+        <trans-unit id="swiperjs_item">
+            <source>Add slideshow item</source>
+        </trans-unit>
         <trans-unit id="settings">
             <source>Slideshow settings</source>
+        </trans-unit>
+        <trans-unit id="basic_settings">
+            <source>Basic settings</source>
+        </trans-unit>
+        <trans-unit id="smartphone_title">
+            <source>Mobile</source>
+        </trans-unit>
+        <trans-unit id="tablet_title">
+            <source>Tablet</source>
+        </trans-unit>
+        <trans-unit id="desktop_title">
+            <source>Desktop</source>
+        </trans-unit>
+        <trans-unit id="widescreen_title">
+            <source>Widescreen</source>
         </trans-unit>
         <trans-unit id="enabled">
             <source>Enabled</source>
@@ -23,6 +44,18 @@
         </trans-unit>
         <trans-unit id="loop">
             <source>Loop</source>
+        </trans-unit>
+        <trans-unit id="arrows">
+            <source>Display arrows (navigation)</source>
+        </trans-unit>
+        <trans-unit id="dots">
+            <source>Display dots (pagination)</source>
+        </trans-unit>
+        <trans-unit id="slidesToShow">
+            <source>Number of slides to show at a time</source>
+        </trans-unit>
+        <trans-unit id="slidesToScroll">
+            <source>Number of slides to scroll at a time</source>
         </trans-unit>
         </body>
     </file>

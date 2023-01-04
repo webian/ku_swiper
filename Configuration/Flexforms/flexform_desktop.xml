@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3DataStructure>
+	<ROOT>
+		<TCEforms>
+			<sheetTitle>LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:desktop_title</sheetTitle>
+		</TCEforms>
+		<type>array</type>
+        <el>
+            <slidesToShow-desktop type="array">
+				<TCEforms type="array">
+					<label>LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:slidesToShow
+					</label>
+					<exclude>1</exclude><config type="array">
+						<type>input</type>
+						<size>1</size>
+						<default>1</default>
+					</config>
+				</TCEforms>
+			</slidesToShow-desktop>
+			<slidesToScroll-desktop type="array">
+				<TCEforms type="array">
+					<label>LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:slidesToScroll
+					</label>
+					<exclude>1</exclude><config type="array">
+						<type>input</type>
+						<size>1</size>
+						<default>1</default>
+					</config>
+				</TCEforms>
+			</slidesToScroll-desktop>
+			<arrows-desktop type="array">
+				<TCEforms type="array">
+					<label>LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:arrows</label>
+					<exclude>1</exclude><config type="array">
+						<type>select</type>
+						<renderType>selectSingle</renderType>
+						<items type="array">
+							<numIndex index="0" type="array">
+								<numIndex index="0">LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:disabled</numIndex>
+								<numIndex index="1">false</numIndex>
+							</numIndex>
+							<numIndex index="1" type="array">
+								<numIndex index="0">LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:enabled</numIndex>
+								<numIndex index="1">true</numIndex>
+							</numIndex>
+						</items>
+						<default>false</default>
+					</config>
+				</TCEforms>
+			</arrows-desktop>
+			<dots-desktop type="array">
+				<TCEforms type="array">
+					<label>LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:dots</label>
+					<exclude>1</exclude><config type="array">
+						<type>select</type>
+						<renderType>selectSingle</renderType>
+						<items type="array">
+							<numIndex index="0" type="array">
+								<numIndex index="0">LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:disabled</numIndex>
+								<numIndex index="1">false</numIndex>
+							</numIndex>
+							<numIndex index="1" type="array">
+								<numIndex index="0">LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:enabled</numIndex>
+								<numIndex index="1">true</numIndex>
+							</numIndex>
+						</items>
+						<default>false</default>
+					</config>
+				</TCEforms>
+			</dots-desktop>
+        </el>
+    </ROOT>
+</T3DataStructure>

@@ -1,0 +1,16 @@
+####################################
+#### NEW CONTENT ELEMENT WIZARD ####
+####################################
+mod.wizards.newContentElement.wizardItems.interactive {
+    elements {
+        ku_swiperjs {
+            iconIdentifier = ku-swiperjs-icon
+            title = LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:swiperjs_title
+            description = LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:swiperjs_desc
+            tt_content_defValues {
+                CType = ku_swiperjs
+            }
+        }
+    }
+    show := addToList(ku_swiperjs)
+}

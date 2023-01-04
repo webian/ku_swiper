@@ -1,0 +1,23 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:debug>{records}</f:debug>
+<div class="swiper">
+    <div class="swiper-wrapper">
+        <f:for each="{records}" as="record" iteration="iteration">
+            <div class="swiper-slide">
+                <div class="slide-content">
+                    <f:if condition="{files.0}">
+                        <f:then>
+                            <f:render partial="Media/Type" arguments="{file: files.0, data: data, settings: settings, variants: variants}" />
+                        </f:then>
+                    </f:if>
+                    <div class="slide-caption">
+                        <h3 class="slide-title">{record.data.header}</h3>
+                        <div class="slide-bodytext">{record.data.bodytext}</div>
+                    </div>
+                </div>
+            </div>
+        </f:for>
+    </div>
+</div>
+
+</html>

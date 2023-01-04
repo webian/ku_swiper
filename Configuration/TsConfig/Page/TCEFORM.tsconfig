@@ -8,7 +8,39 @@ TCEFORM {
             }
         }
 
+        header {
+           types {
+                ku_swiperjs {
+                    disabled = 1
+                }
+            }
+        }
+
+        header_link {
+           types {
+                ku_swiperjs {
+                    disabled = 1
+                }
+            }
+        }
+
+        subheader {
+           types {
+                ku_swiperjs {
+                    disabled = 1
+                }
+            }
+        }
+
         header_position {
+           types {
+                ku_swiperjs {
+                    disabled = 1
+                }
+            }
+        }
+
+        date {
            types {
                 ku_swiperjs {
                     disabled = 1

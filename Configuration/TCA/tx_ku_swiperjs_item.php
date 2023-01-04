@@ -167,6 +167,7 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 50,
+                'max' => 50,
                 'eval' => 'trim'
             ],
         ],
@@ -176,10 +177,11 @@ return [
             'l10n_cat' => 'text',
             'config' => [
                 'type' => 'text',
-                'cols' => '80',
-                'rows' => '15',
+                'cols' => '60',
+                'rows' => '10',
+                'max' => 50,
                 'softref' => 'typolink_tag,email[subst],url',
-                'enableRichtext' => true
+                'enableRichtext' => false
             ],
         ],
         'media' => [

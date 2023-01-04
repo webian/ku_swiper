@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3DataStructure>
+    <meta>
+        <langDisable>1</langDisable>
+    </meta>
+    <sheets>
+        <basic>EXT:ku_swiperjs/Configuration/Flexforms/flexform_basic_settings.xml</basic>
+		<smartphone>EXT:ku_swiperjs/Configuration/Flexforms/Default/flexform_smartphone.xml</smartphone>
+		<tablet>EXT:ku_swiperjs/Configuration/Flexforms/Default/flexform_tablet.xml</tablet>
+		<desktop>EXT:ku_swiperjs/Configuration/Flexforms/Default/flexform_desktop.xml</desktop>
+		<widescreen>EXT:ku_swiperjs/Configuration/Flexforms/Default/flexform_widescreen.xml</widescreen>
+    </sheets>
+</T3DataStructure>

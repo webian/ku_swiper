@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" original="messages" date="2022-06-15UTC07:12:052">
+        <header>
+            <authorName>Nanna Ellegaard</authorName>
+            <authorEmail>nel@adm.ku.dk</authorEmail>
+        </header>
+        <body>
+        <trans-unit id="swiperjs_title">
+            <source>KU slideshow</source>
+        </trans-unit>
+        <trans-unit id="settings">
+            <source>Slideshow settings</source>
+        </trans-unit>
+        <trans-unit id="enabled">
+            <source>Enabled</source>
+        </trans-unit>
+        <trans-unit id="disabled">
+            <source>Disabled</source>
+        </trans-unit>
+        <trans-unit id="autoplay">
+            <source>Autoplay</source>
+        </trans-unit>
+        <trans-unit id="loop">
+            <source>Loop</source>
+        </trans-unit>
+        </body>
+    </file>
+</xliff>

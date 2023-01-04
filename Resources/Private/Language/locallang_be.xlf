@@ -43,7 +43,7 @@
             <source>Autoplay</source>
         </trans-unit>
         <trans-unit id="loop">
-            <source>Loop</source>
+            <source>Infinite loop</source>
         </trans-unit>
         <trans-unit id="arrows">
             <source>Display arrows (navigation)</source>

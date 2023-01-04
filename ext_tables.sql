@@ -6,8 +6,6 @@
 --
 CREATE TABLE tt_content (
     tx_ku_swiperjs_item int(11) unsigned DEFAULT '0',
-    autoplay tinyint(4) unsigned DEFAULT 0 NOT NULL,
-    loop tinyint(4) unsigned DEFAULT 0 NOT NULL,
 );
 
 --

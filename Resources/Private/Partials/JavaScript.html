@@ -1,7 +1,19 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
   <f:section name="SwiperJsScript">
+
+  <f:variable name="autoplay"><f:format.raw>{data.pi_flexform.autoplay}</f:format.raw></f:variable>
+    <f:if condition="{autoplay} == 'true'">
+      <f:variable name="autoplay">
+        <f:format.raw>
+          {
+            delay: <f:format.raw>{data.pi_flexform.slideSpeed}</f:format.raw>,
+            disableOnInteraction: true,
+          }
+        </f:format.raw>
+      </f:variable>
+    </f:if>
     
-  <kuSwiperjs:addJsFooterInlineCode name="swiper-{data.uid -> f:format.raw()}">
+  <kuSwiperjs:addJsFooterInlineCode name="swiper-{data.uid -> f:format.raw()}" compress="true">
     document.addEventListener('DOMContentLoaded', () => {
       const swiper<f:format.raw>{data.uid}</f:format.raw> = new Swiper('.swiper<f:format.raw>{data.uid}</f:format.raw>', {
           keyboard: {
@@ -9,7 +21,7 @@
           },
           a11y: true,
           loop: <f:format.raw>{data.pi_flexform.loop}</f:format.raw>,
-          autoplay: <f:format.raw>{data.pi_flexform.autoplay}</f:format.raw>,
+          autoplay: <f:format.raw>{autoplay}</f:format.raw>,
           pagination: {
             el: '.swiper-pagination',
             clickable: true,
@@ -39,22 +51,13 @@
               spaceBetween: 20,
             },
           },
-        //   on: {
-        //   transitionStart: function(){
-        //     const videos = document.querySelectorAll('video');
-        //     Array.prototype.forEach.call(videos, function(video){
-        //       video.pause();
-        //     });
-        //   },
-          
-        //   transitionEnd: function(){
-        //     let activeIndex = this.activeIndex;
-        //     let activeSlide = document.getElementsByClassName('swiper-slide')[activeIndex];
-        //     let activeSlideVideo = activeSlide.getElementsByTagName('video')[0];
-        //     activeSlideVideo.play();
-        //   },
         });
+
+        document.querySelector('.<f:format.raw>slider-btn-{data.uid}</f:format.raw>').addEventListener('click', function() {
+          toggleBtnState(swiper<f:format.raw>{data.uid}</f:format.raw>)
+        }, false);
     });
+    let isSliderActive = <f:format.raw>{data.pi_flexform.autoplay}</f:format.raw>;
   </kuSwiperjs:addJsFooterInlineCode>
 </f:section>
 </html>

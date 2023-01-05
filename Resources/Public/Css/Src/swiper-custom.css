@@ -22,7 +22,8 @@
 }
 
 .slide-content {
-  width: 100%
+  width: 100%;
+  height: 100%;
 }
 
 .slide-link {
@@ -35,4 +36,14 @@
   transform: translateY(-50%);
   padding: 1.2rem;
   text-align: left;
+}
+
+.slider-media {
+  height: 100%;
+}
+
+.play-pause-button {
+  position: absolute;
+  bottom: 0;
+  z-index: 10;;
 }

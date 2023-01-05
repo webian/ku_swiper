@@ -50,6 +50,18 @@
                     </config>
                 </TCEforms>
             </loop>
+            <slideSpeed>
+                <TCEforms>
+                    <label>LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:slidespeed
+                    </label>
+                    <exclude>1</exclude>
+                    <config type="array">
+                        <type>input</type>
+                        <size>1</size>
+                        <default>4000</default>
+                    </config>
+                </TCEforms>
+            </slideSpeed>
         </el>
     </ROOT>
 </T3DataStructure>

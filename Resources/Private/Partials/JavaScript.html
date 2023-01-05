@@ -3,18 +3,15 @@
 
   <f:variable name="autoplay"><f:format.raw>{data.pi_flexform.autoplay}</f:format.raw></f:variable>
     <f:if condition="{autoplay} == 'true'">
-      <f:variable name="autoplay">
-        <f:format.raw>
-          {
+      <f:variable name="autoplay"><f:format.raw>{
             delay: <f:format.raw>{data.pi_flexform.slideSpeed}</f:format.raw>,
             disableOnInteraction: true,
-          }
-        </f:format.raw>
-      </f:variable>
+          }</f:format.raw></f:variable>
     </f:if>
     
   <kuSwiperjs:addJsFooterInlineCode name="swiper-{data.uid -> f:format.raw()}" compress="true">
     document.addEventListener('DOMContentLoaded', () => {
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
       const swiper<f:format.raw>{data.uid}</f:format.raw> = new Swiper('.swiper<f:format.raw>{data.uid}</f:format.raw>', {
           keyboard: {
             enabled: true,
@@ -52,10 +49,11 @@
             },
           },
         });
-
+        
         document.querySelector('.<f:format.raw>slider-btn-{data.uid}</f:format.raw>').addEventListener('click', function() {
-          toggleBtnState(swiper<f:format.raw>{data.uid}</f:format.raw>)
+          toggleBtnState(swiper<f:format.raw>{data.uid}</f:format.raw>, this)
         }, false);
+
     });
     let isSliderActive = <f:format.raw>{data.pi_flexform.autoplay}</f:format.raw>;
   </kuSwiperjs:addJsFooterInlineCode>

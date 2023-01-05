@@ -651,14 +651,7 @@ button.swiper-pagination-bullet {
 }
 
 .swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  background: var(--bs-white);
 
-  /* Center slide text vertically */
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .swiper-slide img {
@@ -692,5 +685,6 @@ button.swiper-pagination-bullet {
 .play-pause-button {
   position: absolute;
   bottom: 0;
-  z-index: 10;;
+  z-index: 10;
+  ;
 }

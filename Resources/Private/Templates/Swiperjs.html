@@ -14,7 +14,7 @@
             <div class="swiper-button-prev"></div>
             <div class="swiper-pagination"></div>
             <f:if condition="{data.pi_flexform.autoplay} == 'true'">
-                <button aria-label="Stop afspilning (brug Enter tast)" aria-pressed="false" class="slider-btn-{data.uid} btn primary play-pause-button paused" type="button">Klik</button>
+                <button aria-label="{f:translate(key: 'pause', extensionName: 'ku_swiperjs')}" aria-pressed="false" class="slider-btn-{data.uid} btn play-pause-button" type="button">Klik</button>
             </f:if>
         </div>
         <f:render partial="JavaScript" section="SwiperJsScript" arguments="{_all}" />
@@ -24,6 +24,12 @@
 <f:section name="HeaderAssets">
     <link rel="stylesheet" href="{f:uri.resource(path: 'EXT:ku_swiperjs/Resources/Public/Css/Dist/swiper-bundle.min.css')}" />
     <script defer src="{f:uri.resource(path: 'EXT:ku_swiperjs/Resources/Public/JavaScript/Dist/swiper-bundle.min.js')}"></script>
+    <script>
+        let translations = {
+            pause: '<f:translate key="LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang.xlf:pause" />',
+            play: '<f:translate key="LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang.xlf:play" />',
+        };
+    </script>
 </f:section>
 
 </html>

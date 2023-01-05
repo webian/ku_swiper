@@ -40,8 +40,9 @@ return [
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
                 header,
                 bodytext,
+                slidelink,
                 media,
-                --palette--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:accordion_item.mediaposition;mediaposition,
+                --palette--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:accordion_item.mediaposition,
                 --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.visibility;visibility,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,
@@ -62,13 +63,6 @@ return [
         'general' => [
             'showitem' => '
                 tt_content
-            '
-        ],
-        'mediaposition' => [
-            'showitem' => '
-                mediaorient,
-                imagecols,
-                image_zoom,
             '
         ],
         'visibility' => [
@@ -177,11 +171,21 @@ return [
             'l10n_cat' => 'text',
             'config' => [
                 'type' => 'text',
-                'cols' => '60',
-                'rows' => '10',
+                'cols' => '50',
+                'rows' => '8',
                 'max' => 50,
                 'softref' => 'typolink_tag,email[subst],url',
                 'enableRichtext' => false
+            ],
+        ],
+        'slidelink' => [
+            'label' => 'LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:slidelink',
+            'config' => [
+                'type' => 'input',
+                'renderType' => 'inputLink',
+                // Replace with the following in v.12:
+                //'type' => 'link',
+                //'allowedTypes' => ['page', 'url', 'record'],
             ],
         ],
         'media' => [
@@ -231,85 +235,5 @@ return [
                 $GLOBALS['TYPO3_CONF_VARS']['SYS']['mediafile_ext']
             ),
         ],
-        'mediaorient' => [
-            'exclude' => 1,
-            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:accordion_item.mediaorient',
-            'config' => [
-                'type' => 'select',
-                'renderType' => 'selectSingle',
-                'items' => [
-                    [
-                        'LLL:EXT:ku_semi_collapsible_accordion/Resources/Private/Language/locallang.xlf:content_element.semi_collapse_accordion_img_orient',
-                        ''
-                    ],
-                    [
-                        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:accordion_item.mediaorient.left',
-                        'left'
-                    ],
-                    [
-                        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:accordion_item.mediaorient.top',
-                        'top'
-                    ],
-                    [
-                        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:accordion_item.mediaorient.right',
-                        'right'
-                    ],
-                    [
-                        'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:accordion_item.mediaorient.bottom',
-                        'bottom'
-                    ],
-                ],
-            ],
-            'l10n_mode' => 'exclude'
-        ],
-        'imagecols' => [
-            'exclude' => true,
-            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:accordion_item.imagecols',
-            'config' => [
-                'type' => 'select',
-                'renderType' => 'selectSingle',
-                'items' => [
-                    [
-                        '1',
-                        1
-                    ],
-                    [
-                        '2',
-                        2
-                    ],
-                    [
-                        '3',
-                        3
-                    ],
-                    [
-                        '4',
-                        4
-                    ],
-                    [
-                        '5',
-                        5
-                    ],
-                    [
-                        '6',
-                        6
-                    ]
-                ],
-                'default' => 2
-            ],
-            'l10n_mode' => 'exclude'
-        ],
-        'image_zoom' => [
-            'exclude' => true,
-            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:accordion_item.image_zoom',
-            'config' => [
-                'type' => 'check',
-                'items' => [
-                    [
-                        0 => '',
-                        1 => '',
-                    ]
-                ],
-            ]
-        ]
     ]
 ];

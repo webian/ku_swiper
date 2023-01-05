@@ -64,7 +64,7 @@
 								<numIndex index="1">true</numIndex>
 							</numIndex>
 						</items>
-						<default>false</default>
+						<default>true</default>
 					</config>
 				</TCEforms>
 			</dots-tablet>

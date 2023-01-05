@@ -1,3 +1,60 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
-
+  <f:section name="SwiperJsScript">
+    
+  <kuSwiperjs:addJsFooterInlineCode name="swiper-{data.uid -> f:format.raw()}">
+    document.addEventListener('DOMContentLoaded', () => {
+      const swiper<f:format.raw>{data.uid}</f:format.raw> = new Swiper('.swiper<f:format.raw>{data.uid}</f:format.raw>', {
+          keyboard: {
+            enabled: true,
+          },
+          a11y: true,
+          loop: <f:format.raw>{data.pi_flexform.loop}</f:format.raw>,
+          autoplay: <f:format.raw>{data.pi_flexform.autoplay}</f:format.raw>,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+          breakpoints: {
+            576: {
+              slidesPerView: <f:format.raw>{data.pi_flexform.slidesToShow-smartphone}</f:format.raw>,
+              slidesPerGroup: <f:format.raw>{data.pi_flexform.slidesToScroll-smartphone}</f:format.raw>,
+            },
+            768: {
+              slidesPerView: <f:format.raw>{data.pi_flexform.slidesToShow-tablet}</f:format.raw>,
+              slidesPerGroup: <f:format.raw>{data.pi_flexform.slidesToScroll-tablet}</f:format.raw>,
+              spaceBetween: 20,
+            },
+            992: {
+              slidesPerView: <f:format.raw>{data.pi_flexform.slidesToShow-desktop}</f:format.raw>,
+              slidesPerGroup: <f:format.raw>{data.pi_flexform.slidesToScroll-desktop}</f:format.raw>,
+              spaceBetween: 20,
+            },
+            1200: {
+              slidesPerView: <f:format.raw>{data.pi_flexform.slidesToShow-widescreen}</f:format.raw>,
+              slidesPerGroup: <f:format.raw>{data.pi_flexform.slidesToScroll-widescreen}</f:format.raw>,
+              spaceBetween: 20,
+            },
+          },
+        //   on: {
+        //   transitionStart: function(){
+        //     const videos = document.querySelectorAll('video');
+        //     Array.prototype.forEach.call(videos, function(video){
+        //       video.pause();
+        //     });
+        //   },
+          
+        //   transitionEnd: function(){
+        //     let activeIndex = this.activeIndex;
+        //     let activeSlide = document.getElementsByClassName('swiper-slide')[activeIndex];
+        //     let activeSlideVideo = activeSlide.getElementsByTagName('video')[0];
+        //     activeSlideVideo.play();
+        //   },
+        });
+    });
+  </kuSwiperjs:addJsFooterInlineCode>
+</f:section>
 </html>

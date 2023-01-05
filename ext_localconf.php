@@ -20,3 +20,6 @@ if ($versionInformation->getMajorVersion() < 12) {
       @import "EXT:ku_swiperjs/Configuration/page.tsconfig"
    ');
 }
+
+// Viewhelper namespace
+$GLOBALS['TYPO3_CONF_VARS']['SYS']['fluid']['namespaces']['kuSwiperjs'] = ['UniversityOfCopenhagen\KuSwiperjs\ViewHelpers'];

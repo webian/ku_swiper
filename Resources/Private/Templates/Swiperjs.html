@@ -1,13 +1,24 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:layout name="Default" />
 <f:section name="Main">
+    <f:flashMessages />
     <f:if condition="{records}">
-        <f:render partial="Slide" arguments="{_all}" />
+        <div class="swiper swiper{data.uid}">
+            <div class="swiper-wrapper">
+                <f:for each="{records}" as="record" iteration="iterator">
+                <f:render partial="Slide" arguments="{_all}" />
+            </f:for>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+        <f:render partial="JavaScript" section="SwiperJsScript" arguments="{_all}" />
     </f:if>
 </f:section>
 <f:section name="HeaderAssets">
     <link rel="stylesheet" href="{f:uri.resource(path: 'EXT:ku_swiperjs/Resources/Public/Css/Dist/swiper-bundle.min.css')}" />
-    <script defer src="{f:uri.resource(path: 'EXT:ku_swiperjs/Resources/Public/JavaScript/Dist/swiper-bundle.min.js')}"></script>
+    <script src="{f:uri.resource(path: 'EXT:ku_swiperjs/Resources/Public/JavaScript/Dist/swiper-bundle.min.js')}"></script>
 </f:section>
 
 </html>

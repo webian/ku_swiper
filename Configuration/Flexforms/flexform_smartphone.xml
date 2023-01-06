@@ -13,7 +13,11 @@
 					<exclude>1</exclude><config type="array">
 						<type>input</type>
 						<size>1</size>
-						<eval>required</eval>
+						<eval>int,required</eval>
+						<range>
+							<lower>1</lower>
+							<upper>12</upper>
+						</range>
 						<default>1</default>
 					</config>
 				</TCEforms>
@@ -25,7 +29,11 @@
 					<exclude>1</exclude><config type="array">
 						<type>input</type>
 						<size>1</size>
-						<eval>required</eval>
+						<eval>int,required</eval>
+						<range>
+							<lower>1</lower>
+							<upper>12</upper>
+						</range>
 						<default>1</default>
 					</config>
 				</TCEforms>

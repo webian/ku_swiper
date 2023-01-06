@@ -6,20 +6,23 @@ const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 /**
  * Toggle SwiperJs play/pause button
  */
-const toggleBtnState = (swiperID, el) => {
+const toggleBtnState = (swiper, el) => {
+    let isActive = el.classList.contains('paused');
     let icon = el.querySelector('.bi');
-    if (isSliderActive || reduceMotion.matches) {
-        swiperID.autoplay.stop();
+    if (!isActive || reduceMotion.matches) {
+        swiper.autoplay.stop();
         el.setAttribute('aria-pressed', 'true');
         el.setAttribute('aria-label', translations.play);
+        el.classList.add('paused');
         icon.classList.replace('bi-pause-fill', 'bi-play-fill');
-        isSliderActive = false;
+        isActive = false;
     } else {
-        swiperID.autoplay.start();
+        swiper.autoplay.start();
         el.setAttribute('aria-pressed', 'false');
         el.setAttribute('aria-label', translations.pause);
+        el.classList.remove('paused');
         icon.classList.replace('bi-play-fill', 'bi-pause-fill');
-        isSliderActive = true;
+        isActive = true;
     }
 }
 /**

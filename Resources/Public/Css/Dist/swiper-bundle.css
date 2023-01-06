@@ -684,7 +684,7 @@ button.swiper-pagination-bullet {
 
 .play-pause-button {
   position: absolute;
-  bottom: 0;
-  z-index: 1;
+  bottom: 30px;
+  z-index: 11;
   font-size: 1.5rem;
 }

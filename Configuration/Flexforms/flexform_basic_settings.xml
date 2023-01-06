@@ -46,7 +46,7 @@
                                 <numIndex index="1">true</numIndex>
                             </numIndex>
                         </items>
-                        <default>true</default>
+                        <default>false</default>
                     </config>
                 </TCEforms>
             </loop>

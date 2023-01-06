@@ -14,7 +14,7 @@
             <div class="swiper-button-prev"></div>
             <div class="swiper-pagination"></div>
             <f:if condition="{data.pi_flexform.autoplay} == 'true'">
-                <button aria-label="{f:translate(key: 'pause', extensionName: 'ku_swiperjs')}" aria-pressed="false" class="slider-btn-{data.uid} btn play-pause-button" type="button">Klik</button>
+                <button aria-label="{f:translate(key: 'pause', extensionName: 'ku_swiperjs')}" aria-pressed="false" class="btn btn-slider{data.uid} play-pause-button" type="button"><span class="bi bi-pause-fill" aria-hidden="true"></span></button>
             </f:if>
         </div>
         <f:render partial="JavaScript" section="SwiperJsScript" arguments="{data: data}" />

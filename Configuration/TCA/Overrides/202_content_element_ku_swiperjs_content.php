@@ -10,15 +10,15 @@
 defined('TYPO3') or die('Access denied.');
 
 // Add Content Element
-if (!is_array($GLOBALS['TCA']['tt_content']['types']['ku_swiperjs'] ?? false)) {
-    $GLOBALS['TCA']['tt_content']['types']['ku_swiperjs'] = [];
+if (!is_array($GLOBALS['TCA']['tt_content']['types']['ku_swiperjs_content'] ?? false)) {
+    $GLOBALS['TCA']['tt_content']['types']['ku_swiperjs_content'] = [];
 }
 
 // Add content element PageTSConfig
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
     'ku_swiperjs',
     'Configuration/TsConfig/Page/ku_swiperjs.tsconfig',
-    'LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:swiperjs_title'
+    'LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:swiperjs_content_title'
 );
 
 // Add content element to selector list
@@ -26,25 +26,26 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['ku_swiperjs'] ?? false)) {
     'tt_content',
     'CType',
     [
-        'LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:swiperjs_title',
-        'ku_swiperjs',
-        'content-bootstrappackage-accordion',
+        'LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:swiperjs_content_title',
+        'ku_swiperjs_content',
+        'ku-swiperjs-icon',
         'ku_swiperjs'
     ]
 );
 
 // Assign Icon
-$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['ku_swiperjs'] = 'content-bootstrappackage-accordion';
+$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['ku_swiperjs_content'] = 'ku-swiperjs-icon';
 
 // Configure element type
-$GLOBALS['TCA']['tt_content']['types']['ku_swiperjs'] = array_replace_recursive(
-    $GLOBALS['TCA']['tt_content']['types']['ku_swiperjs'],
+$GLOBALS['TCA']['tt_content']['types']['ku_swiperjs_content'] = array_replace_recursive(
+    $GLOBALS['TCA']['tt_content']['types']['ku_swiperjs_content'],
     [
         'showitem' => '
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.headers;headers,
-                tx_ku_swiperjs_item,
+                tx_ku_swiperjs_pages,
+                records;LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:swiperjs_records,
             --div--;LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:settings,
                 pi_flexform;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:advanced,
             --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.appearance,
@@ -68,25 +69,13 @@ $GLOBALS['TCA']['tt_content']['types']['ku_swiperjs'] = array_replace_recursive(
 $GLOBALS['TCA']['tt_content']['columns'] = array_replace_recursive(
     $GLOBALS['TCA']['tt_content']['columns'],
     [
-        'tx_ku_swiperjs_item' => [
-            'label' => 'LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:swiperjs_item',
+        'tx_ku_swiperjs_pages' => [
+            'label' => 'LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:swiperjs_pages',
+            'exclude' => 1,
             'config' => [
-                'type' => 'inline',
-                'foreign_table' => 'tx_ku_swiperjs_item',
-                'foreign_field' => 'tt_content',
-                'appearance' => [
-                    'useSortable' => true,
-                    'showSynchronizationLink' => true,
-                    'showAllLocalizationLink' => true,
-                    'showPossibleLocalizationRecords' => true,
-                    'expandSingle' => true,
-                    'enabledControls' => [
-                        'localize' => true,
-                    ]
-                ],
-                'behaviour' => [
-                    'mode' => 'select',
-                ]
+                'type' => 'group',
+                'internal_type' => 'db',
+                'allowed' => 'pages',
             ]
         ]
     ]
@@ -96,5 +85,5 @@ $GLOBALS['TCA']['tt_content']['columns'] = array_replace_recursive(
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
     '*',
     'FILE:EXT:ku_swiperjs/Configuration/Flexforms/default.xml',
-    'ku_swiperjs'
+    'ku_swiperjs_content'
 );

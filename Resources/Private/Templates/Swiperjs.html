@@ -17,7 +17,7 @@
                 <button aria-label="{f:translate(key: 'pause', extensionName: 'ku_swiperjs')}" aria-pressed="false" class="slider-btn-{data.uid} btn play-pause-button" type="button">Klik</button>
             </f:if>
         </div>
-        <f:render partial="JavaScript" section="SwiperJsScript" arguments="{_all}" />
+        <f:render partial="JavaScript" section="SwiperJsScript" arguments="{data: data}" />
     </f:if>
 </f:section>
 

@@ -1,5 +1,6 @@
 TCEFORM {
     tt_content {
+        # cType ku_swiperjs:
         header_layout {
            types {
                 ku_swiperjs {
@@ -71,5 +72,80 @@ TCEFORM {
                 }
             }
         }
+
+        # cType ku_swiperjs_content:
+
+        header_layout {
+           types {
+                ku_swiperjs_content {
+                    disabled = 1
+                }
+            }
+        }
+
+        header {
+           types {
+                ku_swiperjs_content {
+                    disabled = 1
+                }
+            }
+        }
+
+        header_link {
+           types {
+                ku_swiperjs_content {
+                    disabled = 1
+                }
+            }
+        }
+
+        subheader {
+           types {
+                ku_swiperjs_content {
+                    disabled = 1
+                }
+            }
+        }
+
+        header_position {
+           types {
+                ku_swiperjs_content {
+                    disabled = 1
+                }
+            }
+        }
+
+        date {
+           types {
+                ku_swiperjs_content {
+                    disabled = 1
+                }
+            }
+        }
+
+        background_image {
+            types {
+                ku_swiperjs_content {
+                    disabled = 1
+                }
+            }
+        }
+
+        background_image_options {
+            types {
+                ku_swiperjs_content {
+                    disabled = 1
+                }
+            }
+        }
+
+        background_color_class {
+            types {
+                ku_swiperjs_content {
+                    disabled = 1
+                }
+            }
+        }
+    }
     }
 }

@@ -7,13 +7,25 @@
         </header>
         <body>
         <trans-unit id="swiperjs_title">
-            <source>KU slideshow</source>
+            <source>KU slideshow with image and text</source>
         </trans-unit>
         <trans-unit id="swiperjs_desc">
             <source>Add images and text to create a slideshow</source>
         </trans-unit>
+        <trans-unit id="swiperjs_content_title">
+            <source>KU slideshow with content elements</source>
+        </trans-unit>
+        <trans-unit id="swiperjs_content_desc">
+            <source>Add content elements to create a slideshow</source>
+        </trans-unit>
         <trans-unit id="swiperjs_item">
             <source>Add slideshow item</source>
+        </trans-unit>
+        <trans-unit id="swiperjs_pages">
+            <source>Add pages</source>
+        </trans-unit>
+        <trans-unit id="swiperjs_records">
+            <source>Add content elements</source>
         </trans-unit>
         <trans-unit id="settings">
             <source>Slideshow settings</source>

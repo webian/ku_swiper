@@ -17,6 +17,7 @@ const toggleBtnState = (swiper, el) => {
         icon.classList.replace('bi-pause-fill', 'bi-play-fill');
         isActive = false;
     } else {
+        console.log('paused');
         swiper.autoplay.start();
         el.setAttribute('aria-pressed', 'false');
         el.setAttribute('aria-label', translations.pause);

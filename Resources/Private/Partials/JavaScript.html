@@ -8,7 +8,7 @@
         <f:variable name="autoplay"><f:format.raw>{
               delay: <f:format.raw>{data.pi_flexform.slideSpeed}</f:format.raw>,
               disableOnInteraction: false,
-              pauseOnMouseEnter: true,
+              //pauseOnMouseEnter: true,
             }</f:format.raw></f:variable>
         </f:then>
         <f:else>
@@ -39,11 +39,7 @@
   <kuSwiperjs:addJsFooterInlineCode name="swiper{data.uid -> f:format.raw()}" compress="true">
     document.addEventListener('DOMContentLoaded', () => {
       const swiper<f:format.raw>{data.uid}</f:format.raw> = new Swiper('.swiper<f:format.raw>{data.uid}</f:format.raw>', {
-        <f:format.raw>{randomStart}</f:format.raw>
-          keyboard: {
-            enabled: true,
-          },
-          a11y: true,
+          <f:format.raw>{randomStart}</f:format.raw>
           loop: <f:format.raw>{loop}</f:format.raw>,
           autoplay: <f:format.raw>{autoplay}</f:format.raw>,
           <f:format.raw>{fade}</f:format.raw>
@@ -58,6 +54,10 @@
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
           },
+          keyboard: {
+            enabled: true,
+          },
+          a11y: true,
           breakpoints: {
             576: {
               slidesPerView: <f:format.raw>{data.pi_flexform.slidesToShow-smartphone}</f:format.raw>,
@@ -78,7 +78,7 @@
         },  
       });
         
-      <f:if condition="{data.pi_flexform.autoplay} === 'true' && {records} > 1">
+      <f:if condition="{data.pi_flexform.autoplay} === 'true' && {totalcount} > 1">
         <f:format.raw>
           document.querySelector('.<f:format.raw>btn-slider{data.uid}</f:format.raw>').addEventListener('click', function() {
             toggleBtnState(swiper<f:format.raw>{data.uid}</f:format.raw>, this)
@@ -86,7 +86,6 @@
         </f:format.raw>
       </f:if>
     });
-
   </kuSwiperjs:addJsFooterInlineCode>
 </f:section>
 </html>

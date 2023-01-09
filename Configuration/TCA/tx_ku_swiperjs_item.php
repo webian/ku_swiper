@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the package bk2k/bootstrap-package.
+ * This file is part of the package ku_swiperjs.
  *
  * For the full copyright and license information, please read the
  * LICENSE file that was distributed with this source code.
@@ -31,7 +31,7 @@ return [
             'endtime' => 'endtime',
         ],
         'typeicon_classes' => [
-            'default' => 'content-bootstrappackage-accordion-item',
+            'default' => 'ku-swiperjs-icon',
         ]
     ],
     'types' => [
@@ -42,7 +42,6 @@ return [
                 bodytext,
                 slidelink,
                 media,
-                --palette--;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:accordion_item.mediaposition,
                 --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.visibility;visibility,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,
@@ -67,7 +66,7 @@ return [
         ],
         'visibility' => [
             'showitem' => '
-                hidden;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:accordion_item
+                hidden;LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:slide_item
             '
         ],
         // hidden but needs to be included all the time, so sys_language_uid is set correctly
@@ -79,7 +78,7 @@ return [
     'columns' => [
         'tt_content' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:accordion_item.tt_content',
+            'label' => 'LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:ku_swiperjs_item.tt_content',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -157,7 +156,7 @@ return [
         ],
         'header' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:accordion_item.header',
+            'label' => 'LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:slide_header',
             'config' => [
                 'type' => 'input',
                 'size' => 50,
@@ -166,7 +165,7 @@ return [
             ],
         ],
         'bodytext' => [
-            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:accordion_item.bodytext',
+            'label' => 'LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:slide_bodytext',
             'l10n_mode' => 'prefixLangTitle',
             'l10n_cat' => 'text',
             'config' => [
@@ -190,14 +189,31 @@ return [
         ],
         'media' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:accordion_item.media',
+            'label' => 'LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:item_media',
             'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
                 'media',
                 [
+                    'maxitems' => 1,
+                    'filter' => [
+                        0 => [
+                            'parameters' => [
+                                'allowedFileExtensions' => 'jpg,jpeg,png',
+                            ],
+                        ],
+                    ],
                     'appearance' => [
                         'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference'
                     ],
                     'overrideChildTca' => [
+                        'columns' => [
+                            'uid_local' => [
+                                'config' => [
+                                    'appearance' => [
+                                        'elementBrowserAllowed' => 'jpg,jpeg,png',
+                                    ],
+                                ],
+                            ],
+                        ],
                         'types' => [
                             \TYPO3\CMS\Core\Resource\File::FILETYPE_UNKNOWN => [
                                 'showitem' => '
@@ -211,7 +227,8 @@ return [
                             ],
                             \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
                                 'showitem' => '
-                                    --palette--;LLL:EXT:core/Resources/Private/Language/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+                                    --palette--;LLL:EXT:core/Resources/Private/Language/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;
+                                    //imageoverlayPalette,
                                     --palette--;;filePalette'
                             ],
                             \TYPO3\CMS\Core\Resource\File::FILETYPE_AUDIO => [

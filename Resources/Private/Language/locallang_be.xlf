@@ -84,6 +84,18 @@
         <trans-unit id="slidelink">
             <source>Slide link</source>
         </trans-unit>
+        <trans-unit id="item_media">
+            <source>Slide link</source>
+        </trans-unit>
+        <trans-unit id="slide_item">
+            <source>Slides</source>
+        </trans-unit>
+        <trans-unit id="slide_header">
+            <source>Slide caption header</source>
+        </trans-unit>
+        <trans-unit id="slide_bodytext">
+            <source>Slide caption text</source>
+        </trans-unit>
         </body>
     </file>
 </xliff>

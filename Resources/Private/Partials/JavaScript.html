@@ -1,7 +1,9 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
   <f:section name="SwiperJsScript">
+    
+    <f:variable name="totalcount">{records -> f:count()}</f:variable>
 
-    <f:if condition="{data.pi_flexform.autoplay} === 'true'">
+    <f:if condition="{totalcount} > 1 && {data.pi_flexform.autoplay} === 'true'">
       <f:then>
         <f:variable name="autoplay"><f:format.raw>{
               delay: <f:format.raw>{data.pi_flexform.slideSpeed}</f:format.raw>,
@@ -14,33 +16,30 @@
         </f:else>
     </f:if>
 
-    <f:if condition="{data.pi_flexform.autoplay} === 'true' && {records} > 1">
-      <f:then>
-        <f:variable name="loop">true</f:variable>
-      </f:then>
-      <f:else>
+    <f:variable name="loop"><f:format.raw>{data.pi_flexform.loop}</f:format.raw></f:variable>
+    <f:if condition="{totalcount} < 2 && {data.pi_flexform.autoplay} === 'true'">
         <f:variable name="loop">false</f:variable>
-      </f:else>
     </f:if>
 
     <f:if condition="{data.pi_flexform.fade} === 'true'">
-      <f:then>
         <f:variable name="fade"><f:format.raw>effect: 'fade',
           fadeEffect: {
             crossFade: true
           },</f:format.raw></f:variable>
-        </f:then>
     </f:if>
 
     <f:if condition="{data.pi_flexform.centeredSlides} === 'true'">
-      <f:then>
         <f:variable name="centeredSlides"><f:format.raw>centeredSlides: true,</f:format.raw></f:variable>
-        </f:then>
+    </f:if>
+
+    <f:if condition="{data.pi_flexform.randomStart} === 'true'">
+      <f:variable name="randomStart">initialSlide: getRandomInt(<f:format.raw>{totalcount}</f:format.raw>),</f:variable>
     </f:if>
     
   <kuSwiperjs:addJsFooterInlineCode name="swiper{data.uid -> f:format.raw()}" compress="true">
     document.addEventListener('DOMContentLoaded', () => {
       const swiper<f:format.raw>{data.uid}</f:format.raw> = new Swiper('.swiper<f:format.raw>{data.uid}</f:format.raw>', {
+        <f:format.raw>{randomStart}</f:format.raw>
           keyboard: {
             enabled: true,
           },
@@ -49,6 +48,7 @@
           autoplay: <f:format.raw>{autoplay}</f:format.raw>,
           <f:format.raw>{fade}</f:format.raw>
           <f:format.raw>{centeredSlides}</f:format.raw>
+          watchOverflow: true,
           spaceBetween: 20,
           pagination: {
             el: '.swiper-pagination',

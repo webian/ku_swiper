@@ -111,6 +111,28 @@
                     </config>
                 </TCEforms>
             </fade>
+            <randomStart>
+                <TCEforms>
+                    <label>LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:randomStart
+                    </label>
+                    <exclude>1</exclude>
+                    <config type="array">
+                        <type>select</type>
+                        <renderType>selectSingle</renderType>
+                        <items type="array">
+                            <numIndex index="0" type="array">
+                                <numIndex index="0">LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:disabled</numIndex>
+                                <numIndex index="1">false</numIndex>
+                            </numIndex>
+                            <numIndex index="1" type="array">
+                                <numIndex index="0">LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:enabled</numIndex>
+                                <numIndex index="1">true</numIndex>
+                            </numIndex>
+                        </items>
+                        <default>false</default>
+                    </config>
+                </TCEforms>
+            </randomStart>
         </el>
     </ROOT>
 </T3DataStructure>

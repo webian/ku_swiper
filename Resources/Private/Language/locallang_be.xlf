@@ -66,6 +66,9 @@
         <trans-unit id="fade">
             <source>Fade slides</source>
         </trans-unit>
+         <trans-unit id="randomStart">
+            <source>Random start slide</source>
+        </trans-unit>
         <trans-unit id="centeredSlides">
             <source>Centered slides (display half slides)</source>
         </trans-unit>

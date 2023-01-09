@@ -25,3 +25,14 @@ const toggleBtnState = (swiper, el) => {
         isActive = true;
     }
 }
+
+/**
+ * Get int for random initial slide
+ * @param max: total number of slides
+ */
+const getRandomInt = (max) => {
+    min = 0;
+    max = Math.floor(max);
+    // The maximum is inclusive and the minimum is inclusive
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}

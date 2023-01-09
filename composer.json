@@ -1,5 +1,5 @@
 {
-    "name": "university-of-copenhagen/ku-swiperjs",
+    "name": "university-of-copenhagen/ku-swiper",
     "type": "typo3-cms-extension",
     "description": "SwiperJs slideshow",
     "homepage": "https://www.ku.dk/",
@@ -7,12 +7,12 @@
     "keywords": ["TYPO3 CMS"],
     "autoload": {
         "psr-4": {
-            "UniversityOfCopenhagen\\KuSwiperjs\\": "Classes/"
+            "UniversityOfCopenhagen\\KuSwiper\\": "Classes/"
         }
     },
     "extra": {
         "typo3/cms": {
-            "extension-key": "ku_swiperjs"
+            "extension-key": "ku_swiper"
         }
     }
 }

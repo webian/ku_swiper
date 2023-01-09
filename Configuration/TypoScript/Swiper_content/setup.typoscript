@@ -2,19 +2,19 @@
 ####### CTYPE: KU SWIPERJS SLIDESHOW #########
 ##############################################
 
-tt_content.ku_swiperjs_content >
-tt_content.ku_swiperjs_content =< lib.contentElement
-tt_content.ku_swiperjs_content {
+tt_content.ku_swiper_content >
+tt_content.ku_swiper_content =< lib.contentElement
+tt_content.ku_swiper_content {
 
     ################
     ### TEMPLATE ###
     ################
-    templateName = SwiperjsContent
+    templateName = SwiperContent
     templateRootPaths {
-        10 = EXT:ku_swiperjs/Resources/Private/Templates/
+        10 = EXT:ku_swiper/Resources/Private/Templates/
     }
 	partialRootPaths {
-		10 = EXT:ku_swiperjs/Resources/Private/Partials/
+		10 = EXT:ku_swiper/Resources/Private/Partials/
 	}
 
 
@@ -26,24 +26,24 @@ tt_content.ku_swiperjs_content {
     }
 
     variables {
-        ku_swiperjs_records = RECORDS
-        ku_swiperjs_records {
+        ku_swiper_records = RECORDS
+        ku_swiper_records {
             source.field = records
             tables = tt_content
         }
     }
 }
 
-lib.tx_ku_swiperjs_pages = COA
-lib.tx_ku_swiperjs_pages {
-    if.isTrue.field = tx_ku_swiperjs_pages
+lib.tx_ku_swiper_pages = COA
+lib.tx_ku_swiper_pages {
+    if.isTrue.field = tx_ku_swiper_pages
     10 = CONTENT
     10 {
         table = tt_content
         select {
             pidInList = TEXT
             pidInList {
-                field = tx_ku_swiperjs_pages
+                field = tx_ku_swiper_pages
             }
             orderBy = sorting
         }

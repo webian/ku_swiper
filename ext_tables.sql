@@ -5,14 +5,14 @@
 -- Table structure for table 'tt_content'
 --
 CREATE TABLE tt_content (
-    tx_ku_swiperjs_item int(11) unsigned DEFAULT '0',
-    tx_ku_swiperjs_pages tinytext,
+    tx_ku_swiper_item int(11) unsigned DEFAULT '0',
+    tx_ku_swiper_pages tinytext,
 );
 
 --
--- Table structure for table 'tx_ku_swiperjs_item'
+-- Table structure for table 'tx_ku_swiper_item'
 --
-CREATE TABLE tx_ku_swiperjs_item (
+CREATE TABLE tx_ku_swiper_item (
     tt_content int(11) unsigned DEFAULT '0',
     header varchar(255) DEFAULT '' NOT NULL,
     bodytext text,

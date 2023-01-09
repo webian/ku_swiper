@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the package ku_swiperjs.
+ * This file is part of the package ku_swiper.
  *
  * For the full copyright and license information, please read the
  * LICENSE file that was distributed with this source code.
@@ -15,7 +15,7 @@ return [
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
         'cruser_id' => 'cruser_id',
-        'title' => 'LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:swiperjs_item',
+        'title' => 'LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:swiperjs_item',
         'delete' => 'deleted',
         'versioningWS' => true,
         'origUid' => 't3_origuid',
@@ -66,7 +66,7 @@ return [
         ],
         'visibility' => [
             'showitem' => '
-                hidden;LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:slide_item
+                hidden;LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:slide_item
             '
         ],
         // hidden but needs to be included all the time, so sys_language_uid is set correctly
@@ -78,12 +78,12 @@ return [
     'columns' => [
         'tt_content' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:ku_swiperjs_item.tt_content',
+            'label' => 'LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:ku_swiper_item.tt_content',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'foreign_table' => 'tt_content',
-                'foreign_table_where' => 'AND tt_content.pid=###CURRENT_PID### AND tt_content.{#CType}=\'ku_swiperjs\'',
+                'foreign_table_where' => 'AND tt_content.pid=###CURRENT_PID### AND tt_content.{#CType}=\'ku_swiper\'',
                 'maxitems' => 1,
                 'default' => 0,
             ],
@@ -144,8 +144,8 @@ return [
                         0
                     ]
                 ],
-                'foreign_table' => 'tx_ku_swiperjs_item',
-                'foreign_table_where' => 'AND tx_ku_swiperjs_item.pid=###CURRENT_PID### AND tx_ku_swiperjs_item.sys_language_uid IN (-1,0)',
+                'foreign_table' => 'tx_ku_swiper_item',
+                'foreign_table_where' => 'AND tx_ku_swiper_item.pid=###CURRENT_PID### AND tx_ku_swiper_item.sys_language_uid IN (-1,0)',
                 'default' => 0
             ]
         ],
@@ -156,7 +156,7 @@ return [
         ],
         'header' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:slide_header',
+            'label' => 'LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:slide_header',
             'config' => [
                 'type' => 'input',
                 'size' => 50,
@@ -165,7 +165,7 @@ return [
             ],
         ],
         'bodytext' => [
-            'label' => 'LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:slide_bodytext',
+            'label' => 'LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:slide_bodytext',
             'l10n_mode' => 'prefixLangTitle',
             'l10n_cat' => 'text',
             'config' => [
@@ -178,7 +178,7 @@ return [
             ],
         ],
         'slidelink' => [
-            'label' => 'LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:slidelink',
+            'label' => 'LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:slidelink',
             'config' => [
                 'type' => 'input',
                 'renderType' => 'inputLink',
@@ -189,7 +189,7 @@ return [
         ],
         'media' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:item_media',
+            'label' => 'LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:item_media',
             'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
                 'media',
                 [

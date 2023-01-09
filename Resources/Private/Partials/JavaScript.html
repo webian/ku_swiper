@@ -36,7 +36,7 @@
       <f:variable name="randomStart">initialSlide: getRandomInt(<f:format.raw>{totalcount}</f:format.raw>),</f:variable>
     </f:if>
     
-  <kuSwiperjs:addJsFooterInlineCode name="swiper{data.uid -> f:format.raw()}" compress="true">
+  <KuSwiper:addJsFooterInlineCode name="swiper{data.uid -> f:format.raw()}" compress="true">
     document.addEventListener('DOMContentLoaded', () => {
       const swiper<f:format.raw>{data.uid}</f:format.raw> = new Swiper('.swiper<f:format.raw>{data.uid}</f:format.raw>', {
           <f:format.raw>{randomStart}</f:format.raw>
@@ -86,6 +86,6 @@
         </f:format.raw>
       </f:if>
     });
-  </kuSwiperjs:addJsFooterInlineCode>
+  </KuSwiper:addJsFooterInlineCode>
 </f:section>
 </html>

@@ -1,9 +1,9 @@
 TCEFORM {
     tt_content {
-        # cType ku_swiperjs:
+        # cType ku_swiper:
         header_layout {
            types {
-                ku_swiperjs {
+                ku_swiper {
                     disabled = 1
                 }
             }
@@ -11,7 +11,7 @@ TCEFORM {
 
         header {
            types {
-                ku_swiperjs {
+                ku_swiper {
                     disabled = 1
                 }
             }
@@ -19,7 +19,7 @@ TCEFORM {
 
         header_link {
            types {
-                ku_swiperjs {
+                ku_swiper {
                     disabled = 1
                 }
             }
@@ -27,7 +27,7 @@ TCEFORM {
 
         subheader {
            types {
-                ku_swiperjs {
+                ku_swiper {
                     disabled = 1
                 }
             }
@@ -35,7 +35,7 @@ TCEFORM {
 
         header_position {
            types {
-                ku_swiperjs {
+                ku_swiper {
                     disabled = 1
                 }
             }
@@ -43,7 +43,7 @@ TCEFORM {
 
         date {
            types {
-                ku_swiperjs {
+                ku_swiper {
                     disabled = 1
                 }
             }
@@ -51,7 +51,7 @@ TCEFORM {
 
         background_image {
             types {
-                ku_swiperjs {
+                ku_swiper {
                     disabled = 1
                 }
             }
@@ -59,7 +59,7 @@ TCEFORM {
 
         background_image_options {
             types {
-                ku_swiperjs {
+                ku_swiper {
                     disabled = 1
                 }
             }
@@ -67,17 +67,17 @@ TCEFORM {
 
         background_color_class {
             types {
-                ku_swiperjs {
+                ku_swiper {
                     disabled = 1
                 }
             }
         }
 
-        # cType ku_swiperjs_content:
+        # cType ku_swiper_content:
 
         header_layout {
            types {
-                ku_swiperjs_content {
+                ku_swiper_content {
                     disabled = 1
                 }
             }
@@ -85,7 +85,7 @@ TCEFORM {
 
         header {
            types {
-                ku_swiperjs_content {
+                ku_swiper_content {
                     disabled = 1
                 }
             }
@@ -93,7 +93,7 @@ TCEFORM {
 
         header_link {
            types {
-                ku_swiperjs_content {
+                ku_swiper_content {
                     disabled = 1
                 }
             }
@@ -101,7 +101,7 @@ TCEFORM {
 
         subheader {
            types {
-                ku_swiperjs_content {
+                ku_swiper_content {
                     disabled = 1
                 }
             }
@@ -109,7 +109,7 @@ TCEFORM {
 
         header_position {
            types {
-                ku_swiperjs_content {
+                ku_swiper_content {
                     disabled = 1
                 }
             }
@@ -117,7 +117,7 @@ TCEFORM {
 
         date {
            types {
-                ku_swiperjs_content {
+                ku_swiper_content {
                     disabled = 1
                 }
             }
@@ -125,7 +125,7 @@ TCEFORM {
 
         background_image {
             types {
-                ku_swiperjs_content {
+                ku_swiper_content {
                     disabled = 1
                 }
             }
@@ -133,7 +133,7 @@ TCEFORM {
 
         background_image_options {
             types {
-                ku_swiperjs_content {
+                ku_swiper_content {
                     disabled = 1
                 }
             }
@@ -141,7 +141,7 @@ TCEFORM {
 
         background_color_class {
             types {
-                ku_swiperjs_content {
+                ku_swiper_content {
                     disabled = 1
                 }
             }

@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the package ku_swiperjs.
+ * This file is part of the package ku_swiper.
  * For the full copyright and license information, please read the
  * LICENSE file that was distributed with this source code.
  * Sep 2022 Nanna Ellegaard, University of Copenhagen.
@@ -17,9 +17,9 @@ $versionInformation = GeneralUtility::makeInstance(Typo3Version::class);
 // Only include page.tsconfig if TYPO3 version is below 12 so that it is not imported twice.
 if ($versionInformation->getMajorVersion() < 12) {
     ExtensionManagementUtility::addPageTSConfig('
-      @import "EXT:ku_swiperjs/Configuration/page.tsconfig"
+      @import "EXT:ku_swiper/Configuration/page.tsconfig"
    ');
 }
 
 // Viewhelper namespace
-$GLOBALS['TYPO3_CONF_VARS']['SYS']['fluid']['namespaces']['kuSwiperjs'] = ['UniversityOfCopenhagen\KuSwiperjs\ViewHelpers'];
+$GLOBALS['TYPO3_CONF_VARS']['SYS']['fluid']['namespaces']['KuSwiper'] = ['UniversityOfCopenhagen\KuSwiper\ViewHelpers'];

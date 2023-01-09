@@ -8,7 +8,7 @@ declare(strict_types = 1);
  * LICENSE file that was distributed with this source code.
  */
 
-namespace UniversityOfCopenhagen\KuSwiperjs\DataProcessing;
+namespace UniversityOfCopenhagen\KuSwiper\DataProcessing;
 
 use TYPO3\CMS\Core\Service\FlexFormService;
 use TYPO3\CMS\Core\Utility\GeneralUtility;

@@ -16,7 +16,7 @@
             <div class="swiper-button-prev"></div>
             <div class="swiper-pagination"></div>
             <f:if condition="{data.pi_flexform.autoplay} === 'true' && {totalcount} > 1">
-                <button aria-label="{f:translate(key: 'pause', extensionName: 'ku_swiperjs')}" aria-pressed="false"  class="btn btn-slider{data.uid} play-pause-button" type="button"><span class="bi bi-pause-fill" aria-hidden="true"></span></button>
+                <button aria-label="{f:translate(key: 'pause', extensionName: 'ku_swiper')}" aria-pressed="false"  class="btn btn-slider{data.uid} play-pause-button" type="button"><span class="bi bi-pause-fill" aria-hidden="true"></span></button>
             </f:if>
         </div>
         <f:render partial="JavaScript" section="SwiperJsScript" arguments="{_all}" />
@@ -24,12 +24,12 @@
 </f:section>
 
 <f:section name="HeaderAssets">
-    <link rel="stylesheet" href="{f:uri.resource(path: 'EXT:ku_swiperjs/Resources/Public/Css/Dist/swiper-bundle.min.css')}" />
-    <script defer src="{f:uri.resource(path: 'EXT:ku_swiperjs/Resources/Public/JavaScript/Dist/swiper-bundle.min.js')}"></script>
+    <link rel="stylesheet" href="{f:uri.resource(path: 'EXT:ku_swiper/Resources/Public/Css/Dist/swiper-bundle.min.css')}" />
+    <script defer src="{f:uri.resource(path: 'EXT:ku_swiper/Resources/Public/JavaScript/Dist/swiper-bundle.min.js')}"></script>
     <script>
         let translations = {
-            pause: '<f:translate key="LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang.xlf:pause" />',
-            play: '<f:translate key="LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang.xlf:play" />',
+            pause: '<f:translate key="LLL:EXT:ku_swiper/Resources/Private/Language/locallang.xlf:pause" />',
+            play: '<f:translate key="LLL:EXT:ku_swiper/Resources/Private/Language/locallang.xlf:play" />',
         };
     </script>
 </f:section>

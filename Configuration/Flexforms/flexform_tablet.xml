@@ -2,13 +2,13 @@
 <T3DataStructure>
 	<ROOT>
 		<TCEforms>
-			<sheetTitle>LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:tablet_title</sheetTitle>
+			<sheetTitle>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:tablet_title</sheetTitle>
 		</TCEforms>
 		<type>array</type>
         <el>
             <slidesToShow-tablet type="array">
 				<TCEforms type="array">
-					<label>LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:slidesToShow
+					<label>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:slidesToShow
 					</label>
 					<exclude>1</exclude><config type="array">
 						<type>input</type>
@@ -24,7 +24,7 @@
 			</slidesToShow-tablet>
 			<slidesToScroll-tablet type="array">
 				<TCEforms type="array">
-					<label>LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:slidesToScroll
+					<label>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:slidesToScroll
 					</label>
 					<exclude>1</exclude><config type="array">
 						<type>input</type>
@@ -40,17 +40,17 @@
 			</slidesToScroll-tablet>
 			<arrows-tablet type="array">
 				<TCEforms type="array">
-					<label>LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:arrows</label>
+					<label>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:arrows</label>
 					<exclude>1</exclude><config type="array">
 						<type>select</type>
 						<renderType>selectSingle</renderType>
 						<items type="array">
 							<numIndex index="0" type="array">
-								<numIndex index="0">LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:disabled</numIndex>
+								<numIndex index="0">LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:disabled</numIndex>
 								<numIndex index="1">false</numIndex>
 							</numIndex>
 							<numIndex index="1" type="array">
-								<numIndex index="0">LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:enabled</numIndex>
+								<numIndex index="0">LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:enabled</numIndex>
 								<numIndex index="1">true</numIndex>
 							</numIndex>
 						</items>
@@ -60,17 +60,17 @@
 			</arrows-tablet>
 			<dots-tablet type="array">
 				<TCEforms type="array">
-					<label>LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:dots</label>
+					<label>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:dots</label>
 					<exclude>1</exclude><config type="array">
 						<type>select</type>
 						<renderType>selectSingle</renderType>
 						<items type="array">
 							<numIndex index="0" type="array">
-								<numIndex index="0">LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:disabled</numIndex>
+								<numIndex index="0">LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:disabled</numIndex>
 								<numIndex index="1">false</numIndex>
 							</numIndex>
 							<numIndex index="1" type="array">
-								<numIndex index="0">LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:enabled</numIndex>
+								<numIndex index="0">LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:enabled</numIndex>
 								<numIndex index="1">true</numIndex>
 							</numIndex>
 						</items>

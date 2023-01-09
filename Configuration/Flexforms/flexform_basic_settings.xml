@@ -2,13 +2,13 @@
 <T3DataStructure>
 	<ROOT>
 		<TCEforms>
-			<sheetTitle>LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:basic_settings</sheetTitle>
+			<sheetTitle>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:basic_settings</sheetTitle>
 		</TCEforms>
 		<type>array</type>
         <el>
             <autoplay>
                 <TCEforms>
-                    <label>LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:autoplay
+                    <label>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:autoplay
                     </label>
                     <exclude>1</exclude>
                     <config type="array">
@@ -16,21 +16,21 @@
                         <renderType>selectSingle</renderType>
                         <items type="array">
                             <numIndex index="0" type="array">
-                                <numIndex index="0">LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:disabled</numIndex>
+                                <numIndex index="0">LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:disabled</numIndex>
                                 <numIndex index="1">false</numIndex>
                             </numIndex>
                             <numIndex index="1" type="array">
-                                <numIndex index="0">LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:enabled</numIndex>
+                                <numIndex index="0">LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:enabled</numIndex>
                                 <numIndex index="1">true</numIndex>
                             </numIndex>
                         </items>
-                        <default>false</default>
+                        <default>true</default>
                     </config>
                 </TCEforms>
             </autoplay>
             <loop>
                 <TCEforms>
-                    <label>LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:loop
+                    <label>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:loop
                     </label>
                     <exclude>1</exclude>
                     <config type="array">
@@ -38,21 +38,21 @@
                         <renderType>selectSingle</renderType>
                         <items type="array">
                             <numIndex index="0" type="array">
-                                <numIndex index="0">LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:disabled</numIndex>
+                                <numIndex index="0">LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:disabled</numIndex>
                                 <numIndex index="1">false</numIndex>
                             </numIndex>
                             <numIndex index="1" type="array">
-                                <numIndex index="0">LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:enabled</numIndex>
+                                <numIndex index="0">LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:enabled</numIndex>
                                 <numIndex index="1">true</numIndex>
                             </numIndex>
                         </items>
-                        <default>false</default>
+                        <default>true</default>
                     </config>
                 </TCEforms>
             </loop>
             <slideSpeed>
                 <TCEforms>
-                    <label>LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:slidespeed
+                    <label>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:slidespeed
                     </label>
                     <exclude>1</exclude>
                     <config type="array">
@@ -69,7 +69,7 @@
             </slideSpeed>
             <centeredSlides>
                 <TCEforms>
-                    <label>LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:centeredSlides
+                    <label>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:centeredSlides
                     </label>
                     <exclude>1</exclude>
                     <config type="array">
@@ -77,11 +77,11 @@
                         <renderType>selectSingle</renderType>
                         <items type="array">
                             <numIndex index="0" type="array">
-                                <numIndex index="0">LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:disabled</numIndex>
+                                <numIndex index="0">LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:disabled</numIndex>
                                 <numIndex index="1">false</numIndex>
                             </numIndex>
                             <numIndex index="1" type="array">
-                                <numIndex index="0">LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:enabled</numIndex>
+                                <numIndex index="0">LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:enabled</numIndex>
                                 <numIndex index="1">true</numIndex>
                             </numIndex>
                         </items>
@@ -91,7 +91,7 @@
             </centeredSlides>
             <fade>
                 <TCEforms>
-                    <label>LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:fade
+                    <label>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:fade
                     </label>
                     <exclude>1</exclude>
                     <config type="array">
@@ -99,11 +99,11 @@
                         <renderType>selectSingle</renderType>
                         <items type="array">
                             <numIndex index="0" type="array">
-                                <numIndex index="0">LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:disabled</numIndex>
+                                <numIndex index="0">LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:disabled</numIndex>
                                 <numIndex index="1">false</numIndex>
                             </numIndex>
                             <numIndex index="1" type="array">
-                                <numIndex index="0">LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:enabled</numIndex>
+                                <numIndex index="0">LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:enabled</numIndex>
                                 <numIndex index="1">true</numIndex>
                             </numIndex>
                         </items>
@@ -113,7 +113,7 @@
             </fade>
             <randomStart>
                 <TCEforms>
-                    <label>LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:randomStart
+                    <label>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:randomStart
                     </label>
                     <exclude>1</exclude>
                     <config type="array">
@@ -121,11 +121,11 @@
                         <renderType>selectSingle</renderType>
                         <items type="array">
                             <numIndex index="0" type="array">
-                                <numIndex index="0">LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:disabled</numIndex>
+                                <numIndex index="0">LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:disabled</numIndex>
                                 <numIndex index="1">false</numIndex>
                             </numIndex>
                             <numIndex index="1" type="array">
-                                <numIndex index="0">LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:enabled</numIndex>
+                                <numIndex index="0">LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:enabled</numIndex>
                                 <numIndex index="1">true</numIndex>
                             </numIndex>
                         </items>

@@ -2,19 +2,19 @@
 ####### CTYPE: KU SWIPERJS SLIDESHOW #########
 ##############################################
 
-tt_content.ku_swiperjs >
-tt_content.ku_swiperjs =< lib.contentElement
-tt_content.ku_swiperjs {
+tt_content.ku_swiper >
+tt_content.ku_swiper =< lib.contentElement
+tt_content.ku_swiper {
 
     ################
     ### TEMPLATE ###
     ################
-    templateName = Swiperjs
+    templateName = Swiper
     templateRootPaths {
-        10 = EXT:ku_swiperjs/Resources/Private/Templates/
+        10 = EXT:ku_swiper/Resources/Private/Templates/
     }
 	partialRootPaths {
-		10 = EXT:ku_swiperjs/Resources/Private/Partials/
+		10 = EXT:ku_swiper/Resources/Private/Partials/
 	}
 
 
@@ -22,10 +22,10 @@ tt_content.ku_swiperjs {
     ### DATA PREPROCESSING ###
     ##########################
     dataProcessing {
-        10 = UniversityOfCopenhagen\KuSwiperjs\DataProcessing\FlexFormProcessor
+        10 = UniversityOfCopenhagen\KuSwiper\DataProcessing\FlexFormProcessor
         20 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
         20 {
-            table = tx_ku_swiperjs_item
+            table = tx_ku_swiper_item
             pidInList.field = pid
             where {
                 data = field:uid
@@ -49,7 +49,7 @@ tt_content.ku_swiperjs {
 ### RESPONSIVE IMAGES ###
 #########################
 lib.contentElement.settings.responsiveimages.contentelements {
-    ku_swiperjs {
+    ku_swiper {
         left {
             multiplier {
                 default = 0.5

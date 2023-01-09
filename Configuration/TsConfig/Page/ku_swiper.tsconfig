@@ -1,0 +1,30 @@
+####################################
+#### NEW CONTENT ELEMENT WIZARD ####
+####################################
+mod.wizards.newContentElement.wizardItems.interactive {
+    elements {
+        ku_swiper {
+            iconIdentifier = ku-swiperjs-icon
+            title = LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:swiperjs_title
+            description = LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:swiperjs_desc
+            tt_content_defValues {
+                CType = ku_swiper
+            }
+        }
+    }
+    show := addToList(ku_swiper)
+}
+
+mod.wizards.newContentElement.wizardItems.interactive {
+    elements {
+        ku_swiper_content {
+            iconIdentifier = ku-swiperjs-icon
+            title = LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:swiperjs_content_title
+            description = LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:swiperjs_content_desc
+            tt_content_defValues {
+                CType = ku_swiper_content
+            }
+        }
+    }
+    show := addToList(ku_swiper_content)
+}

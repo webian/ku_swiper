@@ -1,5 +1,5 @@
 ######################
 #### DEPENDENCIES ####
 ######################
-@import 'EXT:ku_swiperjs/Configuration/TypoScript/SwiperJs_items/setup.typoscript'
-@import 'EXT:ku_swiperjs/Configuration/TypoScript/SwiperJs_content/setup.typoscript'
+@import 'EXT:ku_swiper/Configuration/TypoScript/Swiper_items/setup.typoscript'
+@import 'EXT:ku_swiper/Configuration/TypoScript/Swiper_content/setup.typoscript'

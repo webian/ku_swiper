@@ -8,8 +8,8 @@
  */
 
 $EM_CONF[$_EXTKEY] = [
-    'title' => 'KU SwiperJs slideshow',
-    'description' => 'Swiper slideshow',
+    'title' => 'KU Swiper slideshow',
+    'description' => 'Contains two content elements - one for slide containing image and/or text, one for adding pages and/or records.',
     'category' => 'templates',
     'constraints' => [
         'depends' => [

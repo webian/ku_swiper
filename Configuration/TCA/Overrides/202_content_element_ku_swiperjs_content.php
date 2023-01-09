@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the package bk2k/bootstrap-package.
+ * This file is part of the package UniversityOfCopenhagen\KuSwiperjs.
  *
  * For the full copyright and license information, please read the
  * LICENSE file that was distributed with this source code.
@@ -47,7 +47,7 @@ $GLOBALS['TCA']['tt_content']['types']['ku_swiperjs_content'] = array_replace_re
                 tx_ku_swiperjs_pages,
                 records;LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:swiperjs_records,
             --div--;LLL:EXT:ku_swiperjs/Resources/Private/Language/locallang_be.xlf:settings,
-                pi_flexform;LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:advanced,
+                pi_flexform,
             --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.appearance,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.frames;frames,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.appearanceLinks;appearanceLinks,

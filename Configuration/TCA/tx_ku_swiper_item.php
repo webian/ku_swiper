@@ -43,7 +43,7 @@ return [
                 slidelink,
                 media,
                 --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access,
-                --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.visibility;visibility,
+                //--palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.visibility;visibility,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,
                 --palette--;;hiddenLanguagePalette,
             '
@@ -171,7 +171,7 @@ return [
             'config' => [
                 'type' => 'text',
                 'cols' => '50',
-                'rows' => '8',
+                'rows' => '5',
                 'max' => 200,
                 'softref' => 'typolink_tag,email[subst],url',
                 'enableRichtext' => false

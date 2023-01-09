@@ -19,10 +19,6 @@
   height: 100%;
 }
 
-.slide-link {
-  display: block;
-}
-
 .slide-caption {
   position: absolute;
   top: 50%;
@@ -31,7 +27,7 @@
   text-align: left;
 }
 
-.slider-media {
+.slider-media, .slider-media figure, .slider-media picture {
   height: 100%;
 }
 

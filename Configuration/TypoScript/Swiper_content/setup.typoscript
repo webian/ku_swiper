@@ -47,6 +47,6 @@ lib.tx_ku_swiper_pages {
             }
             orderBy = sorting
         }
-        renderObj = < tt_content		
+        renderObj = < tt_content	
     }
 }

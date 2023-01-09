@@ -173,7 +173,7 @@ return [
                 'type' => 'text',
                 'cols' => '50',
                 'rows' => '8',
-                'max' => 50,
+                'max' => 200,
                 'softref' => 'typolink_tag,email[subst],url',
                 'enableRichtext' => false
             ],

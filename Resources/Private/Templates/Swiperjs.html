@@ -3,6 +3,7 @@
 
 <f:section name="Main">
     <f:flashMessages />
+    
     <f:if condition="{records}">
         <div class="swiper swiper{data.uid}">
             <div class="swiper-wrapper">
@@ -13,11 +14,11 @@
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
             <div class="swiper-pagination"></div>
-            <f:if condition="{data.pi_flexform.autoplay} === 'true' && {records} > 0">
+            <f:if condition="{data.pi_flexform.autoplay} === 'true' && {records} > 1">
                 <button aria-label="{f:translate(key: 'pause', extensionName: 'ku_swiperjs')}" aria-pressed="false"  class="btn btn-slider{data.uid} play-pause-button" type="button"><span class="bi bi-pause-fill" aria-hidden="true"></span></button>
             </f:if>
         </div>
-        <f:render partial="JavaScript" section="SwiperJsScript" arguments="{data: data}" />
+        <f:render partial="JavaScript" section="SwiperJsScript" arguments="{_all}" />
     </f:if>
 </f:section>
 

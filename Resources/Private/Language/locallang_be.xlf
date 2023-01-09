@@ -63,6 +63,12 @@
         <trans-unit id="dots">
             <source>Display dots (pagination)</source>
         </trans-unit>
+        <trans-unit id="fade">
+            <source>Fade slides</source>
+        </trans-unit>
+        <trans-unit id="centeredSlides">
+            <source>Centered slides (display half slides)</source>
+        </trans-unit>
         <trans-unit id="slidesToShow">
             <source>Number of slides to show at a time</source>
         </trans-unit>

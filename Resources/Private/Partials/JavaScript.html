@@ -1,15 +1,42 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
   <f:section name="SwiperJsScript">
 
-  <f:variable name="autoplay"><f:format.raw>{data.pi_flexform.autoplay}</f:format.raw></f:variable>
-    <f:if condition="{autoplay} === 'true'">
-      <f:variable name="autoplay"><f:format.raw>{
-            delay: <f:format.raw>{data.pi_flexform.slideSpeed}</f:format.raw>,
-            disableOnInteraction: true,
-          }</f:format.raw></f:variable>
+    <f:if condition="{data.pi_flexform.autoplay} === 'true'">
+      <f:then>
+        <f:variable name="autoplay"><f:format.raw>{
+              delay: <f:format.raw>{data.pi_flexform.slideSpeed}</f:format.raw>,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true,
+            }</f:format.raw></f:variable>
+        </f:then>
+        <f:else>
+          <f:variable name="autoplay">false</f:variable>
+        </f:else>
     </f:if>
 
-  
+    <f:if condition="{data.pi_flexform.autoplay} === 'true' && {records} > 1">
+      <f:then>
+        <f:variable name="loop">true</f:variable>
+      </f:then>
+      <f:else>
+        <f:variable name="loop">false</f:variable>
+      </f:else>
+    </f:if>
+
+    <f:if condition="{data.pi_flexform.fade} === 'true'">
+      <f:then>
+        <f:variable name="fade"><f:format.raw>effect: 'fade',
+          fadeEffect: {
+            crossFade: true
+          },</f:format.raw></f:variable>
+        </f:then>
+    </f:if>
+
+    <f:if condition="{data.pi_flexform.centeredSlides} === 'true'">
+      <f:then>
+        <f:variable name="centeredSlides"><f:format.raw>centeredSlides: true,</f:format.raw></f:variable>
+        </f:then>
+    </f:if>
     
   <kuSwiperjs:addJsFooterInlineCode name="swiper{data.uid -> f:format.raw()}" compress="true">
     document.addEventListener('DOMContentLoaded', () => {
@@ -18,8 +45,11 @@
             enabled: true,
           },
           a11y: true,
-          loop: <f:format.raw>{data.pi_flexform.loop}</f:format.raw>,
+          loop: <f:format.raw>{loop}</f:format.raw>,
           autoplay: <f:format.raw>{autoplay}</f:format.raw>,
+          <f:format.raw>{fade}</f:format.raw>
+          <f:format.raw>{centeredSlides}</f:format.raw>
+          spaceBetween: 20,
           pagination: {
             el: '.swiper-pagination',
             clickable: true,
@@ -36,22 +66,19 @@
             768: {
               slidesPerView: <f:format.raw>{data.pi_flexform.slidesToShow-tablet}</f:format.raw>,
               slidesPerGroup: <f:format.raw>{data.pi_flexform.slidesToScroll-tablet}</f:format.raw>,
-              spaceBetween: 20,
             },
             992: {
               slidesPerView: <f:format.raw>{data.pi_flexform.slidesToShow-desktop}</f:format.raw>,
               slidesPerGroup: <f:format.raw>{data.pi_flexform.slidesToScroll-desktop}</f:format.raw>,
-              spaceBetween: 20,
             },
             1200: {
               slidesPerView: <f:format.raw>{data.pi_flexform.slidesToShow-widescreen}</f:format.raw>,
               slidesPerGroup: <f:format.raw>{data.pi_flexform.slidesToScroll-widescreen}</f:format.raw>,
-              spaceBetween: 20,
             },
-          },
-        });
+        },  
+      });
         
-      <f:if condition="{data.pi_flexform.autoplay} === 'true'">
+      <f:if condition="{data.pi_flexform.autoplay} === 'true' && {records} > 1">
         <f:format.raw>
           document.querySelector('.<f:format.raw>btn-slider{data.uid}</f:format.raw>').addEventListener('click', function() {
             toggleBtnState(swiper<f:format.raw>{data.uid}</f:format.raw>, this)

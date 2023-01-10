@@ -1,3 +1,5 @@
+'use strict'
+
 /**
  * Check for accessibility settings
  */

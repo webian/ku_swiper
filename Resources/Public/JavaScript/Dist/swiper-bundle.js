@@ -4,7 +4,9 @@
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
 /**
- * Toggle SwiperJs play/pause button
+ * Toggle Swiper play/pause button
+ * @param swiper = Swiper object
+ * @param el = the toggle button
  */
 const toggleBtnState = (swiper, el) => {
     let isActive = el.classList.contains('paused');
@@ -17,7 +19,6 @@ const toggleBtnState = (swiper, el) => {
         icon.classList.replace('bi-pause-fill', 'bi-play-fill');
         isActive = false;
     } else {
-        console.log('paused');
         swiper.autoplay.start();
         el.setAttribute('aria-pressed', 'false');
         el.setAttribute('aria-label', translations.pause);

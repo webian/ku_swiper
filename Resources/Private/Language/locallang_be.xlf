@@ -70,7 +70,7 @@
             <source>Random start slide</source>
         </trans-unit>
         <trans-unit id="centeredSlides">
-            <source>Centered slides (display half slides)</source>
+            <source>Centered slides</source>
         </trans-unit>
         <trans-unit id="slidesToShow">
             <source>Number of slides to show at a time</source>

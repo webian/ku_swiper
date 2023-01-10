@@ -46,7 +46,7 @@ $GLOBALS['TCA']['tt_content']['types']['ku_swiper'] = array_replace_recursive(
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.headers;headers,
                 tx_ku_swiper_item,
             --div--;LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:settings,
-                pi_flexform,
+                pi_flexform;LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:settings,
             --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.appearance,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.frames;frames,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.appearanceLinks;appearanceLinks,

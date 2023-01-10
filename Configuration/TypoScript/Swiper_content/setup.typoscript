@@ -22,6 +22,12 @@ tt_content.ku_swiper_content {
     ##########################
     dataProcessing {
         10 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+        10 {
+            if.isTrue.field = records
+            table = tt_content
+            orderBy = sorting
+            as = content
+        }
     }
 
     variables {

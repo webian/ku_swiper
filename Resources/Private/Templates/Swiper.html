@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="{f:uri.resource(path: 'EXT:ku_swiper/Resources/Public/Css/Dist/swiper-bundle.min.css')}" />
     <script defer src="{f:uri.resource(path: 'EXT:ku_swiper/Resources/Public/JavaScript/Dist/swiper-bundle.min.js')}"></script>
     <script>
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
         let translations = {
             pause: '<f:translate key="LLL:EXT:ku_swiper/Resources/Private/Language/locallang.xlf:pause" />',
             play: '<f:translate key="LLL:EXT:ku_swiper/Resources/Private/Language/locallang.xlf:play" />',

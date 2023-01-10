@@ -15,6 +15,6 @@ call_user_func(function()
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile(
         $extensionKey,
         'Configuration/TypoScript',
-        'LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:swiperjs_title'
+        'LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:swiper_title'
     );
 });

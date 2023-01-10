@@ -18,7 +18,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['ku_swiper_content'] ?? fal
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
     'ku_swiper',
     'Configuration/TsConfig/Page/ku_swiper.tsconfig',
-    'LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:swiperjs_content_title'
+    'LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:swiper_content_title'
 );
 
 // Add content element to selector list
@@ -26,7 +26,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['ku_swiper_content'] ?? fal
     'tt_content',
     'CType',
     [
-        'LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:swiperjs_content_title',
+        'LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:swiper_content_title',
         'ku_swiper_content',
         'ku-swiperjs-icon',
         'ku_swiper'
@@ -44,7 +44,7 @@ $GLOBALS['TCA']['tt_content']['types']['ku_swiper_content'] = array_replace_recu
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.headers;headers,
-                records;LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:swiperjs_records,
+                records;LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:swiper_records,
                 tx_ku_swiper_pages,
             --div--;LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:settings,
                 pi_flexform;LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:settings,
@@ -70,7 +70,7 @@ $GLOBALS['TCA']['tt_content']['columns'] = array_replace_recursive(
     $GLOBALS['TCA']['tt_content']['columns'],
     [
         'tx_ku_swiper_pages' => [
-            'label' => 'LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:swiperjs_pages',
+            'label' => 'LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:swiper_pages',
             'exclude' => 1,
             'config' => [
                 'type' => 'group',

@@ -15,7 +15,7 @@ return [
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
         'cruser_id' => 'cruser_id',
-        'title' => 'LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:swiperjs_item',
+        'title' => 'LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:swiper_item',
         'delete' => 'deleted',
         'versioningWS' => true,
         'origUid' => 't3_origuid',

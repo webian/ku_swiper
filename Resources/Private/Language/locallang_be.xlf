@@ -6,25 +6,25 @@
             <authorEmail>nel@adm.ku.dk</authorEmail>
         </header>
         <body>
-        <trans-unit id="swiperjs_title">
+        <trans-unit id="swiper_title">
             <source>KU slideshow with image and text</source>
         </trans-unit>
-        <trans-unit id="swiperjs_desc">
+        <trans-unit id="swiper_desc">
             <source>Add images and text to create a slideshow</source>
         </trans-unit>
-        <trans-unit id="swiperjs_content_title">
+        <trans-unit id="swiper_content_title">
             <source>KU slideshow with content elements</source>
         </trans-unit>
-        <trans-unit id="swiperjs_content_desc">
+        <trans-unit id="swiper_content_desc">
             <source>Add content elements to create a slideshow</source>
         </trans-unit>
-        <trans-unit id="swiperjs_item">
+        <trans-unit id="swiper_item">
             <source>Add slideshow item</source>
         </trans-unit>
-        <trans-unit id="swiperjs_pages">
+        <trans-unit id="swiper_pages">
             <source>Add pages</source>
         </trans-unit>
-        <trans-unit id="swiperjs_records">
+        <trans-unit id="swiper_records">
             <source>Add content elements</source>
         </trans-unit>
         <trans-unit id="settings">

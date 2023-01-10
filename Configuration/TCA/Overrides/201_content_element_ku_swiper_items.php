@@ -18,7 +18,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['ku_swiper'] ?? false)) {
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile(
     'ku_swiper',
     'Configuration/TsConfig/Page/ku_swiper.tsconfig',
-    'LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:swiperjs_title'
+    'LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:swiper_title'
 );
 
 // Add content element to selector list
@@ -26,7 +26,7 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['ku_swiper'] ?? false)) {
     'tt_content',
     'CType',
     [
-        'LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:swiperjs_title',
+        'LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:swiper_title',
         'ku_swiper',
         'ku-swiperjs-icon',
         'ku_swiper'
@@ -70,7 +70,7 @@ $GLOBALS['TCA']['tt_content']['columns'] = array_replace_recursive(
     [
         'tx_ku_swiper_item' => [
             'exclude' => 1,
-            'label' => 'LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:swiperjs_item',
+            'label' => 'LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:swiper_item',
             'config' => [
                 'type' => 'inline',
                 'foreign_table' => 'tx_ku_swiper_item',

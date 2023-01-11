@@ -99,3 +99,5 @@ $GLOBALS['TCA']['tt_content']['columns'] = array_replace_recursive(
     'FILE:EXT:ku_swiper/Configuration/Flexforms/default.xml',
     'ku_swiper'
 );
+
+$GLOBALS['TCA']['tt_content']['types']['ku_swiper']['previewRenderer'] = \UniversityOfCopenhagen\KuSwiper\Backend\Preview\kuSwiperPreviewRenderer::class;

@@ -1,1 +1,4 @@
 @import "EXT:ku_swiper/Configuration/TsConfig/Page/*"
+
+// Backend preview Template
+mod.web_layout.tt_content.preview.ku_swiper = EXT:ku_swiper/Resources/Private/Templates/Backend/Preview/Default.html

@@ -33,7 +33,7 @@
     </f:if>
 
     <f:if condition="{data.pi_flexform.randomStart} === 'true'">
-      <f:variable name="randomStart">initialSlide: getRandomInt(<f:format.raw>{totalcount}</f:format.raw>),</f:variable>
+      <f:variable name="randomStart">initialSlide: Math.floor(Math.random() * (<f:format.raw>{totalcount}</f:format.raw> - 0 + 1) + 0),</f:variable>
     </f:if>
     
   <KuSwiper:addJsFooterInlineCode name="swiper{data.uid -> f:format.raw()}" compress="true">
@@ -79,11 +79,7 @@
       });
         
       <f:if condition="{data.pi_flexform.autoplay} === 'true' && {totalcount} > 1">
-        <f:format.raw>
-          document.querySelector('.<f:format.raw>btn-slider{data.uid}</f:format.raw>').addEventListener('click', function() {
-            toggleBtnState(swiper<f:format.raw>{data.uid}</f:format.raw>, this)
-          }, false);
-        </f:format.raw>
+        <f:format.raw>const ss{data.uid -> f:format.raw()} = new SwiperState(swiper{data.uid -> f:format.raw()}, '.btn-slider{data.uid -> f:format.raw()}');</f:format.raw>
       </f:if>
     });
   </KuSwiper:addJsFooterInlineCode>

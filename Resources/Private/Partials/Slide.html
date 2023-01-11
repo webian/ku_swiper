@@ -16,7 +16,11 @@
         <f:if condition="{record.files.0}">
             <f:then>
                 <div class="slider-media">
-                    <f:render partial="Media/Type" arguments="{file: record.files.0, data: data, settings: settings, variants: variants}" />
+                    <f:comment>
+                        <!-- Use partial from Bootstrap package -->
+                        <f:render partial="Media/Type" arguments="{file: record.files.0, data: data, settings: settings, variants: variants}" />
+                    </f:comment>
+                    <f:image image="{record.files.0}" alt="" />
                 </div>
             </f:then>
         </f:if>

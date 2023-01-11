@@ -11,6 +11,7 @@ class SwiperState {
         this.icon = this.el.querySelector('.bi');
         this.prefersReducedMotion();
         this.addEventListeners();
+        this.getId();
     }
 
     addEventListeners() {

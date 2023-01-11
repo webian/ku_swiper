@@ -35,6 +35,14 @@
     <f:if condition="{data.pi_flexform.randomStart} === 'true'">
       <f:variable name="randomStart">initialSlide: Math.floor(Math.random() * (<f:format.raw>{totalcount}</f:format.raw> - 0 + 1) + 0),</f:variable>
     </f:if>
+
+    <f:if condition="{data.pi_flexform.reachedEnd} === 'true' && {data.pi_flexform.autoplay} === 'true'">
+      <f:variable name="reachedEnd">
+        reachEnd: function(){
+          SwiperState.pauseSwiper();
+        },
+      </f:variable>
+    </f:if>
     
   <KuSwiper:addJsFooterInlineCode name="swiper{data.uid -> f:format.raw()}" compress="true">
     document.addEventListener('DOMContentLoaded', () => {

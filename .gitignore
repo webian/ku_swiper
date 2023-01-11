@@ -1,7 +1,5 @@
 # PHP lint
 .php-cs-fixer.php
-# Ftp settings
-sftp.json
 
 # TypeScript stuff
 .baseDir.ts
@@ -25,7 +23,6 @@ sftp.json
 *.swo
 *.swp
 *.vi
-*.bak
 *.zip
 *~
 
@@ -36,15 +33,15 @@ sftp.json
 .idea
 .project
 .settings
-.php_cs
 .tmproj
-.webprj
-.TemporaryItems
 *.esproj
 *.sublime-project
 *.sublime-workspace
-*.code-workspace
 nbproject
+Thumbs.db
+/.vscode/
+# Local Netlify folder
+.netlify
 Thumbs.db
 
 # Komodo
@@ -57,5 +54,5 @@ Thumbs.db
 /fileadmin/*
 /uploads/*
 /FIRST_INSTALL
-/node_modules
-/swiper
+/node_modules/
+/swiper/*

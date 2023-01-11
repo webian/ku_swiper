@@ -49,7 +49,6 @@ class AddJsFooterInlineCodeViewHelper extends AbstractTagBasedViewHelper
         $this->registerArgument('name', 'string', '', false);
         $this->registerArgument('compress', 'boolean', '');
         $this->registerArgument('forceOnTop', 'boolean', '');
-        $this->registerArgument('excludeFromConcatenation', 'boolean', '');
     }
 
     public function render()

@@ -20,25 +20,13 @@
         <f:render partial="JavaScript" section="SwiperJsScript" arguments="{_all}" />
     </f:if>
 </f:section>
-<f:section name="HeaderAssets">
-    <link rel="stylesheet" href="{f:uri.resource(path: 'EXT:ku_swiper/Resources/Public/Css/Dist/swiper-bundle.min.css')}" />
-    <script defer src="{f:uri.resource(path: 'EXT:ku_swiper/Resources/Public/JavaScript/Dist/swiper-bundle.min.js')}"></script>
 
-    <!-- <script type="module"> 
-        // core version + navigation, pagination modules:
-        import Swiper, { Navigation, Pagination } from '{f:uri.resource(path: "EXT:ku_swiper/Resources/Public/swiper")}';
-        // import Swiper and modules styles
-        import '{f:uri.resource(path: "EXT:ku_swiper/Resources/Public/swiper/css")}';
-        import '{f:uri.resource(path: "EXT:ku_swiper/Resources/Public/swiper/css/navigation")}';
-        import '{f:uri.resource(path: "EXT:ku_swiper/Resources/Public/swiper/css/pagination")}';
-    </script> -->
-    
-    <script>
-        let translations = {
-            pause: '<f:translate key="LLL:EXT:ku_swiper/Resources/Private/Language/locallang.xlf:pause" />',
-            play: '<f:translate key="LLL:EXT:ku_swiper/Resources/Private/Language/locallang.xlf:play" />',
-        };
-    </script>
+<f:section name="HeaderAssets">
+    <f:render partial="HeaderAssets" arguments="{_all}" />
+</f:section>
+
+<f:section name="FooterAssets">
+    <f:render partial="FooterAssets" arguments="{_all}" />
 </f:section>
 
 </html>

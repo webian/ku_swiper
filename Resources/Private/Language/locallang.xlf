@@ -7,10 +7,10 @@
         </header>
         <body>
             <trans-unit id="pause">
-            <source>Pause (use Enter key)</source>
+            <source>Pause (use spacebar)</source>
         </trans-unit>
         <trans-unit id="play">
-            <source>Play (use Enter bar)</source>
+            <source>Play (use spacebar)</source>
         </trans-unit>
         </body>
     </file>

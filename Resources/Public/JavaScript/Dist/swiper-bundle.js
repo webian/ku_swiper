@@ -10725,10 +10725,10 @@ class SwiperState {
     }
 
     togglePlayPause() {
-        if (this.swiper.autoplay.paused) {
-            this.playSwiper();
-        } else {
+        if (this.swiper.autoplay.running) {
             this.pauseSwiper();
+        } else {
+            this.playSwiper();
         }
     }
 
@@ -10747,7 +10747,7 @@ class SwiperState {
     }
 
     prefersReducedMotion() {
-        if (this.swiper.autoplay.running === true && matchMedia('(prefers-reduced-motion)').matches) {
+        if (this.swiper.autoplay.running && matchMedia('(prefers-reduced-motion)').matches) {
             this.pauseSwiper();
         }
     }

@@ -70,7 +70,7 @@
             <source>Random start slide</source>
         </trans-unit>
         <trans-unit id="centeredSlides">
-            <source>Centered slides</source>
+            <source>Centered start slide</source>
         </trans-unit>
         <trans-unit id="slidesToShow">
             <source>Number of slides to show at a time</source>
@@ -80,6 +80,9 @@
         </trans-unit>
         <trans-unit id="slidespeed">
             <source>Slide speed (miliseconds)</source>
+        </trans-unit>
+        <trans-unit id="reachedEnd">
+            <source>Stop slideshow when end is reached</source>
         </trans-unit>
         <trans-unit id="slidelink">
             <source>Slide link</source>

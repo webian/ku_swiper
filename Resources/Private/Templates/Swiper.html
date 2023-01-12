@@ -2,8 +2,10 @@
 <f:layout name="Default" />
 <f:section name="Main">
     <f:flashMessages />
+    
     <f:if condition="{records}">
         <f:variable name="totalcount">{records -> f:count()}</f:variable>
+        <f:variable name="swiper">swiper{data.uid -> f:format.raw()}</f:variable>
         <div class="swiper swiper{data.uid}">
             <div class="swiper-wrapper">
                 <f:for each="{records}" as="record" iteration="iterator">
@@ -14,7 +16,7 @@
             <div class="swiper-button-prev"></div>
             <div class="swiper-pagination"></div>
             <f:if condition="{data.pi_flexform.autoplay} === 'true' && {totalcount} > 1">
-                <button aria-label="{f:translate(key: 'pause', extensionName: 'ku_swiper')}" aria-pressed="false" class="btn btn-slider{data.uid} play-pause-button" type="button"><span class="bi bi-pause-fill" aria-hidden="true"></span></button>
+                <button aria-label="{f:translate(key: 'pause', extensionName: 'ku_swiper')}" aria-pressed="false" class="btn btn-{swiper} play-pause-button" type="button"><span class="bi bi-pause-fill" aria-hidden="true"></span></button>
             </f:if>
         </div>
         <f:render partial="JavaScript" section="SwiperJsScript" arguments="{_all}" />

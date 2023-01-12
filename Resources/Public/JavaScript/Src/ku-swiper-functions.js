@@ -1,6 +1,9 @@
 /**
  * Swiper player button states
+ * @author Nanna Ellegaard
+ * @copyright 2023
  */
+
 const play = 'bi-play-fill';
 const pause = 'bi-pause-fill';
 
@@ -11,7 +14,6 @@ class SwiperState {
         this.icon = this.el.querySelector('.bi');
         this.prefersReducedMotion();
         this.addEventListeners();
-        this.getId();
     }
 
     addEventListeners() {

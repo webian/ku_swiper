@@ -84,6 +84,9 @@
         <trans-unit id="reachedEnd">
             <source>Stop slideshow when end is reached</source>
         </trans-unit>
+        <trans-unit id="lazyLoad">
+            <source>Lazy load images</source>
+        </trans-unit>
         <trans-unit id="slidelink">
             <source>Slide link</source>
         </trans-unit>

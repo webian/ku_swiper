@@ -1,4 +1,5 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:variable name="totalcount">{records -> f:count()}</f:variable>
 <div class="swiper-slide">
     <f:if condition="{record.data.slidelink}">
         <f:then>
@@ -16,11 +17,17 @@
         <f:if condition="{record.files.0}">
             <f:then>
                 <div class="slider-media">
-                    <f:comment>
-                        <!-- Use partial from Bootstrap Package -->
-                        <f:render partial="Media/Type" arguments="{file: record.files.0, data: data, settings: settings, variants: variants}" />
-                    </f:comment>
-                    <f:image image="{record.files.0}"  alt="" />
+                    <f:if condition="{totalcount} > 1 && {data.pi_flexform.lazyLoad} === 'true'">
+                        <f:then>
+                            <f:for each="{record.files}" as="file">
+                                <img class="swiper-lazy" data-src="{f:uri.image(image: file, treatIdAsReference:1)}" alt="" />
+                            </f:for>
+                            <div class="swiper-lazy-preloader"></div>
+                        </f:then>
+                        <f:else>
+                            <f:image image="{record.files.0}" alt="" />
+                        </f:else>
+                    </f:if>
                 </div>
             </f:then>
         </f:if>

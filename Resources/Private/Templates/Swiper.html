@@ -8,7 +8,7 @@
         <f:variable name="swiper">swiper{data.uid -> f:format.raw()}</f:variable>
         <div class="swiper swiper{data.uid}">
             <div class="swiper-wrapper">
-                <f:for each="{records}" as="record" iteration="iterator">
+                <f:for each="{records}" as="record">
                     <f:render partial="Slide" arguments="{_all}" />
                 </f:for>
             </div>

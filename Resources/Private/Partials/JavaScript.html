@@ -39,6 +39,10 @@
     <f:variable name="reachedEnd"> reachEnd: function(){ ss_{swiper}.pauseSwiper(); }, </f:variable>
   </f:if>
 
+  <f:if condition="{totalcount} > 1 && {data.pi_flexform.lazyLoad} === 'true'">
+    <f:variable name="lazyload"><f:format.raw>lazy: true,</f:format.raw></f:variable>
+  </f:if>
+
   <KuSwiper:addJsFooterInlineCode name="swiper{data.uid -> f:format.raw()}" compress="true">
     document.addEventListener('DOMContentLoaded', () => {
       const {swiper} = new Swiper('.<f:format.raw>{swiper}</f:format.raw>', {
@@ -47,6 +51,7 @@
           <f:format.raw>{randomStart}</f:format.raw>
           <f:format.raw>{fade}</f:format.raw>
           <f:format.raw>{centeredSlides}</f:format.raw>
+          <f:format.raw>{lazyload}</f:format.raw>
           watchOverflow: true,
           spaceBetween: 20,
           pagination: {

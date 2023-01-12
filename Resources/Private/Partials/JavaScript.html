@@ -36,7 +36,7 @@
   </f:if>
   
   <f:if condition="{data.pi_flexform.reachedEnd} === 'true' && {data.pi_flexform.autoplay} === 'true'">
-    <f:variable name="reachedEnd"> reachEnd: function(){ ss{swiper}.pauseSwiper(); }, </f:variable>
+    <f:variable name="reachedEnd"> reachEnd: function(){ ss_{swiper}.pauseSwiper(); }, </f:variable>
   </f:if>
 
   <KuSwiper:addJsFooterInlineCode name="swiper{data.uid -> f:format.raw()}" compress="true">
@@ -85,7 +85,7 @@
       });
         
       <f:if condition="{data.pi_flexform.autoplay} === 'true' && {totalcount} > 1">
-        const ss{swiper} = new SwiperState({swiper}, '.btn-{swiper}');
+        const ss_{swiper} = new SwiperState({swiper}, '.btn-{swiper}');
       </f:if>
     });
   </KuSwiper:addJsFooterInlineCode>

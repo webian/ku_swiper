@@ -688,9 +688,8 @@ button.swiper-pagination-bullet {
   border-radius: 50%;
 }
 
-.play-pause-button:focus,
-.play-pause-button:active {
+.play-pause-button:focus {
   border-color: #86b7fe;
-  box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%);
+  box-shadow: var(--bs-btn-active-shadow), var(--bs-btn-focus-box-shadow);
   transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }

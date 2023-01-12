@@ -10736,14 +10736,14 @@ class SwiperState {
         this.swiper.autoplay.start();
         this.icon.classList.replace(play, pause);
         this.el.setAttribute('aria-pressed', 'false');
-        this.el.setAttribute('aria-label', translations.pause);
+        this.el.setAttribute('aria-label', translate.pause);
     }
 
     pauseSwiper() {
         this.swiper.autoplay.stop();
         this.icon.classList.replace(pause, play);
         this.el.setAttribute('aria-pressed', 'true');
-        this.el.setAttribute('aria-label', translations.play);
+        this.el.setAttribute('aria-label', translate.play);
     }
 
     prefersReducedMotion() {

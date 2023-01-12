@@ -20,7 +20,7 @@
                     <f:if condition="{totalcount} > 1 && {data.pi_flexform.lazyLoad} === 'true'">
                         <f:then>
                             <f:for each="{record.files}" as="file">
-                                <img class="swiper-lazy" data-src="{f:uri.image(image: file, treatIdAsReference:1)}" alt="" />
+                                <img class="swiper-lazy" data-src="{f:uri.image(image: file, treatIdAsReference: 1)}" alt="" />
                             </f:for>
                             <div class="swiper-lazy-preloader"></div>
                         </f:then>

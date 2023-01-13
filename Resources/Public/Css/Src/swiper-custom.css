@@ -75,7 +75,6 @@
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
-
   .hide-navigation-md [class^='swiper-button-'] {
     opacity: 0;
     cursor: auto;
@@ -101,7 +100,6 @@
     cursor: auto;
     pointer-events: none;
   }
-
 }
 
 @media (min-width: 1200px) {
@@ -116,5 +114,4 @@
     cursor: auto;
     pointer-events: none;
   }
-
 }

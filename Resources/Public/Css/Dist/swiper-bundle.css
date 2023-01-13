@@ -722,7 +722,6 @@ button.swiper-pagination-bullet {
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
-
   .hide-navigation-md [class^='swiper-button-'] {
     opacity: 0;
     cursor: auto;
@@ -748,7 +747,6 @@ button.swiper-pagination-bullet {
     cursor: auto;
     pointer-events: none;
   }
-
 }
 
 @media (min-width: 1200px) {
@@ -763,5 +761,4 @@ button.swiper-pagination-bullet {
     cursor: auto;
     pointer-events: none;
   }
-
 }

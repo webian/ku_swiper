@@ -6,17 +6,17 @@
   <f:if condition="{totalcount} > 1 && {data.pi_flexform.autoplay} === 'true'">
     <f:then>
       <f:variable name="autoplay">
-        <f:format.raw>{ delay: <f:format.raw>{data.pi_flexform.slideSpeed}</f:format.raw>, disableOnInteraction: false, }</f:format.raw>
+        <f:format.raw>autoplay: { delay: <f:format.raw>{data.pi_flexform.slideSpeed}</f:format.raw>, disableOnInteraction: false, },</f:format.raw>
       </f:variable>
     </f:then>
     <f:else>
-      <f:variable name="autoplay">false</f:variable>
+      <f:variable name="autoplay">autoplay: false,</f:variable>
     </f:else>
   </f:if>
 
-  <f:variable name="loop">{data.pi_flexform.loop -> f:format.raw()}</f:variable>
+  <f:variable name="loop">loop: {data.pi_flexform.loop -> f:format.raw()},</f:variable>
   <f:if condition="{totalcount} < 2 && {data.pi_flexform.autoplay} === 'true'">
-    <f:variable name="loop">false</f:variable>
+    <f:variable name="loop">loop: false,</f:variable>
   </f:if>
 
   <f:if condition="{data.pi_flexform.fade} === 'true'">
@@ -42,8 +42,8 @@
   <KuSwiper:addJsFooterInlineCode name="swiper{data.uid -> f:format.raw()}" compress="true">
     document.addEventListener('DOMContentLoaded', () => {
       const {swiper} = new Swiper('.<f:format.raw>{swiper}</f:format.raw>', {
-          autoplay: <f:format.raw>{autoplay}</f:format.raw>,
-          loop: <f:format.raw>{loop}</f:format.raw>,
+          <f:format.raw>{autoplay}</f:format.raw>
+          <f:format.raw>{loop}</f:format.raw>
           <f:format.raw>{randomStart}</f:format.raw>
           <f:format.raw>{fade}</f:format.raw>
           <f:format.raw>{centeredSlides}</f:format.raw>

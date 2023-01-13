@@ -2,11 +2,51 @@
 <f:layout name="Default" />
 <f:section name="Main">
     <f:flashMessages />
-    
     <f:if condition="{records}">
         <f:variable name="totalcount">{records -> f:count()}</f:variable>
         <f:variable name="swiper">swiper{data.uid -> f:format.raw()}</f:variable>
-        <div class="swiper swiper{data.uid}">
+        <f:variable name="navigation-sm">
+            <f:if condition="{data.pi_flexform.arrows-smartphone} === 'false'">
+                <f:format.raw>hide-navigation-sm</f:format.raw>
+            </f:if>
+        </f:variable>
+        <f:variable name="navigation-md">
+            <f:if condition="{data.pi_flexform.arrows-tablet} === 'false'">
+                <f:format.raw>hide-navigation-md</f:format.raw>
+            </f:if>
+        </f:variable>
+        <f:variable name="navigation-lg">
+            <f:if condition="{data.pi_flexform.arrows-desktop} === 'false'">
+                <f:format.raw>hide-navigation-lg</f:format.raw>
+            </f:if>
+        </f:variable>
+        <f:variable name="navigation-xl">
+            <f:if condition="{data.pi_flexform.arrows-widescreen} === 'false'">
+                <f:format.raw>hide-navigation-xl</f:format.raw>
+            </f:if>
+        </f:variable>
+        <f:variable name="pagination-sm">
+            <f:if condition="{data.pi_flexform.dots-smartphone} === 'false'">
+                <f:format.raw>hide-pagination-sm</f:format.raw>
+            </f:if>
+        </f:variable>
+        <f:variable name="pagination-md">
+            <f:if condition="{data.pi_flexform.dots-tablet} === 'false'">
+                <f:format.raw>hide-pagination-md</f:format.raw>
+            </f:if>
+        </f:variable>
+        <f:variable name="pagination-lg">
+            <f:if condition="{data.pi_flexform.dots-desktop} === 'false'">
+                <f:format.raw>hide-pagination-lg</f:format.raw>
+            </f:if>
+        </f:variable>
+        <f:variable name="pagination-xl">
+            <f:if condition="{data.pi_flexform.dots-widescreen} === 'false'">
+                <f:format.raw>hide-pagination-xl</f:format.raw>
+            </f:if>
+        </f:variable>
+
+        <div class="swiper swiper{data.uid} {navigation-sm} {navigation-md} {navigation-lg} {navigation-xl} {pagination-sm} {pagination-md} {pagination-lg} {pagination-xl}">
             <div class="swiper-wrapper">
                 <f:for each="{records}" as="record">
                     <f:render partial="Slide" arguments="{_all}" />
@@ -22,11 +62,9 @@
         <f:render partial="JavaScript" section="SwiperJsScript" arguments="{_all}" />
     </f:if>
 </f:section>
-
 <f:section name="HeaderAssets">
     <f:render partial="HeaderAssets" arguments="{_all}" />
 </f:section>
-
 <f:section name="FooterAssets">
     <f:render partial="FooterAssets" arguments="{_all}" />
 </f:section>

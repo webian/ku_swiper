@@ -20,15 +20,11 @@
   </f:if>
 
   <f:if condition="{data.pi_flexform.fade} === 'true'">
-    <f:variable name="fade">
-      <f:format.raw>effect: 'fade', fadeEffect: { crossFade: true },</f:format.raw>
-    </f:variable>
+    <f:variable name="fade"><f:format.raw>effect: 'fade', fadeEffect: { crossFade: true },</f:format.raw></f:variable>
   </f:if>
 
   <f:if condition="{data.pi_flexform.centeredSlides} === 'true'">
-    <f:variable name="centeredSlides">
-      <f:format.raw>centeredSlides: true,</f:format.raw>
-    </f:variable>
+    <f:variable name="centeredSlides"><f:format.raw>centeredSlides: true,</f:format.raw></f:variable>
   </f:if>
 
   <f:if condition="{data.pi_flexform.randomStart} === 'true'">
@@ -62,6 +58,8 @@
             prevEl: '.swiper-button-prev',
           },
           a11y: true,
+          slidesPerView: <f:format.raw>{data.pi_flexform.slidesToShow-smartphone}</f:format.raw>,
+          slidesPerGroup: <f:format.raw>{data.pi_flexform.slidesToScroll-smartphone}</f:format.raw>,
           on: {
             <f:format.raw>{reachedEnd}</f:format.raw>
           },

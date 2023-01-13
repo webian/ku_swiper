@@ -8,12 +8,12 @@
         <el>
             <slidesToShow-tablet type="array">
 				<TCEforms type="array">
-					<label>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:slidesToShow
-					</label>
+					<label>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:slidesToShow</label>
+					<description>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:slidesToShow_desc</description>
 					<exclude>1</exclude><config type="array">
 						<type>input</type>
 						<size>1</size>
-						<eval>int,required</eval>
+						<eval>required</eval>
 						<range>
 							<lower>1</lower>
 							<upper>12</upper>
@@ -24,8 +24,7 @@
 			</slidesToShow-tablet>
 			<slidesToScroll-tablet type="array">
 				<TCEforms type="array">
-					<label>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:slidesToScroll
-					</label>
+					<label>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:slidesToScroll</label>
 					<exclude>1</exclude><config type="array">
 						<type>input</type>
 						<size>1</size>

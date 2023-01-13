@@ -46,3 +46,75 @@
   box-shadow: var(--bs-btn-active-shadow), var(--bs-btn-focus-box-shadow);
   transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
+
+.textoverlay {
+  font-weight: 600;
+  margin: 0;
+}
+
+.textoverlay>span {
+  padding: 0 6px 6px 10px;
+  background-color: var(--bs-white);
+  color: var(--bs-body-color);
+  /* box-shadow: 0 0 0 0 var(--bs-white), 0 0 0 0 var(--bs-white); */
+  box-decoration-break: clone;
+}
+
+@media (max-width: 767px) {
+  .hide-navigation-sm [class^='swiper-button-'] {
+    opacity: 0;
+    cursor: auto;
+    pointer-events: none;
+  }
+
+  .hide-pagination-sm .swiper-pagination {
+    display: none;
+    cursor: auto;
+    pointer-events: none;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+  .hide-navigation-md [class^='swiper-button-'] {
+    opacity: 0;
+    cursor: auto;
+    pointer-events: none;
+  }
+
+  .hide-pagination-md .swiper-pagination {
+    display: none;
+    cursor: auto;
+    pointer-events: none;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .hide-navigation-lg [class^='swiper-button-'] {
+    opacity: 0;
+    cursor: auto;
+    pointer-events: none;
+  }
+
+  .hide-pagination-lg .swiper-pagination {
+    display: none;
+    cursor: auto;
+    pointer-events: none;
+  }
+
+}
+
+@media (min-width: 1200px) {
+  .hide-navigation-xl [class^='swiper-button-'] {
+    opacity: 0;
+    cursor: auto;
+    pointer-events: none;
+  }
+
+  .hide-pagination-xl .swiper-pagination {
+    display: none;
+    cursor: auto;
+    pointer-events: none;
+  }
+
+}

@@ -15,7 +15,7 @@
 					<config type="array">
 						<type>input</type>
 						<size>1</size>
-						<eval>required</eval>
+						<eval>double2,trim,required</eval>
 						<range>
 							<lower>1</lower>
 							<upper>12</upper>

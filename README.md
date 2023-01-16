@@ -1,8 +1,8 @@
 # TYPO3 extension SwiperJs slideshow
-=====================================
 
-### this is a TYPO3 extension of the Swiper slider
+### This is a TYPO3 extension of the Swiper slider
 Based on: https://swiperjs.com/
+
 Does not require jQuery.
 
 ## Developed for

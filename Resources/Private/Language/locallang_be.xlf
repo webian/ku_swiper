@@ -46,10 +46,10 @@
             <source>Widescreen and up</source>
         </trans-unit>
         <trans-unit id="enabled">
-            <source>Enabled</source>
+            <source>True</source>
         </trans-unit>
         <trans-unit id="disabled">
-            <source>Disabled</source>
+            <source>False</source>
         </trans-unit>
         <trans-unit id="autoplay">
             <source>Autoplay</source>

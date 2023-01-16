@@ -3,7 +3,7 @@
   <f:variable name="totalcount">{records -> f:count()}</f:variable>
   <f:variable name="swiper">swiper{data.uid -> f:format.raw()}</f:variable>
 
-  <f:if condition="{totalcount} > 1 && {data.pi_flexform.autoplay} === 'true'">
+  <f:if condition="{totalcount} > 1 && {data.pi_flexform.autoplay} === '1'">
     <f:then>
       <f:variable name="autoplay">
         <f:format.raw>autoplay: { delay: <f:format.raw>{data.pi_flexform.slideSpeed}</f:format.raw>, disableOnInteraction: false, },</f:format.raw>
@@ -15,27 +15,27 @@
   </f:if>
 
   <f:variable name="loop">loop: {data.pi_flexform.loop -> f:format.raw()},</f:variable>
-  <f:if condition="{totalcount} < 2 && {data.pi_flexform.autoplay} === 'true'">
+  <f:if condition="{totalcount} < 2 && {data.pi_flexform.autoplay} === '1'">
     <f:variable name="loop">loop: false,</f:variable>
   </f:if>
 
-  <f:if condition="{data.pi_flexform.fade} === 'true'">
+  <f:if condition="{data.pi_flexform.fade} === '1'">
     <f:variable name="fade"><f:format.raw>effect: 'fade', fadeEffect: { crossFade: true },</f:format.raw></f:variable>
   </f:if>
 
-  <f:if condition="{data.pi_flexform.centeredSlides} === 'true'">
+  <f:if condition="{data.pi_flexform.centeredSlides} === '1'">
     <f:variable name="centeredSlides"><f:format.raw>centeredSlides: true,</f:format.raw></f:variable>
   </f:if>
 
-  <f:if condition="{data.pi_flexform.randomStart} === 'true'">
+  <f:if condition="{data.pi_flexform.randomStart} === '1'">
     <f:variable name="randomStart">initialSlide: Math.floor(Math.random() * ({totalcount -> f:format.raw()} - 0 + 1) + 0),</f:variable>
   </f:if>
   
-  <f:if condition="{data.pi_flexform.reachedEnd} === 'true' && {data.pi_flexform.autoplay} === 'true'">
+  <f:if condition="{data.pi_flexform.reachedEnd} === '1' && {data.pi_flexform.autoplay} === '1'">
     <f:variable name="reachedEnd"> reachEnd: function(){ ss_{swiper}.pauseSwiper(); }, </f:variable>
   </f:if>
 
-  <f:if condition="{totalcount} > 1 && {data.pi_flexform.lazyLoad} === 'true'">
+  <f:if condition="{totalcount} > 1 && {data.pi_flexform.lazyLoad} === '1'">
     <f:variable name="lazyload"><f:format.raw>lazy: true,</f:format.raw></f:variable>
   </f:if>
 
@@ -83,7 +83,7 @@
         },  
       });
         
-      <f:if condition="{data.pi_flexform.autoplay} === 'true' && {totalcount} > 1">
+      <f:if condition="{data.pi_flexform.autoplay} === '1' && {totalcount} > 1">
         const ss_{swiper} = new SwiperState({swiper}, '.btn-{swiper}');
       </f:if>
     });

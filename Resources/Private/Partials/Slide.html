@@ -17,7 +17,7 @@
         <f:if condition="{record.files.0}">
             <f:then>
                 <div class="slider-media">
-                    <f:if condition="{totalcount} > 1 && {data.pi_flexform.lazyLoad} === 'true'">
+                    <f:if condition="{totalcount} > 1 && {data.pi_flexform.lazyLoad} === '1'">
                         <f:then>
                             <f:for each="{record.files}" as="file">
                                 <img class="swiper-lazy" data-src="{f:uri.image(image: file, treatIdAsReference: 1)}" alt="" />

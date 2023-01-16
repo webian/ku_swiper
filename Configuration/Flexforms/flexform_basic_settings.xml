@@ -11,20 +11,17 @@
                     <label>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:autoplay
                     </label>
                     <exclude>1</exclude>
-                    <config type="array">
-                        <type>select</type>
-                        <renderType>selectSingle</renderType>
+                    <config>
+                        <type>check</type>
+                        <renderType>checkboxLabeledToggle</renderType>
                         <items type="array">
                             <numIndex index="0" type="array">
-                                <numIndex index="0">LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:disabled</numIndex>
-                                <numIndex index="1">false</numIndex>
-                            </numIndex>
-                            <numIndex index="1" type="array">
-                                <numIndex index="0">LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:enabled</numIndex>
-                                <numIndex index="1">true</numIndex>
+                                <numIndex index="0"></numIndex>
+                                <labelChecked>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:enabled</labelChecked>
+                                <labelUnchecked>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:disabled</labelUnchecked>
                             </numIndex>
                         </items>
-                        <default>true</default>
+                        <default>1</default>
                     </config>
                 </TCEforms>
             </autoplay>
@@ -33,20 +30,17 @@
                     <label>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:loop
                     </label>
                     <exclude>1</exclude>
-                    <config type="array">
-                        <type>select</type>
-                        <renderType>selectSingle</renderType>
+                    <config>
+                        <type>check</type>
+                        <renderType>checkboxLabeledToggle</renderType>
                         <items type="array">
                             <numIndex index="0" type="array">
-                                <numIndex index="0">LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:disabled</numIndex>
-                                <numIndex index="1">false</numIndex>
-                            </numIndex>
-                            <numIndex index="1" type="array">
-                                <numIndex index="0">LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:enabled</numIndex>
-                                <numIndex index="1">true</numIndex>
+                                <numIndex index="0"></numIndex>
+                                <labelChecked>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:enabled</labelChecked>
+                                <labelUnchecked>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:disabled</labelUnchecked>
                             </numIndex>
                         </items>
-                        <default>true</default>
+                        <default>1</default>
                     </config>
                 </TCEforms>
             </loop>
@@ -72,20 +66,17 @@
                     <label>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:randomStart
                     </label>
                     <exclude>1</exclude>
-                    <config type="array">
-                        <type>select</type>
-                        <renderType>selectSingle</renderType>
+                    <config>
+                        <type>check</type>
+                        <renderType>checkboxLabeledToggle</renderType>
                         <items type="array">
                             <numIndex index="0" type="array">
-                                <numIndex index="0">LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:disabled</numIndex>
-                                <numIndex index="1">false</numIndex>
-                            </numIndex>
-                            <numIndex index="1" type="array">
-                                <numIndex index="0">LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:enabled</numIndex>
-                                <numIndex index="1">true</numIndex>
+                                <numIndex index="0"></numIndex>
+                                <labelChecked>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:enabled</labelChecked>
+                                <labelUnchecked>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:disabled</labelUnchecked>
                             </numIndex>
                         </items>
-                        <default>false</default>
+                        <default>0</default>
                     </config>
                 </TCEforms>
             </randomStart>
@@ -94,20 +85,17 @@
                     <label>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:reachedEnd
                     </label>
                     <exclude>1</exclude>
-                    <config type="array">
-                        <type>select</type>
-                        <renderType>selectSingle</renderType>
+                    <config>
+                        <type>check</type>
+                        <renderType>checkboxLabeledToggle</renderType>
                         <items type="array">
                             <numIndex index="0" type="array">
-                                <numIndex index="0">LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:disabled</numIndex>
-                                <numIndex index="1">false</numIndex>
-                            </numIndex>
-                            <numIndex index="1" type="array">
-                                <numIndex index="0">LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:enabled</numIndex>
-                                <numIndex index="1">true</numIndex>
+                                <numIndex index="0"></numIndex>
+                                <labelChecked>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:enabled</labelChecked>
+                                <labelUnchecked>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:disabled</labelUnchecked>
                             </numIndex>
                         </items>
-                        <default>false</default>
+                        <default>0</default>
                     </config>
                 </TCEforms>
             </reachedEnd>
@@ -116,20 +104,17 @@
                     <label>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:fade
                     </label>
                     <exclude>1</exclude>
-                    <config type="array">
-                        <type>select</type>
-                        <renderType>selectSingle</renderType>
+                    <config>
+                        <type>check</type>
+                        <renderType>checkboxLabeledToggle</renderType>
                         <items type="array">
                             <numIndex index="0" type="array">
-                                <numIndex index="0">LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:disabled</numIndex>
-                                <numIndex index="1">false</numIndex>
-                            </numIndex>
-                            <numIndex index="1" type="array">
-                                <numIndex index="0">LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:enabled</numIndex>
-                                <numIndex index="1">true</numIndex>
+                                <numIndex index="0"></numIndex>
+                                <labelChecked>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:enabled</labelChecked>
+                                <labelUnchecked>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:disabled</labelUnchecked>
                             </numIndex>
                         </items>
-                        <default>false</default>
+                        <default>0</default>
                     </config>
                 </TCEforms>
             </fade>
@@ -138,20 +123,17 @@
                     <label>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:centeredSlides
                     </label>
                     <exclude>1</exclude>
-                    <config type="array">
-                        <type>select</type>
-                        <renderType>selectSingle</renderType>
+                    <config>
+                        <type>check</type>
+                        <renderType>checkboxLabeledToggle</renderType>
                         <items type="array">
                             <numIndex index="0" type="array">
-                                <numIndex index="0">LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:disabled</numIndex>
-                                <numIndex index="1">false</numIndex>
-                            </numIndex>
-                            <numIndex index="1" type="array">
-                                <numIndex index="0">LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:enabled</numIndex>
-                                <numIndex index="1">true</numIndex>
+                                <numIndex index="0"></numIndex>
+                                <labelChecked>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:enabled</labelChecked>
+                                <labelUnchecked>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:disabled</labelUnchecked>
                             </numIndex>
                         </items>
-                        <default>false</default>
+                        <default>0</default>
                     </config>
                 </TCEforms>
             </centeredSlides>
@@ -160,20 +142,17 @@
                     <label>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:lazyLoad
                     </label>
                     <exclude>1</exclude>
-                    <config type="array">
-                        <type>select</type>
-                        <renderType>selectSingle</renderType>
+                    <config>
+                        <type>check</type>
+                        <renderType>checkboxLabeledToggle</renderType>
                         <items type="array">
                             <numIndex index="0" type="array">
-                                <numIndex index="0">LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:disabled</numIndex>
-                                <numIndex index="1">false</numIndex>
-                            </numIndex>
-                            <numIndex index="1" type="array">
-                                <numIndex index="0">LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:enabled</numIndex>
-                                <numIndex index="1">true</numIndex>
+                                <numIndex index="0"></numIndex>
+                                <labelChecked>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:enabled</labelChecked>
+                                <labelUnchecked>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:disabled</labelUnchecked>
                             </numIndex>
                         </items>
-                        <default>false</default>
+                        <default>0</default>
                     </config>
                 </TCEforms>
             </lazyLoad>

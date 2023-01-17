@@ -2,13 +2,18 @@
 <f:layout name="Default" />
 <f:section name="Main">
     <f:flashMessages />
-    <f:comment><f:debug>{_all}</f:debug></f:comment>
+    <f:comment><f:debug>{_all}</f:debug></f:comment><f:debug>{shortcuts}</f:debug>
 
         <f:if condition="{lib.tx_ku_swiper_pages !== ''}">
             <f:cObject typoscriptObjectPath="lib.tx_ku_swiper_pages" data="{data}" />
         </f:if>
         
         <f:format.raw>{shortcuts}</f:format.raw>
+
+        <f:for each="{content}" as="element">
+            <f:cObject typoscriptObjectPath="tt_content" data="{element.data}" />
+        </f:for>
+ 
         
 </f:section>
 

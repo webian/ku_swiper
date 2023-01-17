@@ -32,6 +32,8 @@ tt_content.ku_swiper_content {
         10 {
             if.isTrue.field = records
             table = tt_content
+            uidInList.field = records
+            pidInList = 0
             orderBy = sorting
             as = content
         }

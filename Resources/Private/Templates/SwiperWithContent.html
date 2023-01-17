@@ -11,7 +11,6 @@
             <f:cObject typoscriptObjectPath="lib.tx_ku_swiper_pages" data="{data}" />
         </f:if>
     </f:comment>
-    <f:debug>{_all}</f:debug>
     <f:if condition="{records}">
         <f:variable name="totalcount">{records -> f:count()}</f:variable>
         <f:variable name="swiper">swiper{data.uid -> f:format.raw()}</f:variable>

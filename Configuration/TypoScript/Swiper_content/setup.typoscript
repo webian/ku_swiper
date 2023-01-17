@@ -9,7 +9,7 @@ tt_content.ku_swiper_content {
     ################
     ### TEMPLATE ###
     ################
-    templateName = SwiperContent
+    templateName = SwiperWithContent
     templateRootPaths {
         10 = EXT:ku_swiper/Resources/Private/Templates/
         20 = {$page.templates.templateRootPath}

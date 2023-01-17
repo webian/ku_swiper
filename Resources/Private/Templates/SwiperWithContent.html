@@ -2,24 +2,18 @@
 <f:layout name="Default" />
 <f:section name="Main">
     <f:flashMessages />
-
-    <f:comment><f:debug>{_all}</f:debug></f:comment>
+    <f:comment>
+        <f:debug>{_all}</f:debug>
+    </f:comment>
     <f:comment>
         <!-- Render pages -->
         <f:if condition="{lib.tx_ku_swiper_pages !== ''}">
             <f:cObject typoscriptObjectPath="lib.tx_ku_swiper_pages" data="{data}" />
         </f:if>
     </f:comment>
-        
-        <f:format.raw>{shortcuts}</f:format.raw>
-
-        <!-- <f:for each="{content}" as="records">
-            <f:cObject typoscriptObjectPath="tt_content" data="{records.data}" />
-        </f:for> -->
-
-
-    <f:if condition="{content}">
-        <f:variable name="totalcount">{content -> f:count()}</f:variable>
+    <f:debug>{_all}</f:debug>
+    <f:if condition="{records}">
+        <f:variable name="totalcount">{records -> f:count()}</f:variable>
         <f:variable name="swiper">swiper{data.uid -> f:format.raw()}</f:variable>
         <f:variable name="navigation-sm" value="{data.pi_flexform.arrows-smartphone -> f:format.raw()}" />
         <f:if condition="{navigation-sm} === '0'">
@@ -53,12 +47,11 @@
         <f:if condition="{pagination-xl} === '0'">
             <f:variable name="pag-xl" value="hide-pagination-xl" />
         </f:if>
-
         <div class="swiper-container {nav-sm} {nav-md} {nav-lg} {nav-xl} {pag-sm} {pag-md} {pag-lg} {pag-xl}">
             <div class="swiper swiper{data.uid}">
                 <div class="swiper-wrapper">
-                    <f:for each="{content}" as="record">
-                        <f:cObject typoscriptObjectPath="tt_content" data="{records.data}" />
+                    <f:for each="{records}" as="record">
+                        <f:render partial="SlideContent" arguments="{_all}" />
                     </f:for>
                 </div>
             </div>

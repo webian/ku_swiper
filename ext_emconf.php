@@ -9,7 +9,7 @@
 
 $EM_CONF[$_EXTKEY] = [
     'title' => 'KU Swiper slideshow',
-    'description' => 'Contains two TYPO3 content elements - one for slide containing image and/or text, one for adding pages and/or records.',
+    'description' => 'Contains two TYPO3 content elements - one for slides containing image and/or text, one for adding existing records.',
     'category' => 'templates',
     'constraints' => [
         'depends' => [

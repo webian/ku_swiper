@@ -6,7 +6,7 @@
   <f:if condition="{totalcount} > 1 && {data.pi_flexform.autoplay} === '1'">
     <f:then>
       <f:variable name="autoplay">
-        <f:format.raw>autoplay: {delay: <f:format.raw>{data.pi_flexform.slideSpeed}</f:format.raw>, disableOnInteraction: false, pauseOnMouseEnter: true},</f:format.raw>
+        <f:format.raw>autoplay: {delay: <f:format.raw>{data.pi_flexform.slideSpeed}</f:format.raw>, disableOnInteraction: false},</f:format.raw>
       </f:variable>
     </f:then>
     <f:else>

@@ -7,9 +7,9 @@
  * Sep 2022 Nanna Ellegaard, University of Copenhagen.
  */
 
- /**
-  * Icon registry
-  */
+/**
+ * Icon registry
+ */
 
 defined('TYPO3_MODE') || die();
 

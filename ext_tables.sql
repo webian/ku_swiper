@@ -6,7 +6,6 @@
 --
 CREATE TABLE tt_content (
     tx_ku_swiper_item int(11) unsigned DEFAULT '0',
-    tx_ku_swiper_pages tinytext,
 );
 
 --

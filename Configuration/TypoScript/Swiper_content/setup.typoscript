@@ -35,33 +35,16 @@ tt_content.ku_swiper_content {
             table = tt_content
             uidInList.field = records
             pidInList = 0
-            orderBy = sorting
+            # orderBy = sorting
             as = records
         }
     }
 
-    variables {
-        shortcuts = RECORDS
-        shortcuts {
-            source.field = records
-            tables = tt_content
-        }
-    }
-}
-
-lib.tx_ku_swiper_pages = COA
-lib.tx_ku_swiper_pages {
-    if.isTrue.field = tx_ku_swiper_pages
-    10 = CONTENT
-    10 {
-        table = tt_content
-        select {
-            pidInList = TEXT
-            pidInList {
-                field = tx_ku_swiper_pages
-            }
-            orderBy = sorting
-        }
-        renderObj = < tt_content	
-    }
+    # variables {
+    #     shortcuts = RECORDS
+    #     shortcuts {
+    #         source.field = records
+    #         tables = tt_content
+    #     }
+    # }
 }

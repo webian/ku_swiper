@@ -45,7 +45,6 @@ $GLOBALS['TCA']['tt_content']['types']['ku_swiper_content'] = array_replace_recu
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
                 --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.headers;headers,
                 records;LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:swiper_records,
-                tx_ku_swiper_pages,
             --div--;LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:settings,
                 pi_flexform;LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:settings,
             --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.appearance,
@@ -62,22 +61,6 @@ $GLOBALS['TCA']['tt_content']['types']['ku_swiper_content'] = array_replace_recu
                 rowDescription,
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended,
         '
-    ]
-);
-
-// Register fields
-$GLOBALS['TCA']['tt_content']['columns'] = array_replace_recursive(
-    $GLOBALS['TCA']['tt_content']['columns'],
-    [
-        'tx_ku_swiper_pages' => [
-            'label' => 'LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:swiper_pages',
-            'exclude' => 1,
-            'config' => [
-                'type' => 'group',
-                'internal_type' => 'db',
-                'allowed' => 'pages',
-            ]
-        ]
     ]
 );
 

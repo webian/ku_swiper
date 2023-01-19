@@ -31,7 +31,7 @@ return [
             'endtime' => 'endtime',
         ],
         'typeicon_classes' => [
-            'default' => 'ku-swiperjs-icon',
+            'default' => 'ku-swiper-icon',
         ]
     ],
     'types' => [

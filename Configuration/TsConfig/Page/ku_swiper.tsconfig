@@ -4,7 +4,7 @@
 mod.wizards.newContentElement.wizardItems.interactive {
     elements {
         ku_swiper {
-            iconIdentifier = ku-swiperjs-icon
+            iconIdentifier = ku-swiper-icon
             title = LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:swiper_title
             description = LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:swiper_desc
             tt_content_defValues {
@@ -18,7 +18,7 @@ mod.wizards.newContentElement.wizardItems.interactive {
 mod.wizards.newContentElement.wizardItems.interactive {
     elements {
         ku_swiper_content {
-            iconIdentifier = ku-swiperjs-icon
+            iconIdentifier = ku-swiper-icon
             title = LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:swiper_content_title
             description = LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:swiper_content_desc
             tt_content_defValues {

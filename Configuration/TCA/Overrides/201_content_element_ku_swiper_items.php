@@ -28,13 +28,13 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['ku_swiper'] ?? false)) {
     [
         'LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:swiper_title',
         'ku_swiper',
-        'ku-swiperjs-icon',
+        'ku-swiper-icon',
         'ku_swiper'
     ]
 );
 
 // Assign Icon
-$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['ku_swiper'] = 'ku-swiperjs-icon';
+$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['ku_swiper'] = 'ku-swiper-icon';
 
 // Configure element type
 $GLOBALS['TCA']['tt_content']['types']['ku_swiper'] = array_replace_recursive(

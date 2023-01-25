@@ -9,8 +9,8 @@
 ##########################
 lib.pagecss = TEXT
 lib.pagecss {
-    if.isTrue = {$page.assets.extraCss}
-    value = {$page.assets.extraCss}
+    if.isTrue = {$page.extra.extraCss}
+    value = {$page.extra.extraCss}
 }
 
 ##########################
@@ -18,6 +18,6 @@ lib.pagecss {
 ##########################
 lib.pagejs = TEXT
 lib.pagejs {
-    if.isTrue = {$page.assets.extraJs}
-    value = {$page.assets.extraJs}
+    if.isTrue = {$page.extra.extraJs}
+    value = {$page.extra.extraJs}
 }

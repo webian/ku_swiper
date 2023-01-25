@@ -7,10 +7,10 @@ page {
         # cat=KU swiper/file; type=string; label=Path to template layouts (FE)
         layoutRootPath = EXT:ku_swiper/Resources/Private/Layouts/
     }
-    assets {
-        # cat=KU swiper/110/100; type=string; label
-        extraCss =
-        # cat=KU swiper/112/102; type=string; label=JavaScript assets: Path to javaScript file.
-        extraJs = 
+    extra {
+        # cat=KU swiper/Assets/t0; type=string; label=CSS assets: Path to stylesheet.
+        extraCss = EXT:ku_swiper/Resources/Public/Css/Dist/swiper-bundle.min.css
+        # cat=KU swiper/Assets/t1; type=string; label=JavaScript assets: Path to javaScript file.
+        extraJs = EXT:ku_swiper/Resources/Public/JavaScript/Dist/swiper-bundle.min.js
     }
 }

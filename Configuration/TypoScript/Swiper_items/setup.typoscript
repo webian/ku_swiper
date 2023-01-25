@@ -12,16 +12,16 @@ tt_content.ku_swiper {
     templateName = SwiperWithItems
     templateRootPaths {
         10 = EXT:ku_swiper/Resources/Private/Templates/
-        20 = {$page.templates.templateRootPath}
+        20 = {$page.template.templateRootPath}
     }
 	partialRootPaths {
 		10 = EXT:ku_swiper/Resources/Private/Partials/
-        20 = {$page.templates.partialRootPath}
+        20 = {$page.template.partialRootPath}
 	}
 
     layoutRootPaths {
         10 = EXT:ku_swiper/Resources/Private/Layouts/
-        20 = {$page.templates.layoutRootPath}
+        20 = {$page.template.layoutRootPath}
     }
 
 

@@ -1,5 +1,5 @@
 page {
-    templates {
+    template {
         # cat=KU swiper/file; type=string; label=Path to template root (FE)
         templateRootPath = EXT:ku_swiper/Resources/Private/Templates/
         # cat=KU swiper/file; type=string; label=Path to template partials (FE)

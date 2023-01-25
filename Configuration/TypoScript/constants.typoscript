@@ -1,10 +1,16 @@
 page {
     templates {
-        # cat=KU Swiper slideshow - Content Element - Templates //103; type=string; label=Layout Root Path: Path to layouts (with an trailing slash).
-        layoutRootPath = EXT:ku_swiper/Resources/Private/Layouts/
-        # cat=KU Swiper slideshow - Content Element - Templates //102; type=string; label=Partial Root Path: Path to partials (with an trailing slash).
-        partialRootPath = EXT:ku_swiper/Resources/Private/Partials/
-        # cat=KU Swiper slideshow - Content Element - Templates //101; type=string; label=Layout Root Path: Path to templates (with an trailing slash).
+        # cat=KU swiper/file; type=string; label=Path to template root (FE)
         templateRootPath = EXT:ku_swiper/Resources/Private/Templates/
+        # cat=KU swiper/file; type=string; label=Path to template partials (FE)
+        partialRootPath = EXT:ku_swiper/Resources/Private/Partials/
+        # cat=KU swiper/file; type=string; label=Path to template layouts (FE)
+        layoutRootPath = EXT:ku_swiper/Resources/Private/Layouts/
+    }
+    assets {
+        # cat=KU swiper/110/100; type=string; label
+        extraCss =
+        # cat=KU swiper/112/102; type=string; label=JavaScript assets: Path to javaScript file.
+        extraJs = 
     }
 }

@@ -1,5 +1,5 @@
-page {
-    template {
+swiper {
+    templates {
         # cat=KU swiper/file; type=string; label=Path to template root (FE)
         templateRootPath = EXT:ku_swiper/Resources/Private/Templates/
         # cat=KU swiper/file; type=string; label=Path to template partials (FE)
@@ -7,7 +7,7 @@ page {
         # cat=KU swiper/file; type=string; label=Path to template layouts (FE)
         layoutRootPath = EXT:ku_swiper/Resources/Private/Layouts/
     }
-    extra {
+    assets {
         # cat=KU swiper/Assets/t0; type=string; label=CSS assets: Path to stylesheet.
         extraCss = EXT:ku_swiper/Resources/Public/Css/Dist/swiper-bundle.min.css
         # cat=KU swiper/Assets/t1; type=string; label=JavaScript assets: Path to javaScript file.

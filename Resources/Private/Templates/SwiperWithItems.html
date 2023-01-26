@@ -37,7 +37,6 @@
         <f:if condition="{pagination-xl} === '0'">
             <f:variable name="pag-xl" value="hide-pagination-xl" />
         </f:if>
-
         <div class="swiper-container {nav-sm} {nav-md} {nav-lg} {nav-xl} {pag-sm} {pag-md} {pag-lg} {pag-xl}">
             <div class="swiper swiper{data.uid}">
                 <div class="swiper-wrapper">
@@ -55,12 +54,18 @@
         </div>
         <f:render partial="JavaScript" section="SwiperJsScript" arguments="{_all}" />
     </f:if>
-</f:section>
-<f:section name="HeaderAssets">
-    <f:render partial="HeaderAssets" arguments="{_all}" />
-</f:section>
-<f:section name="FooterAssets">
-    <f:render partial="FooterAssets" arguments="{_all}" />
+    <f:if condition="{lib.swiper.pagecss !== ''}">
+        <f:asset.css identifier="swiperCSS" href="{f:cObject(typoscriptObjectPath: 'lib.swiper.pagecss')}" />
+    </f:if>
+    <f:if condition="{lib.swiper.pagejs !== ''}">
+        <f:asset.script identifier="swiperJs" src="{f:cObject(typoscriptObjectPath: 'lib.swiper.pagejs')}" />
+    </f:if>
+    <f:asset.script identifier="swiperJsTranslations">
+        const translate = { 
+            pause: '<f:translate key="LLL:EXT:ku_swiper/Resources/Private/Language/locallang.xlf:pause" />',
+            play: '<f:translate key="LLL:EXT:ku_swiper/Resources/Private/Language/locallang.xlf:play" />',
+        };
+    </f:asset.script>
 </f:section>
 
 </html>

@@ -1,16 +1,16 @@
 swiper {
     templates {
-        # cat=KU swiper/file; type=string; label=Path to template root (FE)
+        # cat=KU swiper/file; type=string; label=Layout Root Path: Path to templates (with a trailing slash).
         templateRootPath = EXT:ku_swiper/Resources/Private/Templates/
-        # cat=KU swiper/file; type=string; label=Path to template partials (FE)
+        # cat=KU swiper/file; type=string; label=Partial Root Path: Path to partials (with a trailing slash).
         partialRootPath = EXT:ku_swiper/Resources/Private/Partials/
-        # cat=KU swiper/file; type=string; label=Path to template layouts (FE)
+        # cat=KU swiper/file; type=string; label=Layout Root Path: Path to templates (with a trailing slash).
         layoutRootPath = EXT:ku_swiper/Resources/Private/Layouts/
     }
     assets {
-        # cat=KU swiper/Assets/t0; type=string; label=CSS assets: Path to stylesheet.
+        # cat=KU swiper/Assets/; type=string; label=CSS assets: Path to stylesheet.
         extraCss = EXT:ku_swiper/Resources/Public/Css/Dist/swiper-bundle.min.css
-        # cat=KU swiper/Assets/t1; type=string; label=JavaScript assets: Path to javaScript file.
+        # cat=KU swiper/Assets/; type=string; label=JavaScript assets: Path to javaScript file.
         extraJs = EXT:ku_swiper/Resources/Public/JavaScript/Dist/swiper-bundle.min.js
     }
 }

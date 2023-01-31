@@ -26,7 +26,7 @@
             <source>Slideshow settings</source>
         </trans-unit>
         <trans-unit id="basic_settings">
-            <source>Basic settings</source>
+            <source>General settings</source>
         </trans-unit>
         <trans-unit id="smartphone_title">
             <source>Mobile</source>

@@ -5,10 +5,10 @@
         </header>
         <body>
             <trans-unit id="pause">
-            <source>Pause (use spacebar)</source>
+            <source>Slideshow is playing. Press to pause.</source>
         </trans-unit>
         <trans-unit id="play">
-            <source>Play (use spacebar)</source>
+            <source>Slideshow is paused. Press to Play.</source>
         </trans-unit>
         </body>
     </file>

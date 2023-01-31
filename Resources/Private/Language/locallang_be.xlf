@@ -59,7 +59,7 @@
             <source>Display dots (pagination)</source>
         </trans-unit>
         <trans-unit id="fade">
-            <source>Fade slides</source>
+            <source>Fade between slides</source>
         </trans-unit>
          <trans-unit id="randomStart">
             <source>Random start slide</source>
@@ -77,7 +77,7 @@
             <source>Number of slides to scroll at a time</source>
         </trans-unit>
         <trans-unit id="slidespeed">
-            <source>Slide speed (miliseconds)</source>
+            <source>Slide transition speed (miliseconds)</source>
         </trans-unit>
         <trans-unit id="reachedEnd">
             <source>Stop slideshow when end is reached</source>

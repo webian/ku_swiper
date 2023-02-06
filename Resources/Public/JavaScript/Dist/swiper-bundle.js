@@ -1,5 +1,5 @@
 /**
- * Swiper 9.0.0
+ * Swiper 9.0.3
  * Most modern mobile touch slider and framework with hardware accelerated transitions
  * https://swiperjs.com
  *
@@ -7,7 +7,7 @@
  *
  * Released under the MIT License
  *
- * Released on: February 1, 2023
+ * Released on: February 6, 2023
  */
 
 (function (global, factory) {
@@ -346,20 +346,6 @@
       const el = document.createElement(tag);
       el.classList.add(...(Array.isArray(classes) ? classes : [classes]));
       return el;
-    }
-    function elementOffset(el) {
-      const window = getWindow();
-      const document = getDocument();
-      const box = el.getBoundingClientRect();
-      const body = document.body;
-      const clientTop = el.clientTop || body.clientTop || 0;
-      const clientLeft = el.clientLeft || body.clientLeft || 0;
-      const scrollTop = el === window ? window.scrollY : el.scrollTop;
-      const scrollLeft = el === window ? window.scrollX : el.scrollLeft;
-      return {
-        top: box.top + scrollTop - clientTop,
-        left: box.left + scrollLeft - clientLeft
-      };
     }
     function elementPrevAll(el, selector) {
       const prevEls = [];
@@ -2080,7 +2066,8 @@
         direction,
         setTranslate,
         activeSlideIndex,
-        byController
+        byController,
+        byMousewheel
       } = _temp === void 0 ? {} : _temp;
       const swiper = this;
       if (!swiper.params.loop) return;
@@ -2161,9 +2148,13 @@
             const currentSlideTranslate = swiper.slidesGrid[activeIndex];
             const newSlideTranslate = swiper.slidesGrid[activeIndex + slidesPrepended];
             const diff = newSlideTranslate - currentSlideTranslate;
-            swiper.slideTo(activeIndex + slidesPrepended, 0, false, true);
-            if (setTranslate) {
-              swiper.touches[swiper.isHorizontal() ? 'startX' : 'startY'] += diff;
+            if (byMousewheel) {
+              swiper.setTranslate(swiper.translate - diff);
+            } else {
+              swiper.slideTo(activeIndex + slidesPrepended, 0, false, true);
+              if (setTranslate) {
+                swiper.touches[swiper.isHorizontal() ? 'startX' : 'startY'] += diff;
+              }
             }
           } else {
             if (setTranslate) {
@@ -2175,9 +2166,13 @@
             const currentSlideTranslate = swiper.slidesGrid[activeIndex];
             const newSlideTranslate = swiper.slidesGrid[activeIndex - slidesAppended];
             const diff = newSlideTranslate - currentSlideTranslate;
-            swiper.slideTo(activeIndex - slidesAppended, 0, false, true);
-            if (setTranslate) {
-              swiper.touches[swiper.isHorizontal() ? 'startX' : 'startY'] += diff;
+            if (byMousewheel) {
+              swiper.setTranslate(swiper.translate - diff);
+            } else {
+              swiper.slideTo(activeIndex - slidesAppended, 0, false, true);
+              if (setTranslate) {
+                swiper.touches[swiper.isHorizontal() ? 'startX' : 'startY'] += diff;
+              }
             }
           } else {
             swiper.slideToLoop(slideRealIndex, 0, false, true);
@@ -2494,7 +2489,7 @@
       const prevTouchesDirection = swiper.touchesDirection;
       swiper.swipeDirection = diff > 0 ? 'prev' : 'next';
       swiper.touchesDirection = touchesDiff > 0 ? 'prev' : 'next';
-      const isLoop = swiper.params.loop && !(swiper.virtual && swiper.params.virtual.enabled) && !params.cssMode;
+      const isLoop = swiper.params.loop && !params.cssMode;
       if (!data.isMoved) {
         if (isLoop) {
           swiper.loopFix({
@@ -2851,6 +2846,7 @@
     }
 
     const processLazyPreloader = (swiper, imageEl) => {
+      if (!swiper || swiper.destroyed || !swiper.params) return;
       const slideSelector = () => swiper.isElement ? `swiper-slide` : `.${swiper.params.slideClass}`;
       const slideEl = imageEl.closest(slideSelector());
       if (slideEl) {
@@ -2972,7 +2968,7 @@
       const isMultiRow = isGridEnabled(swiper, breakpointParams);
       const wasEnabled = params.enabled;
       if (wasMultiRow && !isMultiRow) {
-        el.classList.remove(`${params.containerModifierClass}grid ${params.containerModifierClass}grid-column`);
+        el.classList.remove(`${params.containerModifierClass}grid`, `${params.containerModifierClass}grid-column`);
         swiper.emitContainerClasses();
       } else if (!wasMultiRow && isMultiRow) {
         el.classList.add(`${params.containerModifierClass}grid`);
@@ -3890,119 +3886,6 @@
     });
     Swiper.use([Resize, Observer]);
 
-    /* eslint-disable consistent-return */
-    function Keyboard(_ref) {
-      let {
-        swiper,
-        extendParams,
-        on,
-        emit
-      } = _ref;
-      const document = getDocument();
-      const window = getWindow();
-      swiper.keyboard = {
-        enabled: false
-      };
-      extendParams({
-        keyboard: {
-          enabled: false,
-          onlyInViewport: true,
-          pageUpDown: true
-        }
-      });
-      function handle(event) {
-        if (!swiper.enabled) return;
-        const {
-          rtlTranslate: rtl
-        } = swiper;
-        let e = event;
-        if (e.originalEvent) e = e.originalEvent; // jquery fix
-        const kc = e.keyCode || e.charCode;
-        const pageUpDown = swiper.params.keyboard.pageUpDown;
-        const isPageUp = pageUpDown && kc === 33;
-        const isPageDown = pageUpDown && kc === 34;
-        const isArrowLeft = kc === 37;
-        const isArrowRight = kc === 39;
-        const isArrowUp = kc === 38;
-        const isArrowDown = kc === 40;
-        // Directions locks
-        if (!swiper.allowSlideNext && (swiper.isHorizontal() && isArrowRight || swiper.isVertical() && isArrowDown || isPageDown)) {
-          return false;
-        }
-        if (!swiper.allowSlidePrev && (swiper.isHorizontal() && isArrowLeft || swiper.isVertical() && isArrowUp || isPageUp)) {
-          return false;
-        }
-        if (e.shiftKey || e.altKey || e.ctrlKey || e.metaKey) {
-          return undefined;
-        }
-        if (document.activeElement && document.activeElement.nodeName && (document.activeElement.nodeName.toLowerCase() === 'input' || document.activeElement.nodeName.toLowerCase() === 'textarea')) {
-          return undefined;
-        }
-        if (swiper.params.keyboard.onlyInViewport && (isPageUp || isPageDown || isArrowLeft || isArrowRight || isArrowUp || isArrowDown)) {
-          let inView = false;
-          // Check that swiper should be inside of visible area of window
-          if (elementParents(swiper.el, `.${swiper.params.slideClass}, swiper-slide`).length > 0 && elementParents(swiper.el, `.${swiper.params.slideActiveClass}`).length === 0) {
-            return undefined;
-          }
-          const el = swiper.el;
-          const swiperWidth = el.clientWidth;
-          const swiperHeight = el.clientHeight;
-          const windowWidth = window.innerWidth;
-          const windowHeight = window.innerHeight;
-          const swiperOffset = elementOffset(el);
-          if (rtl) swiperOffset.left -= el.scrollLeft;
-          const swiperCoord = [[swiperOffset.left, swiperOffset.top], [swiperOffset.left + swiperWidth, swiperOffset.top], [swiperOffset.left, swiperOffset.top + swiperHeight], [swiperOffset.left + swiperWidth, swiperOffset.top + swiperHeight]];
-          for (let i = 0; i < swiperCoord.length; i += 1) {
-            const point = swiperCoord[i];
-            if (point[0] >= 0 && point[0] <= windowWidth && point[1] >= 0 && point[1] <= windowHeight) {
-              if (point[0] === 0 && point[1] === 0) continue; // eslint-disable-line
-              inView = true;
-            }
-          }
-          if (!inView) return undefined;
-        }
-        if (swiper.isHorizontal()) {
-          if (isPageUp || isPageDown || isArrowLeft || isArrowRight) {
-            if (e.preventDefault) e.preventDefault();else e.returnValue = false;
-          }
-          if ((isPageDown || isArrowRight) && !rtl || (isPageUp || isArrowLeft) && rtl) swiper.slideNext();
-          if ((isPageUp || isArrowLeft) && !rtl || (isPageDown || isArrowRight) && rtl) swiper.slidePrev();
-        } else {
-          if (isPageUp || isPageDown || isArrowUp || isArrowDown) {
-            if (e.preventDefault) e.preventDefault();else e.returnValue = false;
-          }
-          if (isPageDown || isArrowDown) swiper.slideNext();
-          if (isPageUp || isArrowUp) swiper.slidePrev();
-        }
-        emit('keyPress', kc);
-        return undefined;
-      }
-      function enable() {
-        if (swiper.keyboard.enabled) return;
-        document.addEventListener('keydown', handle);
-        swiper.keyboard.enabled = true;
-      }
-      function disable() {
-        if (!swiper.keyboard.enabled) return;
-        document.removeEventListener('keydown', handle);
-        swiper.keyboard.enabled = false;
-      }
-      on('init', () => {
-        if (swiper.params.keyboard.enabled) {
-          enable();
-        }
-      });
-      on('destroy', () => {
-        if (swiper.keyboard.enabled) {
-          disable();
-        }
-      });
-      Object.assign(swiper.keyboard, {
-        enable,
-        disable
-      });
-    }
-
     function createElementIfNotDefined(swiper, originalParams, params, checkProps) {
       if (swiper.params.createElements) {
         Object.keys(checkProps).forEach(key => {
@@ -4068,7 +3951,7 @@
         el = makeElementsArray(el);
         el.forEach(subEl => {
           if (subEl) {
-            subEl.classList[disabled ? 'add' : 'remove'](params.disabledClass);
+            subEl.classList[disabled ? 'add' : 'remove'](...params.disabledClass.split(' '));
             if (subEl.tagName === 'BUTTON') subEl.disabled = disabled;
             if (swiper.params.watchOverflow && swiper.enabled) {
               subEl.classList[swiper.isLocked ? 'add' : 'remove'](params.lockClass);
@@ -4122,7 +4005,7 @@
             el.addEventListener('click', dir === 'next' ? onNextClick : onPrevClick);
           }
           if (!swiper.enabled && el) {
-            el.classList.add(params.lockClass);
+            el.classList.add(...params.lockClass.split(' '));
           }
         };
         nextEl.forEach(el => initButton(el, 'next'));
@@ -4137,7 +4020,7 @@
         prevEl = makeElementsArray(prevEl);
         const destroyButton = (el, dir) => {
           el.removeEventListener('click', dir === 'next' ? onNextClick : onPrevClick);
-          el.classList.remove(swiper.params.navigation.disabledClass);
+          el.classList.remove(...swiper.params.navigation.disabledClass.split(' '));
         };
         nextEl.forEach(el => destroyButton(el, 'next'));
         prevEl.forEach(el => destroyButton(el, 'prev'));
@@ -4191,12 +4074,12 @@
         }
       });
       const enable = () => {
-        swiper.el.classList.remove(swiper.params.navigation.navigationDisabledClass);
+        swiper.el.classList.remove(...swiper.params.navigation.navigationDisabledClass.split(' '));
         init();
         update();
       };
       const disable = () => {
-        swiper.el.classList.add(swiper.params.navigation.navigationDisabledClass);
+        swiper.el.classList.add(...swiper.params.navigation.navigationDisabledClass.split(' '));
         destroy();
       };
       Object.assign(swiper.navigation, {
@@ -5424,7 +5307,7 @@
     }
 
     // Swiper Class
-    const modules = [Keyboard, Navigation, Pagination, A11y, Autoplay, EffectFade];
+    const modules = [Navigation, Pagination, A11y, Autoplay, EffectFade];
     Swiper.use(modules);
 
     return Swiper;

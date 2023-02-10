@@ -1,5 +1,5 @@
 /**
- * Swiper 9.0.3
+ * Swiper 9.0.4
  * Most modern mobile touch slider and framework with hardware accelerated transitions
  * https://swiperjs.com
  *
@@ -7,7 +7,7 @@
  *
  * Released under the MIT License
  *
- * Released on: February 6, 2023
+ * Released on: February 10, 2023
  */
 
 (function (global, factory) {
@@ -4167,10 +4167,12 @@
         }
       }
       function onBulletClick(e) {
-        const isBullet = e.target.matches(classesToSelector(swiper.params.pagination.bulletClass));
-        if (!isBullet) return;
+        const bulletEl = e.target.closest(classesToSelector(swiper.params.pagination.bulletClass));
+        if (!bulletEl) {
+          return;
+        }
         e.preventDefault();
-        const index = elementIndex(e.target) * swiper.params.slidesPerGroup;
+        const index = elementIndex(bulletEl) * swiper.params.slidesPerGroup;
         if (swiper.params.loop) {
           swiper.slideToLoop(index);
         } else {
@@ -4942,6 +4944,7 @@
         autoplayTimeLeft = delay;
         const speed = swiper.params.speed;
         const proceed = () => {
+          if (!swiper || swiper.destroyed) return;
           if (swiper.params.autoplay.reverseDirection) {
             if (!swiper.isBeginning || swiper.params.loop || swiper.params.rewind) {
               swiper.slidePrev(speed, true, true);

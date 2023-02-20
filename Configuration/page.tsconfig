@@ -1,3 +1,1 @@
 @import "EXT:ku_swiper/Configuration/TsConfig/Page/*"
-
-mod.web_layout.tt_content.preview.ku_swiper = EXT:ku_swiper/Resources/Private/Templates/Preview/Item.html

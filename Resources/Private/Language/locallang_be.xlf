@@ -50,7 +50,7 @@
             <source>Autoplay</source>
         </trans-unit>
         <trans-unit id="loop">
-            <source>Infinite loop</source>
+            <source>Continue the slideshow from the beginning once it has arrived at the end.</source>
         </trans-unit>
         <trans-unit id="arrows">
             <source>Display arrows (navigation)</source>

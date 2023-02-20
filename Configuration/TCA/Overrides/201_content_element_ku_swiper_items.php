@@ -73,6 +73,7 @@ $GLOBALS['TCA']['tt_content']['columns'] = array_replace_recursive(
             'label' => 'LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:swiper_item',
             'config' => [
                 'type' => 'inline',
+                'minitems' => 1,
                 'foreign_table' => 'tx_ku_swiper_item',
                 'foreign_field' => 'tt_content',
                 'appearance' => [

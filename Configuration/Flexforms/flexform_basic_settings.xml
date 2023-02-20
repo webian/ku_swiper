@@ -156,6 +156,50 @@
                     </config>
                 </TCEforms>
             </lazyLoad>
+            <slideshowHeight>
+                <TCEforms>
+                    <label>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:slideshowHeight
+                    </label>
+                    <exclude>1</exclude>
+                    <config type="array">
+                        <type>select</type>
+                        <renderType>selectSingle</renderType>
+                        <items>
+                            <numIndex index="0">
+                                <numIndex index="0">
+                                    Height 300
+                                </numIndex>
+                                <numIndex index="1">height-300</numIndex>
+                            </numIndex>
+                            <numIndex index="1">
+                                <numIndex index="0">
+                                    LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:default
+                                </numIndex>
+                                <numIndex index="1"></numIndex>
+                            </numIndex>
+                            <numIndex index="2">
+                                <numIndex index="0">
+                                    Height 500
+                                </numIndex>
+                                <numIndex index="1">height-500</numIndex>
+                            </numIndex>
+                            <numIndex index="3">
+                                <numIndex index="0">
+                                    Height 600
+                                </numIndex>
+                                <numIndex index="1">height-600</numIndex>
+                            </numIndex>
+                            <numIndex index="4">
+                                <numIndex index="0">
+                                    LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:screenHeight
+                                </numIndex>
+                                <numIndex index="1">height-full</numIndex>
+                            </numIndex>
+                        </items>
+                        <default></default>
+                    </config>
+                </TCEforms>
+            </slideshowHeight>
         </el>
     </ROOT>
 </T3DataStructure>

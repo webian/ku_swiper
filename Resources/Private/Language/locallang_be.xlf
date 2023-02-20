@@ -100,6 +100,15 @@
         <trans-unit id="slide_bodytext">
             <source>Slide caption text</source>
         </trans-unit>
+        <trans-unit id="slideshowHeight">
+            <source>Slideshow height</source>
+        </trans-unit>
+        <trans-unit id="screenHeight">
+            <source>Full screen height</source>
+        </trans-unit>
+        <trans-unit id="default">
+            <source>Default</source>
+        </trans-unit>
         </body>
     </file>
 </xliff>

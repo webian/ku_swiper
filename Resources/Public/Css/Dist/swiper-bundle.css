@@ -573,11 +573,25 @@ swiper-container .swiper-notification {
 }
 
 .textoverlay>span {
-  padding: 0 6px 6px 10px;
+  padding: 0 8px 6px 10px;
   background-color: var(--bs-white);
   color: var(--bs-body-color);
   /* box-shadow: 0 0 0 0 var(--bs-white), 0 0 0 0 var(--bs-white); */
   box-decoration-break: clone;
+}
+
+.slide-title {
+  margin-bottom: 3px;
+}
+
+.slide-title>span {
+  padding: 3px 8px 6px 10px;
+  line-height: 31px;
+}
+
+.slide-bodytext>span {
+  padding: 5px 8px 6px 10px;
+  line-height: 26px;
 }
 
 @media (max-width: 767px) {

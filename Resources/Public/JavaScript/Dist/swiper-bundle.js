@@ -1,5 +1,5 @@
 /**
- * Swiper 9.0.4
+ * Swiper 9.1.0
  * Most modern mobile touch slider and framework with hardware accelerated transitions
  * https://swiperjs.com
  *
@@ -7,7 +7,7 @@
  *
  * Released under the MIT License
  *
- * Released on: February 10, 2023
+ * Released on: March 1, 2023
  */
 
 (function (global, factory) {
@@ -601,6 +601,7 @@
           // The observerUpdate event should only be triggered
           // once despite the number of mutations.  Additional
           // triggers are redundant and are very costly
+          if (swiper.__preventObserver__) return;
           if (mutations.length === 1) {
             emit('observerUpdate', mutations[0]);
             return;
@@ -1205,8 +1206,8 @@
         if (isEndRounded) progress = 1;
       }
       if (params.loop) {
-        const firstSlideIndex = elementIndex(swiper.slides.filter(el => el.getAttribute('data-swiper-slide-index') === '0')[0]);
-        const lastSlideIndex = elementIndex(swiper.slides.filter(el => el.getAttribute('data-swiper-slide-index') * 1 === swiper.slides.length - 1)[0]);
+        const firstSlideIndex = swiper.getSlideIndex(swiper.slides.filter(el => el.getAttribute('data-swiper-slide-index') === '0')[0]);
+        const lastSlideIndex = swiper.getSlideIndex(swiper.slides.filter(el => el.getAttribute('data-swiper-slide-index') * 1 === swiper.slides.length - 1)[0]);
         const firstSlideTranslate = swiper.slidesGrid[firstSlideIndex];
         const lastSlideTranslate = swiper.slidesGrid[lastSlideIndex];
         const translateMax = swiper.slidesGrid[swiper.slidesGrid.length - 1];
@@ -1841,10 +1842,59 @@
           // eslint-disable-next-line
           newIndex = newIndex + swiper.virtual.slidesBefore;
         } else {
-          newIndex = elementIndex(swiper.slides.filter(slideEl => slideEl.getAttribute('data-swiper-slide-index') * 1 === newIndex)[0]);
+          newIndex = swiper.getSlideIndex(swiper.slides.filter(slideEl => slideEl.getAttribute('data-swiper-slide-index') * 1 === newIndex)[0]);
         }
       }
-      return swiper.slideTo(newIndex, speed, runCallbacks, internal);
+      return swiper.slideTo(newIndex,/**
+ * Swiper player button states
+ * @author Nanna Ellegaard
+ * @copyright 2023
+ */
+
+const play = 'bi-play-fill';
+const pause = 'bi-pause-fill';
+
+class SwiperState {
+    constructor(swiper, btn) {
+        this.swiper = swiper;
+        this.el = document.querySelector(btn);
+        this.icon = this.el.querySelector('.bi');
+        this.prefersReducedMotion();
+        this.addEventListeners();
+    }
+
+    addEventListeners() {
+        this.el.addEventListener('click', () => {
+            this.togglePlayPause();
+        });
+    }
+
+    togglePlayPause() {
+        if (this.swiper.autoplay.running) {
+            this.pauseSwiper();
+        } else {
+            this.playSwiper();
+        }
+    }
+
+    playSwiper() {
+        this.swiper.autoplay.start();
+        this.icon.classList.replace(play, pause);
+        this.el.setAttribute('aria-label', translate.pause);
+    }
+
+    pauseSwiper() {
+        this.swiper.autoplay.stop();
+        this.icon.classList.replace(pause, play);
+        this.el.setAttribute('aria-label', translate.play);
+    }
+
+    prefersReducedMotion() {
+        if (this.swiper.autoplay.running && matchMedia('(prefers-reduced-motion)').matches) {
+            this.pauseSwiper();
+        }
+    }
+} speed, runCallbacks, internal);
     }
 
     /* eslint no-unused-vars: "off" */
@@ -2011,7 +2061,7 @@
         if (params.centeredSlides) {
           if (slideToIndex < swiper.loopedSlides - slidesPerView / 2 || slideToIndex > swiper.slides.length - swiper.loopedSlides + slidesPerView / 2) {
             swiper.loopFix();
-            slideToIndex = elementIndex(elementChildren(slidesEl, `${slideSelector}[data-swiper-slide-index="${realIndex}"]`)[0]);
+            slideToIndex = swiper.getSlideIndex(elementChildren(slidesEl, `${slideSelector}[data-swiper-slide-index="${realIndex}"]`)[0]);
             nextTick(() => {
               swiper.slideTo(slideToIndex);
             });
@@ -2020,7 +2070,7 @@
           }
         } else if (slideToIndex > swiper.slides.length - slidesPerView) {
           swiper.loopFix();
-          slideToIndex = elementIndex(elementChildren(slidesEl, `${slideSelector}[data-swiper-slide-index="${realIndex}"]`)[0]);
+          slideToIndex = swiper.getSlideIndex(elementChildren(slidesEl, `${slideSelector}[data-swiper-slide-index="${realIndex}"]`)[0]);
           nextTick(() => {
             swiper.slideTo(slideToIndex);
           });
@@ -2106,7 +2156,7 @@
       const appendSlidesIndexes = [];
       let activeIndex = swiper.activeIndex;
       if (typeof activeSlideIndex === 'undefined') {
-        activeSlideIndex = elementIndex(swiper.slides.filter(el => el.classList.contains('swiper-slide-active'))[0]);
+        activeSlideIndex = swiper.getSlideIndex(swiper.slides.filter(el => el.classList.contains('swiper-slide-active'))[0]);
       } else {
         activeIndex = activeSlideIndex;
       }
@@ -2116,13 +2166,13 @@
       let slidesAppended = 0;
       // prepend last slides before start
       if (activeSlideIndex < loopedSlides) {
-        slidesPrepended = loopedSlides - activeSlideIndex;
+        slidesPrepended = Math.max(loopedSlides - activeSlideIndex, params.slidesPerGroup);
         for (let i = 0; i < loopedSlides - activeSlideIndex; i += 1) {
           const index = i - Math.floor(i / slides.length) * slides.length;
           prependSlidesIndexes.push(slides.length - index - 1);
         }
       } else if (activeSlideIndex /* + slidesPerView */ > swiper.slides.length - loopedSlides * 2) {
-        slidesAppended = activeSlideIndex - (swiper.slides.length - loopedSlides * 2);
+        slidesAppended = Math.max(activeSlideIndex - (swiper.slides.length - loopedSlides * 2), params.slidesPerGroup);
         for (let i = 0; i < slidesAppended; i += 1) {
           const index = i - Math.floor(i / slides.length) * slides.length;
           appendSlidesIndexes.push(index);
@@ -2235,8 +2285,16 @@
       const swiper = this;
       if (!swiper.params.simulateTouch || swiper.params.watchOverflow && swiper.isLocked || swiper.params.cssMode) return;
       const el = swiper.params.touchEventsTarget === 'container' ? swiper.el : swiper.wrapperEl;
+      if (swiper.isElement) {
+        swiper.__preventObserver__ = true;
+      }
       el.style.cursor = 'move';
       el.style.cursor = moving ? 'grabbing' : 'grab';
+      if (swiper.isElement) {
+        requestAnimationFrame(() => {
+          swiper.__preventObserver__ = false;
+        });
+      }
     }
 
     function unsetGrabCursor() {
@@ -2244,7 +2302,15 @@
       if (swiper.params.watchOverflow && swiper.isLocked || swiper.params.cssMode) {
         return;
       }
+      if (swiper.isElement) {
+        swiper.__preventObserver__ = true;
+      }
       swiper[swiper.params.touchEventsTarget === 'container' ? 'el' : 'wrapperEl'].style.cursor = '';
+      if (swiper.isElement) {
+        requestAnimationFrame(() => {
+          swiper.__preventObserver__ = false;
+        });
+      }
     }
 
     var grabCursor = {
@@ -2612,7 +2678,12 @@
       if (pointerIndex >= 0) {
         data.evCache.splice(pointerIndex, 1);
       }
-      if (['pointercancel', 'pointerout', 'pointerleave'].includes(event.type)) return;
+      if (['pointercancel', 'pointerout', 'pointerleave'].includes(event.type)) {
+        const proceed = event.type === 'pointercancel' && (swiper.browser.isSafari || swiper.browser.isWebView);
+        if (!proceed) {
+          return;
+        }
+      }
       const {
         params,
         touches,
@@ -2791,7 +2862,9 @@
       if (swiper.autoplay && swiper.autoplay.running && swiper.autoplay.paused) {
         clearTimeout(timeout);
         timeout = setTimeout(() => {
-          swiper.autoplay.resume();
+          if (swiper.autoplay && swiper.autoplay.running && swiper.autoplay.paused) {
+            swiper.autoplay.resume();
+          }
         }, 500);
       }
       // Return locks after resize
@@ -3478,6 +3551,15 @@
         // Return app instance
         // eslint-disable-next-line no-constructor-return
         return swiper;
+      }
+      getSlideIndex(slideEl) {
+        const {
+          slidesEl,
+          params
+        } = this;
+        const slides = elementChildren(slidesEl, `.${params.slideClass}, swiper-slide`);
+        const firstSlideIndex = elementIndex(slides[0]);
+        return elementIndex(slideEl) - firstSlideIndex;
       }
       recalcSlides() {
         const swiper = this;
@@ -4174,6 +4256,14 @@
         e.preventDefault();
         const index = elementIndex(bulletEl) * swiper.params.slidesPerGroup;
         if (swiper.params.loop) {
+          if (swiper.realIndex === index) return;
+          if (index < swiper.loopedSlides || index > swiper.slides.length - swiper.loopedSlides) {
+            swiper.loopFix({
+              direction: index < swiper.loopedSlides ? 'prev' : 'next',
+              activeSlideIndex: index,
+              slideTo: false
+            });
+          }
           swiper.slideToLoop(index);
         } else {
           swiper.slideTo(index);
@@ -4250,7 +4340,9 @@
               const firstDisplayedBullet = bullets[firstIndex];
               const lastDisplayedBullet = bullets[lastIndex];
               for (let i = firstIndex; i <= lastIndex; i += 1) {
-                bullets[i].classList.add(`${params.bulletActiveClass}-main`);
+                if (bullets[i]) {
+                  bullets[i].classList.add(`${params.bulletActiveClass}-main`);
+                }
               }
               setSideBullets(firstDisplayedBullet, 'prev');
               setSideBullets(lastDisplayedBullet, 'next');
@@ -5230,7 +5322,7 @@
         } else {
           transitionEndTarget = transformElements.filter(transformEl => {
             const el = transformEl.classList.contains('swiper-slide-transform') ? getSlide(transformEl) : transformEl;
-            return elementIndex(el) === activeIndex;
+            return swiper.getSlideIndex(el) === activeIndex;
           });
         }
         transitionEndTarget.forEach(el => {
@@ -5317,53 +5409,3 @@
 
 }));
 //# sourceMappingURL=swiper-bundle.js.map
-/**
- * Swiper player button states
- * @author Nanna Ellegaard
- * @copyright 2023
- */
-
-const play = 'bi-play-fill';
-const pause = 'bi-pause-fill';
-
-class SwiperState {
-    constructor(swiper, btn) {
-        this.swiper = swiper;
-        this.el = document.querySelector(btn);
-        this.icon = this.el.querySelector('.bi');
-        this.prefersReducedMotion();
-        this.addEventListeners();
-    }
-
-    addEventListeners() {
-        this.el.addEventListener('click', () => {
-            this.togglePlayPause();
-        });
-    }
-
-    togglePlayPause() {
-        if (this.swiper.autoplay.running) {
-            this.pauseSwiper();
-        } else {
-            this.playSwiper();
-        }
-    }
-
-    playSwiper() {
-        this.swiper.autoplay.start();
-        this.icon.classList.replace(play, pause);
-        this.el.setAttribute('aria-label', translate.pause);
-    }
-
-    pauseSwiper() {
-        this.swiper.autoplay.stop();
-        this.icon.classList.replace(pause, play);
-        this.el.setAttribute('aria-label', translate.play);
-    }
-
-    prefersReducedMotion() {
-        if (this.swiper.autoplay.running && matchMedia('(prefers-reduced-motion)').matches) {
-            this.pauseSwiper();
-        }
-    }
-}

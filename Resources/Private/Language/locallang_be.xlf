@@ -17,7 +17,10 @@
             <source>Add existing content to create a slideshow</source>
         </trans-unit>
         <trans-unit id="swiper_item">
-            <source>Add slideshow item</source>
+            <source>Add slide</source>
+        </trans-unit>
+        <trans-unit id="swiper_item_below">
+            <source>Add slideshow item below</source>
         </trans-unit>
         <trans-unit id="swiper_records">
             <source>Add content elements</source>

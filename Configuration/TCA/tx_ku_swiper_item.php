@@ -197,7 +197,7 @@ return [
                     'filter' => [
                         0 => [
                             'parameters' => [
-                                'allowedFileExtensions' => 'jpg,jpeg,png',
+                                'allowedFileExtensions' => 'jpg,jpeg,png,svg',
                             ],
                         ],
                     ],
@@ -209,7 +209,7 @@ return [
                             'uid_local' => [
                                 'config' => [
                                     'appearance' => [
-                                        'elementBrowserAllowed' => 'jpg,jpeg,png',
+                                        'elementBrowserAllowed' => 'jpg,jpeg,png,svg',
                                     ],
                                 ],
                             ],

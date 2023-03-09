@@ -200,6 +200,32 @@
                     </config>
                 </TCEforms>
             </slideshowHeight>
+            <sliderStyle>
+                <TCEforms>
+                    <label>LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:sliderstyle
+                    </label>
+                    <exclude>1</exclude>
+                    <config type="array">
+                        <type>select</type>
+                        <renderType>selectSingle</renderType>
+                        <items>
+                            <numIndex index="0">
+                                <numIndex index="0">
+                                    LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:default
+                                </numIndex>
+                                <numIndex index="1"></numIndex>
+                            </numIndex>
+                            <numIndex index="1">
+                                <numIndex index="0">
+                                    LLL:EXT:ku_swiper/Resources/Private/Language/locallang_be.xlf:sliderstyle_values
+                                </numIndex>
+                                <numIndex index="1">style-ku-values</numIndex>
+                            </numIndex>
+                        </items>
+                        <default></default>
+                    </config>
+                </TCEforms>
+            </sliderStyle>
         </el>
     </ROOT>
 </T3DataStructure>

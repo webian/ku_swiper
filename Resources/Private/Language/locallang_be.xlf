@@ -112,6 +112,12 @@
         <trans-unit id="default">
             <source>Default</source>
         </trans-unit>
+        <trans-unit id="sliderstyle">
+            <source>Slideshow style</source>
+        </trans-unit>
+        <trans-unit id="sliderstyle_values">
+            <source>Style: Business values</source>
+        </trans-unit>
         </body>
     </file>
 </xliff>

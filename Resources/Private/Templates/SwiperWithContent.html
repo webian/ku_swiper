@@ -44,7 +44,7 @@
             <f:variable name="pag-xl" value="hide-pagination-xl" />
         </f:if>
         <div class="swiper-container {nav-sm} {nav-md} {nav-lg} {nav-xl} {pag-sm} {pag-md} {pag-lg} {pag-xl}">
-            <div class="swiper swiper{data.uid} {flexFormData.slideshowHeight}">
+            <div class="swiper swiper{data.uid} {flexFormData.slideshowHeight} {flexFormData.sliderStyle}">
                 <div class="swiper-wrapper">
                     <f:for each="{records}" as="record">
                         <f:render partial="SlideContent" arguments="{_all}" />

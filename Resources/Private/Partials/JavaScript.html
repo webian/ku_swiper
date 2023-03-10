@@ -44,7 +44,7 @@
     <f:variable name="lazyload">lazy: true,</f:variable>
   </f:if>
 
-  <KuSwiper:addJsFooterInlineCode name="swiper{data.uid -> f:format.raw()}" compress="true">
+  <f:asset.script identifier="swiper{data.uid -> f:format.raw()}">
     document.addEventListener('DOMContentLoaded', () => {
       const {swiper} = new Swiper('.<f:format.raw>{swiper}</f:format.raw>', {
           <f:format.raw>{autoplay}</f:format.raw>
@@ -92,7 +92,7 @@
         const ss_{swiper} = new SwiperState({swiper}, '.btn-{swiper}');
       </f:if>
     });
-  </KuSwiper:addJsFooterInlineCode>
+  </f:asset.script>
 </f:section>
 
 </html>

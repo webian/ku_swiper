@@ -60,7 +60,7 @@
     <f:if condition="{lib.swiper.pagejs !== ''}">
         <f:asset.script identifier="swiperJs" src="{f:cObject(typoscriptObjectPath: 'lib.swiper.pagejs')}" />
     </f:if>
-    <f:asset.script identifier="swiperJsTranslations">
+    <f:asset.script identifier="swiperJsTranslations" priority="1">
         const translate = { 
             pause: '<f:translate key="LLL:EXT:ku_swiper/Resources/Private/Language/locallang.xlf:pause" />',
             play: '<f:translate key="LLL:EXT:ku_swiper/Resources/Private/Language/locallang.xlf:play" />',

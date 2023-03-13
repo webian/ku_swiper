@@ -13,7 +13,7 @@ use TYPO3\CMS\Core\Utility\VersionNumberUtility;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
 $typo3VersionNumber = VersionNumberUtility::convertVersionNumberToInteger(
-   VersionNumberUtility::getNumericTypo3Version()
+    VersionNumberUtility::getNumericTypo3Version()
 );
 
 // Only include page.tsconfig if TYPO3 version is below 12 so that it is not imported twice.

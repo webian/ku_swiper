@@ -1,5 +1,5 @@
 /**
- * Swiper 9.1.0
+ * Swiper 9.1.1
  * Most modern mobile touch slider and framework with hardware accelerated transitions
  * https://swiperjs.com
  *
@@ -7,7 +7,7 @@
  *
  * Released under the MIT License
  *
- * Released on: March 1, 2023
+ * Released on: March 16, 2023
  */
 
 (function (global, factory) {
@@ -1089,7 +1089,7 @@
       }
       const getSlideByIndex = index => {
         if (isVirtual) {
-          return swiper.slides.filter(el => parseInt(el.getAttribute('data-swiper-slide-index'), 10) === index)[0];
+          return swiper.getSlideIndexByData(index);
         }
         return swiper.slides[index];
       };
@@ -1206,8 +1206,8 @@
         if (isEndRounded) progress = 1;
       }
       if (params.loop) {
-        const firstSlideIndex = swiper.getSlideIndex(swiper.slides.filter(el => el.getAttribute('data-swiper-slide-index') === '0')[0]);
-        const lastSlideIndex = swiper.getSlideIndex(swiper.slides.filter(el => el.getAttribute('data-swiper-slide-index') * 1 === swiper.slides.length - 1)[0]);
+        const firstSlideIndex = swiper.getSlideIndexByData(0);
+        const lastSlideIndex = swiper.getSlideIndexByData(swiper.slides.length - 1);
         const firstSlideTranslate = swiper.slidesGrid[firstSlideIndex];
         const lastSlideTranslate = swiper.slidesGrid[lastSlideIndex];
         const translateMax = swiper.slidesGrid[swiper.slidesGrid.length - 1];
@@ -1842,7 +1842,7 @@
           // eslint-disable-next-line
           newIndex = newIndex + swiper.virtual.slidesBefore;
         } else {
-          newIndex = swiper.getSlideIndex(swiper.slides.filter(slideEl => slideEl.getAttribute('data-swiper-slide-index') * 1 === newIndex)[0]);
+          newIndex = swiper.getSlideIndexByData(newIndex);
         }
       }
       return swiper.slideTo(newIndex, speed, runCallbacks, internal);
@@ -2107,7 +2107,7 @@
       const appendSlidesIndexes = [];
       let activeIndex = swiper.activeIndex;
       if (typeof activeSlideIndex === 'undefined') {
-        activeSlideIndex = swiper.getSlideIndex(swiper.slides.filter(el => el.classList.contains('swiper-slide-active'))[0]);
+        activeSlideIndex = swiper.getSlideIndex(swiper.slides.filter(el => el.classList.contains(params.slideActiveClass))[0]);
       } else {
         activeIndex = activeSlideIndex;
       }
@@ -2193,7 +2193,7 @@
         };
         if (Array.isArray(swiper.controller.control)) {
           swiper.controller.control.forEach(c => {
-            if (c.params.loop) c.loopFix(loopParams);
+            if (!c.destroyed && c.params.loop) c.loopFix(loopParams);
           });
         } else if (swiper.controller.control instanceof swiper.constructor && swiper.controller.control.params.loop) {
           swiper.controller.control.loopFix(loopParams);
@@ -2205,18 +2205,17 @@
     function loopDestroy() {
       const swiper = this;
       const {
-        slides,
         params,
         slidesEl
       } = swiper;
       if (!params.loop || swiper.virtual && swiper.params.virtual.enabled) return;
       swiper.recalcSlides();
       const newSlidesOrder = [];
-      slides.forEach(slideEl => {
+      swiper.slides.forEach(slideEl => {
         const index = typeof slideEl.swiperSlideIndex === 'undefined' ? slideEl.getAttribute('data-swiper-slide-index') * 1 : slideEl.swiperSlideIndex;
         newSlidesOrder[index] = slideEl;
       });
-      slides.forEach(slideEl => {
+      swiper.slides.forEach(slideEl => {
         slideEl.removeAttribute('data-swiper-slide-index');
       });
       newSlidesOrder.forEach(slideEl => {
@@ -3512,6 +3511,9 @@
         const firstSlideIndex = elementIndex(slides[0]);
         return elementIndex(slideEl) - firstSlideIndex;
       }
+      getSlideIndexByData(index) {
+        return this.getSlideIndex(this.slides.filter(slideEl => slideEl.getAttribute('data-swiper-slide-index') * 1 === index)[0]);
+      }
       recalcSlides() {
         const swiper = this;
         const {
@@ -4128,7 +4130,7 @@
       if (classes === void 0) {
         classes = '';
       }
-      return `.${classes.trim().replace(/([\.:!\/])/g, '\\$1') // eslint-disable-line
+      return `.${classes.trim().replace(/([\.:!+\/])/g, '\\$1') // eslint-disable-line
   .replace(/ /g, '.')}`;
     }
 
@@ -4262,17 +4264,18 @@
             midIndex = (lastIndex + firstIndex) / 2;
           }
           bullets.forEach(bulletEl => {
-            bulletEl.classList.remove(...['', '-next', '-next-next', '-prev', '-prev-prev', '-main'].map(suffix => `${params.bulletActiveClass}${suffix}`));
+            const classesToRemove = [...['', '-next', '-next-next', '-prev', '-prev-prev', '-main'].map(suffix => `${params.bulletActiveClass}${suffix}`)].map(s => typeof s === 'string' && s.includes(' ') ? s.split(' ') : s).flat();
+            bulletEl.classList.remove(...classesToRemove);
           });
           if (el.length > 1) {
             bullets.forEach(bullet => {
               const bulletIndex = elementIndex(bullet);
               if (bulletIndex === current) {
-                bullet.classList.add(params.bulletActiveClass);
+                bullet.classList.add(...params.bulletActiveClass.split(' '));
               }
               if (params.dynamicBullets) {
                 if (bulletIndex >= firstIndex && bulletIndex <= lastIndex) {
-                  bullet.classList.add(`${params.bulletActiveClass}-main`);
+                  bullet.classList.add(...`${params.bulletActiveClass}-main`.split(' '));
                 }
                 if (bulletIndex === firstIndex) {
                   setSideBullets(bullet, 'prev');
@@ -4285,14 +4288,14 @@
           } else {
             const bullet = bullets[current];
             if (bullet) {
-              bullet.classList.add(params.bulletActiveClass);
+              bullet.classList.add(...params.bulletActiveClass.split(' '));
             }
             if (params.dynamicBullets) {
               const firstDisplayedBullet = bullets[firstIndex];
               const lastDisplayedBullet = bullets[lastIndex];
               for (let i = firstIndex; i <= lastIndex; i += 1) {
                 if (bullets[i]) {
-                  bullets[i].classList.add(`${params.bulletActiveClass}-main`);
+                  bullets[i].classList.add(...`${params.bulletActiveClass}-main`.split(' '));
                 }
               }
               setSideBullets(firstDisplayedBullet, 'prev');
@@ -4384,12 +4387,13 @@
             paginationHTML = `<span class="${params.progressbarFillClass}"></span>`;
           }
         }
+        swiper.pagination.bullets = [];
         el.forEach(subEl => {
           if (params.type !== 'custom') {
             subEl.innerHTML = paginationHTML || '';
           }
           if (params.type === 'bullets') {
-            swiper.pagination.bullets = [...subEl.querySelectorAll(classesToSelector(params.bulletClass))];
+            swiper.pagination.bullets.push(...subEl.querySelectorAll(classesToSelector(params.bulletClass)));
           }
         });
         if (params.type !== 'custom') {
@@ -4467,7 +4471,7 @@
             }
           });
         }
-        if (swiper.pagination.bullets) swiper.pagination.bullets.forEach(subEl => subEl.classList.remove(params.bulletActiveClass));
+        if (swiper.pagination.bullets) swiper.pagination.bullets.forEach(subEl => subEl.classList.remove(...params.bulletActiveClass.split(' ')));
       }
       on('init', () => {
         if (swiper.params.pagination.enabled === false) {
@@ -4734,7 +4738,7 @@
               addElLabel(bulletEl, params.paginationBulletMessage.replace(/\{\{index\}\}/, elementIndex(bulletEl) + 1));
             }
           }
-          if (bulletEl.matches(`.${swiper.params.pagination.bulletActiveClass}`)) {
+          if (bulletEl.matches(classesToSelector(swiper.params.pagination.bulletActiveClass))) {
             bulletEl.setAttribute('aria-current', 'true');
           } else {
             bulletEl.removeAttribute('aria-current');
@@ -5359,4 +5363,3 @@
     return Swiper;
 
 }));
-//# sourceMappingURL=swiper-bundle.js.map

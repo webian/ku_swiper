@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-    <file source-language="en" datatype="plaintext" original="messages" date="2023-01-15UTC07:12:052">
+    <file source-language="en" datatype="plaintext" original="messages" date="2022-10-14T10:27:00Z" product-name="ku_swiper">
         <header>
         </header>
         <body>
-            <trans-unit id="pause">
+            <trans-unit id="pause" xml:space="preserve">
             <source>Slideshow is playing. Press to pause.</source>
         </trans-unit>
-        <trans-unit id="play">
+        <trans-unit id="play" xml:space="preserve">
             <source>Slideshow is paused. Press to Play.</source>
         </trans-unit>
         </body>

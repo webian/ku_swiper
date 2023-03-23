@@ -1,4 +1,51 @@
 /**
+ * Swiper player button states
+ */
+
+const play = 'bi-play-fill';
+const pause = 'bi-pause-fill';
+
+class SwiperState {
+    constructor(swiper, btn) {
+        this.swiper = swiper;
+        this.el = document.querySelector(btn);
+        this.icon = this.el.querySelector('.bi');
+        this.prefersReducedMotion();
+        this.addEventListeners();
+    }
+
+    addEventListeners() {
+        this.el.addEventListener('click', () => {
+            this.togglePlayPause();
+        });
+    }
+
+    togglePlayPause() {
+        if (this.swiper.autoplay.running) {
+            this.pauseSwiper();
+        } else {
+            this.playSwiper();
+        }
+    }
+
+    playSwiper() {
+        this.swiper.autoplay.start();
+        this.icon.classList.replace(play, pause);
+        this.el.setAttribute('aria-label', translate.pause);
+    }
+
+    pauseSwiper() {
+        this.swiper.autoplay.stop();
+        this.icon.classList.replace(pause, play);
+        this.el.setAttribute('aria-label', translate.play);
+    }
+
+    prefersReducedMotion() {
+        if (this.swiper.autoplay.running && matchMedia('(prefers-reduced-motion)').matches) {
+            this.pauseSwiper();
+        }
+    }
+}/**
  * Swiper 9.1.1
  * Most modern mobile touch slider and framework with hardware accelerated transitions
  * https://swiperjs.com
@@ -1804,56 +1851,7 @@
       swiper.transitionStart(runCallbacks, direction);
       if (speed === 0) {
         swiper.transitionEnd(runCallbacks, direction);
- /**
- * Swiper player button states
- * @author Nanna Ellegaard
- * @copyright 2023
- */
-
-const play = 'bi-play-fill';
-const pause = 'bi-pause-fill';
-
-class SwiperState {
-    constructor(swiper, btn) {
-        this.swiper = swiper;
-        this.el = document.querySelector(btn);
-        this.icon = this.el.querySelector('.bi');
-        this.prefersReducedMotion();
-        this.addEventListeners();
-    }
-
-    addEventListeners() {
-        this.el.addEventListener('click', () => {
-            this.togglePlayPause();
-        });
-    }
-
-    togglePlayPause() {
-        if (this.swiper.autoplay.running) {
-            this.pauseSwiper();
-        } else {
-            this.playSwiper();
-        }
-    }
-
-    playSwiper() {
-        this.swiper.autoplay.start();
-        this.icon.classList.replace(play, pause);
-        this.el.setAttribute('aria-label', translate.pause);
-    }
-
-    pauseSwiper() {
-        this.swiper.autoplay.stop();
-        this.icon.classList.replace(pause, play);
-        this.el.setAttribute('aria-label', translate.play);
-    }
-
-    prefersReducedMotion() {
-        if (this.swiper.autoplay.running && matchMedia('(prefers-reduced-motion)').matches) {
-            this.pauseSwiper();
-        }
-    }
-}     } else if (!swiper.animating) {
+      } else if (!swiper.animating) {
         swiper.animating = true;
         if (!swiper.onSlideToWrapperTransitionEnd) {
           swiper.onSlideToWrapperTransitionEnd = function transitionEnd(e) {

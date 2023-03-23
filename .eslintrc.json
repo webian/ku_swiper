@@ -1,10 +1,24 @@
 {
   "root": true,
   "env": {
+      "browser": true,
       "es6": true,
       "node": true
   },
   "rules": {
+    "no-lonely-if": "off",
+    "no-param-reassign": "off",
+    "no-underscore-dangle": "off",
+    "prefer-object-spread": "off",
+    "prefer-destructuring": "off",
+    "default-param-last": "off",
+    "import/prefer-default-export": "off",
+    "guard-for-in": "off",
+    "no-restricted-syntax": "off",
+    "import/no-extraneous-dependencies": "off",
+    "no-console": "off",
+    "no-restricted-globals": "off",
+    "max-classes-per-file": "off",
     "arrow-body-style": "off",
     "capitalized-comments": "off",
     "no-negated-condition": "off",

@@ -1,7 +1,5 @@
 /**
  * Swiper player button states
- * @author Nanna Ellegaard
- * @copyright 2023
  */
 
 const play = 'bi-play-fill';

@@ -1,7 +1,4 @@
-/**
- * Swiper player button states
- */
-
+// Swiper play/pause functions
 const play = 'bi-play-fill';
 const pause = 'bi-pause-fill';
 

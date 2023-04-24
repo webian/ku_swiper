@@ -1,7 +1,4 @@
-/**
- * Swiper player button states
- */
-
+// Swiper play/pause functions
 const play = 'bi-play-fill';
 const pause = 'bi-pause-fill';
 
@@ -46,7 +43,7 @@ class SwiperState {
         }
     }
 }/**
- * Swiper 9.2.0
+ * Swiper 9.2.4
  * Most modern mobile touch slider and framework with hardware accelerated transitions
  * https://swiperjs.com
  *
@@ -54,7 +51,7 @@ class SwiperState {
  *
  * Released under the MIT License
  *
- * Released on: April 11, 2023
+ * Released on: April 24, 2023
  */
 
 (function (global, factory) {
@@ -1136,7 +1133,7 @@ class SwiperState {
       }
       const getSlideByIndex = index => {
         if (isVirtual) {
-          return swiper.getSlideIndexByData(index);
+          return swiper.slides[swiper.getSlideIndexByData(index)];
         }
         return swiper.slides[index];
       };
@@ -1175,7 +1172,7 @@ class SwiperState {
       // eslint-disable-next-line
       const minusOffset = swiper.isElement ? swiper.isHorizontal() ? swiper.wrapperEl.offsetLeft : swiper.wrapperEl.offsetTop : 0;
       for (let i = 0; i < slides.length; i += 1) {
-        slides[i].swiperSlideOffset = (swiper.isHorizontal() ? slides[i].offsetLeft : slides[i].offsetTop) - minusOffset;
+        slides[i].swiperSlideOffset = (swiper.isHorizontal() ? slides[i].offsetLeft : slides[i].offsetTop) - minusOffset - swiper.cssOverflowAdjustment();
       }
     }
 
@@ -1448,7 +1445,9 @@ class SwiperState {
         realIndex = activeIndex;
       }
       Object.assign(swiper, {
+        previousSnapIndex,
         snapIndex,
+        previousRealIndex,
         realIndex,
         previousIndex,
         activeIndex
@@ -1528,6 +1527,7 @@ class SwiperState {
         return translate;
       }
       let currentTranslate = getTranslate(wrapperEl, axis);
+      currentTranslate += swiper.cssOverflowAdjustment();
       if (rtl) currentTranslate = -currentTranslate;
       return currentTranslate || 0;
     }
@@ -1552,13 +1552,18 @@ class SwiperState {
         x = Math.floor(x);
         y = Math.floor(y);
       }
+      swiper.previousTranslate = swiper.translate;
+      swiper.translate = swiper.isHorizontal() ? x : y;
       if (params.cssMode) {
         wrapperEl[swiper.isHorizontal() ? 'scrollLeft' : 'scrollTop'] = swiper.isHorizontal() ? -x : -y;
       } else if (!params.virtualTranslate) {
+        if (swiper.isHorizontal()) {
+          x -= swiper.cssOverflowAdjustment();
+        } else {
+          y -= swiper.cssOverflowAdjustment();
+        }
         wrapperEl.style.transform = `translate3d(${x}px, ${y}px, ${z}px)`;
       }
-      swiper.previousTranslate = swiper.translate;
-      swiper.translate = swiper.isHorizontal() ? x : y;
 
       // Check if we need to update progress
       let newProgress;
@@ -2225,6 +2230,9 @@ class SwiperState {
         });
       }
       swiper.recalcSlides();
+      if (params.slidesPerView === 'auto') {
+        swiper.updateSlides();
+      }
       if (params.watchSlidesProgress) {
         swiper.updateSlidesOffset();
       }
@@ -2856,7 +2864,6 @@ class SwiperState {
       }
     }
 
-    let timeout;
     function onResize() {
       const swiper = this;
       const {
@@ -2895,8 +2902,8 @@ class SwiperState {
         }
       }
       if (swiper.autoplay && swiper.autoplay.running && swiper.autoplay.paused) {
-        clearTimeout(timeout);
-        timeout = setTimeout(() => {
+        clearTimeout(swiper.autoplay.resizeTimeout);
+        swiper.autoplay.resizeTimeout = setTimeout(() => {
           if (swiper.autoplay && swiper.autoplay.running && swiper.autoplay.paused) {
             swiper.autoplay.resume();
           }
@@ -3528,6 +3535,11 @@ class SwiperState {
           progress: 0,
           velocity: 0,
           animating: false,
+          cssOverflowAdjustment() {
+            // Returns 0 unless `translate` is > 2**23
+            // Should be subtracted from css values to prevent overflow
+            return Math.trunc(this.translate / 2 ** 23) * 2 ** 23;
+          },
           // Locks
           allowSlideNext: swiper.params.allowSlideNext,
           allowSlidePrev: swiper.params.allowSlidePrev,
@@ -3745,7 +3757,8 @@ class SwiperState {
           }
         } else {
           if ((swiper.params.slidesPerView === 'auto' || swiper.params.slidesPerView > 1) && swiper.isEnd && !swiper.params.centeredSlides) {
-            translated = swiper.slideTo(swiper.slides.length - 1, 0, false, true);
+            const slides = swiper.virtual && swiper.params.virtual.enabled ? swiper.virtual.slides : swiper.slides;
+            translated = swiper.slideTo(slides.length - 1, 0, false, true);
           } else {
             translated = swiper.slideTo(swiper.activeIndex, 0, false, true);
           }
@@ -4288,10 +4301,12 @@ class SwiperState {
         const index = elementIndex(bulletEl) * swiper.params.slidesPerGroup;
         if (swiper.params.loop) {
           if (swiper.realIndex === index) return;
-          if (index < swiper.loopedSlides || index > swiper.slides.length - swiper.loopedSlides) {
+          const newSlideIndex = swiper.getSlideIndexByData(index);
+          const currentSlideIndex = swiper.getSlideIndexByData(swiper.realIndex);
+          if (newSlideIndex > swiper.slides.length - swiper.loopedSlides) {
             swiper.loopFix({
-              direction: index < swiper.loopedSlides ? 'prev' : 'next',
-              activeSlideIndex: index,
+              direction: newSlideIndex > currentSlideIndex ? 'next' : 'prev',
+              activeSlideIndex: newSlideIndex,
               slideTo: false
             });
           }
@@ -4309,13 +4324,17 @@ class SwiperState {
         el = makeElementsArray(el);
         // Current/Total
         let current;
+        let previousIndex;
         const slidesLength = swiper.virtual && swiper.params.virtual.enabled ? swiper.virtual.slides.length : swiper.slides.length;
         const total = swiper.params.loop ? Math.ceil(slidesLength / swiper.params.slidesPerGroup) : swiper.snapGrid.length;
         if (swiper.params.loop) {
+          previousIndex = swiper.previousRealIndex || 0;
           current = swiper.params.slidesPerGroup > 1 ? Math.floor(swiper.realIndex / swiper.params.slidesPerGroup) : swiper.realIndex;
         } else if (typeof swiper.snapIndex !== 'undefined') {
           current = swiper.snapIndex;
+          previousIndex = swiper.previousSnapIndex;
         } else {
+          previousIndex = swiper.previousIndex || 0;
           current = swiper.activeIndex || 0;
         }
         // Types
@@ -4329,8 +4348,8 @@ class SwiperState {
             el.forEach(subEl => {
               subEl.style[swiper.isHorizontal() ? 'width' : 'height'] = `${bulletSize * (params.dynamicMainBullets + 4)}px`;
             });
-            if (params.dynamicMainBullets > 1 && swiper.previousIndex !== undefined) {
-              dynamicBulletIndex += current - (swiper.previousIndex || 0);
+            if (params.dynamicMainBullets > 1 && previousIndex !== undefined) {
+              dynamicBulletIndex += current - (previousIndex || 0);
               if (dynamicBulletIndex > params.dynamicMainBullets - 1) {
                 dynamicBulletIndex = params.dynamicMainBullets - 1;
               } else if (dynamicBulletIndex < 0) {
@@ -4551,6 +4570,18 @@ class SwiperState {
         }
         if (swiper.pagination.bullets) swiper.pagination.bullets.forEach(subEl => subEl.classList.remove(...params.bulletActiveClass.split(' ')));
       }
+      on('changeDirection', () => {
+        if (!swiper.pagination || !swiper.pagination.el) return;
+        const params = swiper.params.pagination;
+        let {
+          el
+        } = swiper.pagination;
+        el = makeElementsArray(el);
+        el.forEach(subEl => {
+          subEl.classList.remove(params.horizontalClass, params.verticalClass);
+          subEl.classList.add(swiper.isHorizontal() ? params.horizontalClass : params.verticalClass);
+        });
+      });
       on('init', () => {
         if (swiper.params.pagination.enabled === false) {
           // eslint-disable-next-line

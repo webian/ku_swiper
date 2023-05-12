@@ -40,10 +40,6 @@
     <f:variable name="reachedEnd">reachEnd: function(){ ss_{swiper}.pauseSwiper(); },</f:variable>
   </f:if>
 
-  <f:if condition="{totalcount} > 1 && {flexFormData.lazyLoad} === '1'">
-    <f:variable name="lazyload">lazy: true,</f:variable>
-  </f:if>
-
   <f:asset.script identifier="swiper{data.uid -> f:format.raw()}">
     document.addEventListener('DOMContentLoaded', () => {
       const {swiper} = new Swiper('.<f:format.raw>{swiper}</f:format.raw>', {
@@ -52,7 +48,6 @@
           <f:format.raw>{randomStart}</f:format.raw>
           <f:format.raw>{fade}</f:format.raw>
           <f:format.raw>{centeredSlides}</f:format.raw>
-          <f:format.raw>{lazyload}</f:format.raw>
           loopPreventsSliding: false,
           spaceBetween: 20,
           pagination: {

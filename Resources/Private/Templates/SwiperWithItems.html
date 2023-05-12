@@ -3,8 +3,27 @@
 <f:section name="Main">
     <f:flashMessages />
     <f:if condition="{records}">
-        <f:variable name="totalcount">{records -> f:count()}</f:variable>
-        <f:variable name="swiper">swiper{data.uid -> f:format.raw()}</f:variable>
+        <f:variable name="swiper" value="swiper{data.uid -> f:format.raw()}" />
+        <f:variable name="totalcount" value="{records -> f:count()}" />
+        <f:comment>        
+        <f:variable name="autoplay" value="{flexFormData.autoplay -> f:format.raw()}" />
+        <f:variable name="loop" value="{flexFormData.loop -> f:format.raw()}" />
+        <f:variable name="fade" value="{flexFormData.fade -> f:format.raw()}" />
+        <f:variable name="centeredSlides" value="{flexFormData.centeredSlides -> f:format.raw()}" />
+        <f:variable name="randomStart" value="{flexFormData.randomStart -> f:format.raw()}" />
+        <f:variable name="reachedEnd" value="{flexFormData.reachedEnd -> f:format.raw()}" />
+        <f:variable name="slideSpeed" value="{flexFormData.slideSpeed -> f:format.raw()}" />
+        <f:variable name="slidesToShow" value="{flexFormData.slidesToShow-smartphone -> f:format.raw()}" />
+        <f:variable name="slidesPerGroup" value="{flexFormData.slidesToScroll-smartphone -> f:format.raw()}" />
+    </f:comment>
+
+        <f:variable name="smartphone-settings">{f:format.json(value: {slidesPerView: '{flexFormData.slidesToShow-smartphone}', slidesPerGroup: '{flexFormData.slidesToScroll-smartphone -> f:format.raw()}'})}</f:variable>
+        <f:variable name="tablet-settings">{f:format.json(value: {slidesPerView: '{flexFormData.slidesToShow-tablet}', slidesPerGroup: '{flexFormData.slidesToScroll-tablet -> f:format.raw()}'})}</f:variable>
+        <f:variable name="desktop-settings">{f:format.json(value: {slidesPerView: '{flexFormData.slidesToShow-desktop}', slidesPerGroup: '{flexFormData.slidesToScroll-desktop -> f:format.raw()}'})}</f:variable>
+        <f:variable name="widescreen-settings">{f:format.json(value: {slidesPerView: '{flexFormData.slidesToShow-widescreen}', slidesPerGroup: '{flexFormData.slidesToScroll-widescreen -> f:format.raw()}'})}</f:variable>
+
+        <f:variable name="breakpoints">{f:format.json(value: {576: '{smartphone-settings}', 768: '{tablet-settings}', 992: '{desktop-settings}', 1200: '{widescreen-settings}'})}</f:variable>
+
         <f:variable name="navigation-sm" value="{flexFormData.arrows-smartphone -> f:format.raw()}" />
         <f:if condition="{navigation-sm} === '0'">
             <f:variable name="nav-sm" value="hide-navigation-sm" />
@@ -38,7 +57,7 @@
             <f:variable name="pag-xl" value="hide-pagination-xl" />
         </f:if>
         <div class="swiper-container {nav-sm} {nav-md} {nav-lg} {nav-xl} {pag-sm} {pag-md} {pag-lg} {pag-xl}">
-            <div class="swiper swiper{data.uid} {flexFormData.slideshowHeight} {flexFormData.sliderStyle}">
+            <div class="swiper swiper{data.uid} {flexFormData.slideshowHeight} {flexFormData.sliderStyle}" data-id="{swiper}" data-totalcount="{totalcount}" data-autoplay="{autoplay}" data-loop="{loop}" data-fade="{fade}" data-centeredslides="{centeredSlides}" data-random="{randomStart}" data-reachend="{reachedEnd}" data-slidespeed="{slideSpeed}" data-breakpoints="{breakpoints}">
                 <div class="swiper-wrapper">
                     <f:for each="{records}" as="record">
                         <f:render partial="SlideItems" arguments="{_all}" />

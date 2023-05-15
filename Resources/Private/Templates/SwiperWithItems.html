@@ -2,9 +2,30 @@
 <f:layout name="Default" />
 <f:section name="Main">
     <f:flashMessages />
+    <f:debug>{_all}</f:debug>
     <f:if condition="{records}">
-        <f:variable name="totalcount">{records -> f:count()}</f:variable>
-        <f:variable name="swiper">swiper{data.uid -> f:format.raw()}</f:variable>
+        <f:variable name="swiper" value="swiper{data.uid -> f:format.raw()}" />
+        <f:variable name="totalcount" value="{records -> f:count()}" />
+        <f:comment>        
+        <f:variable name="autoplay" value="{flexFormData.autoplay -> f:format.raw()}" />
+        <f:variable name="loop" value="{flexFormData.loop -> f:format.raw()}" />
+        <f:variable name="fade" value="{flexFormData.fade -> f:format.raw()}" />
+        <f:variable name="centeredSlides" value="{flexFormData.centeredSlides -> f:format.raw()}" />
+        <f:if condition="{flexFormData.randomStart} === '1'">
+            <f:variable name="randomStart">initialSlide: Math.floor(Math.random() * ({totalcount -> f:format.raw()} - 0 + 1) + 0),</f:variable>
+          </f:if>
+        <f:variable name="reachedEnd" value="{flexFormData.reachedEnd -> f:format.raw()}" />
+        <f:variable name="slideSpeed" value="{flexFormData.slideSpeed -> f:format.number()}" />
+        <f:variable name="slidesToShow" value="{flexFormData.slidesToShow-smartphone -> f:format.raw()}" />
+        <f:variable name="slidesPerGroup" value="{flexFormData.slidesToScroll-smartphone -> f:format.raw()}" />
+    </f:comment>
+
+        <f:variable name="smartphone-settings">{f:format.json(value: {slidesPerView: '{flexFormData.slidesToShow-smartphone}', slidesPerGroup: '{flexFormData.slidesToScroll-smartphone -> f:format.raw()}'})}</f:variable>
+        <f:variable name="tablet-settings">{f:format.json(value: {slidesPerView: '{flexFormData.slidesToShow-tablet}', slidesPerGroup: '{flexFormData.slidesToScroll-tablet -> f:format.raw()}'})}</f:variable>
+        <f:variable name="desktop-settings">{f:format.json(value: {slidesPerView: '{flexFormData.slidesToShow-desktop}', slidesPerGroup: '{flexFormData.slidesToScroll-desktop -> f:format.raw()}'})}</f:variable>
+        <f:variable name="widescreen-settings">{f:format.json(value: {slidesPerView: '{flexFormData.slidesToShow-widescreen}', slidesPerGroup: '{flexFormData.slidesToScroll-widescreen -> f:format.raw()}'})}</f:variable>
+
+
         <f:variable name="navigation-sm" value="{flexFormData.arrows-smartphone -> f:format.raw()}" />
         <f:if condition="{navigation-sm} === '0'">
             <f:variable name="nav-sm" value="hide-navigation-sm" />
@@ -38,7 +59,7 @@
             <f:variable name="pag-xl" value="hide-pagination-xl" />
         </f:if>
         <div class="swiper-container {nav-sm} {nav-md} {nav-lg} {nav-xl} {pag-sm} {pag-md} {pag-lg} {pag-xl}">
-            <div class="swiper swiper{data.uid} {flexFormData.slideshowHeight} {flexFormData.sliderStyle}">
+            <div class="swiper swiper{data.uid} {flexFormData.slideshowHeight} {flexFormData.sliderStyle}" data-id="{swiper}" data-swiper='{swiperConfiguration -> f:format.json()}'>
                 <div class="swiper-wrapper">
                     <f:for each="{records}" as="record">
                         <f:render partial="SlideItems" arguments="{_all}" />
@@ -52,7 +73,9 @@
                 <button aria-label="{f:translate(key: 'pause', extensionName: 'ku_swiper')}" class="btn btn-{swiper} play-pause-button" type="button"><span class="bi bi-pause-fill" aria-hidden="true"></span></button>
             </f:if>
         </div>
+        <f:comment>
         <f:render partial="JavaScript" arguments="{_all}" />
+    </f:comment>
         <f:render partial="JavaScriptTranslations"  arguments="{_all}" />
     </f:if>
     <f:if condition="{lib.swiper.pagecss !== ''}">
@@ -61,7 +84,6 @@
     <f:if condition="{lib.swiper.pagejs !== ''}">
         <f:asset.script identifier="swiperJs" src="{f:cObject(typoscriptObjectPath: 'lib.swiper.pagejs')}" />
     </f:if>
-    <f:asset.script identifier="swiperJsEXT" src="EXT:ku_swiper/Resources/Public/JavaScript/Src/ku-swiper-functions.js" />
 </f:section>
 
 </html>

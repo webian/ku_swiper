@@ -12,51 +12,50 @@ document.addEventListener('DOMContentLoaded', () => {
     const slideshows = document.querySelectorAll('.swiper');
 
     class SwiperState {
-        constructor(swiper, btn) {
+        constructor(swiper) {
             this.swiper = swiper;
-            this.btn = btn;
-            this.icon = this.btn.querySelector('.bi');
+            this.btn = swiper.parentNode.querySelector('.btn');
+            if (this.btn) {
+                this.icon = this.btn.querySelector('.bi');
+            }
 
-
-            // Declare Swiper settings
-            // this.swiperid = this.swiper.dataset.id;
-            // this.totalcount = parseInt(this.swiper.dataset.totalcount, 10);
-            // this.autoplaying = parseInt(this.swiper.dataset.autoplay, 10);
-            // this.loop = parseInt(this.swiper.dataset.loop, 10);
-            // this.fade = parseInt(this.swiper.dataset.fade, 10);
-            // this.centeredslides = parseInt(this.swiper.dataset.centeredslides, 10);
-            // this.random = parseInt(this.swiper.dataset.random, 10);
-            // this.reachend = parseInt(this.swiper.dataset.reachend, 10);
-            // this.slidespeed = parseInt(this.swiper.dataset.slidespeed, 10);
-            // this.breakpoint = this.swiper.dataset.breakpoints;
-            // this.data = JSON.parse(this.breakpoint);
-            this.data = this.swiper.dataset.swiper || {};
+            // Declare custom Swiper settings
+            this.id = this.swiper.dataset.id;
+            this.count = this.swiper.dataset.count;
+            this.data = this.swiper.dataset.slides || {};
             if (this.data) {
                 this.dataOptions = JSON.parse(this.data);
             }
 
+            // Default options which cannot be changed by user
             this.defaultOptions = {
                 loopPreventsSliding: false,
                 spaceBetween: 20,
+                initialSlide: this.getRandomSlide(),
                 pagination: {
-                    el: '.swiper-pagination', 
+                    el: `.${this.id}-dots`,
                     clickable: true
-                }, 
+                },
                 navigation: {
-                    nextEl: '.swiper-button-next', 
-                    prevEl: '.swiper-button-prev'
+                    nextEl: `.${this.id}-next`,
+                    prevEl: `.${this.id}-prev`,
                 }
             };
 
             this.initSwiper();
             this.prefersReducedMotion();
-            this.addEventListeners();
+            if (this.btn) {
+                this.addEventListeners();
+            }
         }
 
-        addEventListeners() {
-            this.btn.addEventListener('click', () => {
-                this.togglePlayPause();
-            });
+        getRandomSlide() {
+            /**
+             * If set to 1, display random number between total amount of slides,
+             * else sets 0 to disable
+             */
+            const initialSllide = this.dataOptions.initialSlide === 1 ? Math.floor(Math.random() * (this.count - 0 + 1) + 0) : 0;
+            return initialSllide;
         }
 
         initSwiper() {
@@ -66,15 +65,22 @@ document.addEventListener('DOMContentLoaded', () => {
             if (typeof Swiper === 'undefined') {
                 return;
             }
-        
-            const settings = Object.assign({}, this.defaultOptions, this.dataOptions);
 
             /**
-             * Init Swiper - merge local settings
+             * Merge default settings with custom values
+             */
+            const settings = Object.assign({}, this.dataOptions, this.defaultOptions);
+
+            /**
+             * Init Swiper
              */
             this.swiper = new Swiper(this.swiper, settings);
-            console.log(settings);
-            
+        }
+
+        addEventListeners() {
+            this.btn.addEventListener('click', () => {
+                this.togglePlayPause();
+            });
         }
 
         togglePlayPause() {
@@ -110,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (slideshows) {
         Array.from(slideshows).forEach((slideshow) => {
-            const swiperEl = new SwiperState(slideshow, slideshow.parentNode.querySelector('.btn'));
+            const swiperEl = new SwiperState(slideshow);
         });
     }
 });/**

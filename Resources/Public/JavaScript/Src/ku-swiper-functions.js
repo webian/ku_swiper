@@ -5,8 +5,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     'use strict';
 
-
-    // Swiper play/pause functions
+    // Swiper play/pause classes
     const play = 'bi-play-fill';
     const pause = 'bi-pause-fill';
     const slideshows = document.querySelectorAll('.swiper');
@@ -19,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 this.icon = this.btn.querySelector('.bi');
             }
 
-            // Declare custom Swiper settings
+            // Declare custom Swiper settings from html data attributes
             this.id = this.swiper.dataset.id;
             this.count = this.swiper.dataset.count;
             this.data = this.swiper.dataset.slides || {};
@@ -33,12 +32,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 spaceBetween: 20,
                 initialSlide: this.getRandomSlide(),
                 pagination: {
-                    el: `.${this.id}-dots`,
+                    el: swiper.parentNode.querySelector('.swiper-pagination'),
                     clickable: true
                 },
                 navigation: {
-                    nextEl: `.${this.id}-next`,
-                    prevEl: `.${this.id}-prev`,
+                    nextEl: swiper.parentNode.querySelector('.swiper-button-next'),
+                    prevEl: swiper.parentNode.querySelector('.swiper-button-prev'),
                 }
             };
 
@@ -51,8 +50,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         getRandomSlide() {
             /**
-             * If set to 1, display random number between total amount of slides,
-             * else sets 0 to disable
+             * If set to 1, display random number between total amount of slides
+             * Set to 0 to disable
+             * @returns initial slide  
              */
             const initialSllide = this.dataOptions.initialSlide === 1 ? Math.floor(Math.random() * (this.count - 0 + 1) + 0) : 0;
             return initialSllide;
@@ -61,6 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
         initSwiper() {
             /**
              * Check if Swiper plugin exist
+             * @returns if Swiper does not exist
              */
             if (typeof Swiper === 'undefined') {
                 return;

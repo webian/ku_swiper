@@ -1,5 +1,6 @@
 /**
- * Init Swiper.
+ * Init Swiper plugin.
+ * @author NEL
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -18,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 this.icon = this.btn.querySelector('.bi');
             }
 
-            // Declare custom Swiper settings from html data attributes
+            // Declare custom Swiper settings from html data-* attributes
             this.id = this.swiper.dataset.id;
             this.count = this.swiper.dataset.count;
             this.data = this.swiper.dataset.slides || {};
@@ -26,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 this.dataOptions = JSON.parse(this.data);
             }
 
-            // Default options which cannot be changed by user
+            // Default settings which cannot be changed by user
             this.defaultOptions = {
                 loopPreventsSliding: false,
                 spaceBetween: 20,
@@ -40,6 +41,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     prevEl: swiper.parentNode.querySelector('.swiper-button-prev'),
                 }
             };
+            // Merge default settings with custom settings
+            this.settings = Object.assign({}, this.dataOptions, this.defaultOptions);
 
             this.initSwiper();
             this.prefersReducedMotion();
@@ -50,32 +53,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
         getRandomSlide() {
             /**
-             * If set to 1, display random number between total amount of slides
-             * Set to 0 to disable
+             * If set to 1, display random number out of total amount of slides.
+             * Set to 0 to use default.
              * @returns initial slide  
              */
-            const initialSllide = this.dataOptions.initialSlide === 1 ? Math.floor(Math.random() * (this.count - 0 + 1) + 0) : 0;
-            return initialSllide;
+            return this.dataOptions.initialSlide === 1 ? Math.floor(Math.random() * (this.count - 0 + 1) + 0) : 0;
         }
 
         initSwiper() {
-            /**
-             * Check if Swiper plugin exist
-             * @returns if Swiper does not exist
-             */
-            if (typeof Swiper === 'undefined') {
-                return;
+            // Check if Swiper plugin exist and init Swiper
+            if (typeof Swiper !== 'undefined') {
+                this.swiper = new Swiper(this.swiper, this.settings);
             }
-
-            /**
-             * Merge default settings with custom values
-             */
-            const settings = Object.assign({}, this.dataOptions, this.defaultOptions);
-
-            /**
-             * Init Swiper
-             */
-            this.swiper = new Swiper(this.swiper, settings);
         }
 
         addEventListeners() {
@@ -111,11 +100,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    /**
-     * Assign Swiper to swiper elements
-     */
-
     if (slideshows) {
+        /**
+         * Assign Swiper to swiper elements
+        */
         Array.from(slideshows).forEach((slideshow) => {
             const swiperEl = new SwiperState(slideshow);
         });

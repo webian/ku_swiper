@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
-* Process backend Swiper configuration 
+* Process Swiper configuration from flexforms
 */
 
 namespace UniversityOfCopenhagen\KuSwiper\DataProcessing;
@@ -21,16 +21,18 @@ class SwiperConfigurationProcessor implements DataProcessorInterface
       * @param array $processedData Key/value store of processed data (e.g. to be passed to a Fluid View)
       * @return array the processed data as key/value store
       */
-    public function process(ContentObjectRenderer $cObj, array $contentObjectConfiguration, array $processorConfiguration, array $processedData)
-    {
-
+    public function process(
+        ContentObjectRenderer $cObj,
+        array $contentObjectConfiguration,
+        array $processorConfiguration,
+        array $processedData
+    ) {
         if (isset($processorConfiguration['if.']) && !$cObj->checkIf($processorConfiguration['if.'])) {
             return $processedData;
         }
 
         // Get felxform data from Swiper content element and override default settings
         $swiperConfiguration = new SwiperConfiguration();
-        
         
         $flexFormData = $processedData['flexFormData'];
 

@@ -4,9 +4,12 @@ declare(strict_types=1);
 
 /**
 * Process backend Swiper configuration
+* Use in fluid like {swiperConfiguration -> f:format.json()}
 **/
 
 namespace UniversityOfCopenhagen\KuSwiper\Service;
+
+//use UniversityOfCopenhagen\KuSwiper\Service\BreakpointConfiguration;
 
 class SwiperConfiguration implements \JsonSerializable
 {
@@ -32,4 +35,18 @@ class SwiperConfiguration implements \JsonSerializable
             'centeredSlides' => $this->centeredSlides,
         ];
     }
+
+    public array $breakpoints = [
+        Breakpoint::MOBILE => '576',
+        Breakpoint::TABLET => '768',
+        Breakpoint::DESKTOP => '992',
+        Breakpoint::WIDESCREEN => '1200'
+    ];
+
+    // public function jsonSerialize(): array
+    // {
+    //     return [
+    //         'breakpoints' => array_map(BreakpointConfigration $breakpoint => [json_encode($breakpoints)], $this->breakpoints)
+    //     ];
+    // }
 }
